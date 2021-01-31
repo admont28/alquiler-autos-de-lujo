@@ -1,0 +1,9 @@
+com/ceiba/usuario/servicio/testdatabuilder/UsuarioTestDataBuilder.java
+ com.ceiba.usuario.servicio.testdatabuilder.UsuarioTestDataBuilder
+com/ceiba/usuario/servicio/ServicioActualizarUsuarioTest.java
+ com.ceiba.usuario.servicio.ServicioActualizarUsuarioTest
+com/ceiba/usuario/servicio/ServicioCrearUsuarioTest.java
+ com.ceiba.usuario.servicio.ServicioCrearUsuarioTest
+com/ceiba/BasePrueba.java
+ com.ceiba.BasePrueba
+ com.ceiba.BasePrueba$Thunk
