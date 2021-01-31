@@ -39,23 +39,23 @@ pipeline {
                         url: 'https://github.com/admont28/alquiler-autos-de-lujo.git'
 				    ]]
 				])
-				sh 'gradle --b ./build.gradle clean' //Asegurar no tener datos basura de compilaciones anteriores
+				sh 'gradle --b ./backend/microservicio/build.gradle clean' //Asegurar no tener datos basura de compilaciones anteriores
 			}
 		}
 
 		stage('Compile') {
 			steps{
 				echo "------------>Compile<------------"
-				sh 'gradle --b ./build.gradle compileJava'
+				sh 'gradle --b ./backend/microservicio/build.gradle compileJava'
 			}
 		}
 
 		stage('Unit Tests And Coverage') {
 			steps{
 				echo "------------>Unit Tests<------------"
-				sh 'gradle --b ./build.gradle test'
+				sh 'gradle --b ./backend/microservicio/build.gradle test'
 				junit '**/build/test-results/test/*.xml' //Agregar los resultados del test a Junit
-			    sh 'gradle --b ./build.gradle jacocoTestReport'
+			    sh 'gradle --b ./backend/microservicio/build.gradle jacocoTestReport'
 			}
 		}
 
@@ -71,7 +71,7 @@ pipeline {
 		stage('Build') {
 			steps {
 				echo "------------>Build<------------"
-                sh 'gradle --b ./build.gradle build -x test' //Construir sin tarea test que se ejecutó previamente
+                sh 'gradle --b ./backend/microservicio/build.gradle build -x test' //Construir sin tarea test que se ejecutó previamente
 			}
 		}
 	}
