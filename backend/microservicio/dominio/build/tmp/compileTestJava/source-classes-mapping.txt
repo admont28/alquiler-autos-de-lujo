@@ -7,3 +7,7 @@ com/ceiba/usuario/servicio/ServicioCrearUsuarioTest.java
 com/ceiba/BasePrueba.java
  com.ceiba.BasePrueba
  com.ceiba.BasePrueba$Thunk
+com/ceiba/auto/servicio/ServicioCrearAutoTest.java
+ com.ceiba.auto.servicio.ServicioCrearAutoTest
+com/ceiba/usuario/servicio/testdatabuilder/AutoTestDataBuilder.java
+ com.ceiba.usuario.servicio.testdatabuilder.AutoTestDataBuilder
