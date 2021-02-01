@@ -25,7 +25,7 @@ public class RepositorioAutoMysql implements RepositorioAuto {
     @SqlStatement(namespace="auto", value="existe")
     private static String sqlExiste;
 
-    @SqlStatement(namespace="usuario", value="existeExcluyendoId") 
+    @SqlStatement(namespace="auto", value="existeExcluyendoId") 
     private static String sqlExisteExcluyendoId;
 
     public RepositorioAutoMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {

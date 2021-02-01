@@ -10,9 +10,9 @@ public class ServicioCrearAuto {
 
 	private final RepositorioAuto repositorioAuto;
 
-<span class="nc" id="L13">	public ServicioCrearAuto(RepositorioAuto repositorioAuto) {</span>
-<span class="nc" id="L14">		this.repositorioAuto = repositorioAuto;</span>
-<span class="nc" id="L15">	}</span>
+<span class="fc" id="L13">	public ServicioCrearAuto(RepositorioAuto repositorioAuto) {</span>
+<span class="fc" id="L14">		this.repositorioAuto = repositorioAuto;</span>
+<span class="fc" id="L15">	}</span>
 
 	public Long ejecutar(Auto auto) {
 <span class="nc" id="L18">		validarExistenciaPrevia(auto);</span>
@@ -20,9 +20,9 @@ public class ServicioCrearAuto {
 	}
 
 	private void validarExistenciaPrevia(Auto auto) {
-<span class="nc" id="L23">		boolean existe = this.repositorioAuto.existe(auto.getSerial());</span>
-<span class="nc bnc" id="L24" title="All 2 branches missed.">		if (existe) {</span>
-<span class="nc" id="L25">			throw new ExcepcionDuplicidad(EL_AUTO_YA_EXISTE_EN_EL_SISTEMA);</span>
+<span class="fc" id="L23">		boolean existe = this.repositorioAuto.existe(auto.getSerial());</span>
+<span class="pc bpc" id="L24" title="1 of 2 branches missed.">		if (existe) {</span>
+<span class="fc" id="L25">			throw new ExcepcionDuplicidad(EL_AUTO_YA_EXISTE_EN_EL_SISTEMA);</span>
 		}
 <span class="nc" id="L27">	}</span>
 }

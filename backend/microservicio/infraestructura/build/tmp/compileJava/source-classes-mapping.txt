@@ -6,7 +6,11 @@ com/ceiba/usuario/adaptador/dao/DaoUsuarioMysql.java
  com.ceiba.usuario.adaptador.dao.DaoUsuarioMysql
 com/ceiba/usuario/controlador/ConsultaControladorUsuario.java
  com.ceiba.usuario.controlador.ConsultaControladorUsuario
-com/ceiba/configuracion/BeanServicio.java
- com.ceiba.configuracion.BeanServicio
 com/ceiba/usuario/controlador/ComandoControladorUsuario.java
  com.ceiba.usuario.controlador.ComandoControladorUsuario
+com/ceiba/auto/controlador/ComandoControladorAuto.java
+ com.ceiba.auto.controlador.ComandoControladorAuto
+com/ceiba/auto/adaptador/repositorio/RepositorioAutoMysql.java
+ com.ceiba.auto.adaptador.repositorio.RepositorioAutoMysql
+com/ceiba/configuracion/BeanServicio.java
+ com.ceiba.configuracion.BeanServicio

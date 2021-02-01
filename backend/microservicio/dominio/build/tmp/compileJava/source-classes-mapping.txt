@@ -20,6 +20,8 @@ com/ceiba/usuario/modelo/entidad/Auto.java
  com.ceiba.usuario.modelo.entidad.Auto
 com/ceiba/auto/servicio/ServicioCrearAuto.java
  com.ceiba.auto.servicio.ServicioCrearAuto
+com/ceiba/usuario/modelo/entidad/EstadoAuto.java
+ com.ceiba.usuario.modelo.entidad.EstadoAuto
 com/ceiba/usuario/modelo/dto/DTOAuto.java
  com.ceiba.usuario.modelo.dto.DTOAuto
 com/ceiba/usuario/puerto/repositorio/RepositorioAuto.java

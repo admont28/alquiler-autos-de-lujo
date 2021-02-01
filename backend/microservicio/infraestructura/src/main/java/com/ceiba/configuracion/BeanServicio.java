@@ -1,5 +1,6 @@
 package com.ceiba.configuracion;
 
+import com.ceiba.auto.servicio.ServicioActualizarAuto;
 import com.ceiba.auto.servicio.ServicioCrearAuto;
 import com.ceiba.usuario.puerto.repositorio.RepositorioAuto;
 import com.ceiba.usuario.puerto.repositorio.RepositorioUsuario;
@@ -30,6 +31,11 @@ public class BeanServicio {
     @Bean
     public ServicioCrearAuto servicioCrearAuto(RepositorioAuto repositorioAuto) {
     	return new ServicioCrearAuto(repositorioAuto);
+    }
+    
+    @Bean
+    public ServicioActualizarAuto servicioActualizarAuto(RepositorioAuto repositorioAuto) {
+    	return new ServicioActualizarAuto(repositorioAuto);
     }
 	
 

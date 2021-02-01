@@ -16,24 +16,27 @@ public class Auto {
 	private static final String SE_DEBE_INGRESAR_LA_FECHA_CREACION = &quot;Se debe ingresar la fecha de creación del auto&quot;;
 
 <span class="nc" id="L18">	private Long id;</span>
-<span class="nc" id="L19">	private String serial;</span>
+<span class="fc" id="L19">	private String serial;</span>
 <span class="nc" id="L20">	private String nombre;</span>
 <span class="nc" id="L21">	private String modelo;</span>
 <span class="nc" id="L22">	private Double precioPorDia;</span>
-<span class="nc" id="L23">	private LocalDateTime fechaCreacion;</span>
+<span class="nc" id="L23">	private EstadoAuto estado;</span>
+<span class="nc" id="L24">	private LocalDateTime fechaCreacion;</span>
 
-<span class="nc" id="L25">	public Auto(Long id, String serial, String nombre, String modelo, Double precioPorDia, LocalDateTime fechaCreacion) {</span>
-<span class="nc" id="L26">		validarObligatorio(serial, SE_DEBE_INGRESAR_EL_SERIAL_DEL_AUTO);</span>
-<span class="nc" id="L27">		validarObligatorio(nombre, SE_DEBE_INGRESAR_EL_NOMBRE_DEL_AUTO);</span>
-<span class="nc" id="L28">		validarObligatorio(modelo, SE_DEBE_INGRESAR_EL_MODELO_DEL_AUTO);</span>
-<span class="nc" id="L29">		validarObligatorio(precioPorDia, SE_DEBE_INGRESAR_EL_PRECIO_POR_DIA_DEL_AUTO);</span>
-<span class="nc" id="L30">		validarObligatorio(fechaCreacion, SE_DEBE_INGRESAR_LA_FECHA_CREACION);</span>
+<span class="fc" id="L26">	public Auto(Long id, String serial, String nombre, String modelo, Double precioPorDia, EstadoAuto estado, LocalDateTime fechaCreacion) {</span>
+<span class="fc" id="L27">		validarObligatorio(serial, SE_DEBE_INGRESAR_EL_SERIAL_DEL_AUTO);</span>
+<span class="fc" id="L28">		validarObligatorio(nombre, SE_DEBE_INGRESAR_EL_NOMBRE_DEL_AUTO);</span>
+<span class="fc" id="L29">		validarObligatorio(modelo, SE_DEBE_INGRESAR_EL_MODELO_DEL_AUTO);</span>
+<span class="fc" id="L30">		validarObligatorio(precioPorDia, SE_DEBE_INGRESAR_EL_PRECIO_POR_DIA_DEL_AUTO);</span>
+<span class="fc" id="L31">		validarObligatorio(fechaCreacion, SE_DEBE_INGRESAR_LA_FECHA_CREACION);</span>
 
-<span class="nc" id="L32">		this.id = id;</span>
-<span class="nc" id="L33">		this.nombre = nombre;</span>
-<span class="nc" id="L34">		this.modelo = modelo;</span>
-<span class="nc" id="L35">		this.precioPorDia = precioPorDia;</span>
-<span class="nc" id="L36">		this.fechaCreacion = fechaCreacion;</span>
-<span class="nc" id="L37">	}</span>
+<span class="fc" id="L33">		this.id = id;</span>
+<span class="fc" id="L34">		this.serial = serial;</span>
+<span class="fc" id="L35">		this.nombre = nombre;</span>
+<span class="fc" id="L36">		this.modelo = modelo;</span>
+<span class="fc" id="L37">		this.precioPorDia = precioPorDia;</span>
+<span class="fc" id="L38">		this.estado = estado;</span>
+<span class="fc" id="L39">		this.fechaCreacion = fechaCreacion;</span>
+<span class="fc" id="L40">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
