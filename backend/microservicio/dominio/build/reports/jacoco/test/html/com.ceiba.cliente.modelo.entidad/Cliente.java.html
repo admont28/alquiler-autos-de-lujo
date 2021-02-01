@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Cliente.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">dominio</a> &gt; <a href="index.source.html" class="el_package">com.ceiba.cliente.modelo.entidad</a> &gt; <span class="el_source">Cliente.java</span></div><h1>Cliente.java</h1><pre class="source lang-java linenums">package com.ceiba.cliente.modelo.entidad;
+
+import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
+
+import java.time.LocalDateTime;
+
+import lombok.Builder;
+import lombok.Getter;
+import lombok.ToString;
+
+@Getter
+<span class="nc" id="L12">@Builder</span>
+<span class="nc" id="L13">@ToString</span>
+public class Cliente {
+
+	private static final String SE_DEBE_INGRESAR_EL_NOMBRE_DEL_CLIENTE = &quot;Se debe ingresar el nombre del cliente&quot;;
+	private static final String SE_DEBE_INGRESAR_EL_APELLIDO_DEL_CLIENTE = &quot;Se debe ingresar el apellido del cliente&quot;;
+	private static final String SE_DEBE_INGRESAR_LA_DIRECCION_DEL_CLIENTE = &quot;Se debe ingresar el apellido del cliente&quot;;
+	private static final String SE_DEBE_INGRESAR_LA_CEDULA_DEL_CLIENTE = &quot;Se debe ingresar la cédula del cliente&quot;;
+
+<span class="nc" id="L21">	private Long id;</span>
+<span class="nc" id="L22">	private String nombre;</span>
+<span class="nc" id="L23">	private String apellido;</span>
+<span class="nc" id="L24">	private String direccion;</span>
+<span class="nc" id="L25">	private String cedula;</span>
+<span class="nc" id="L26">	private EstadoCliente estado;</span>
+<span class="nc" id="L27">	private LocalDateTime fechaCreacion;</span>
+
+<span class="nc" id="L29">	public Cliente(Long id, String nombre, String apellido, String direccion, String cedula, EstadoCliente estado, LocalDateTime fechaCreacion) {</span>
+<span class="nc" id="L30">		validarObligatorio(nombre, SE_DEBE_INGRESAR_EL_NOMBRE_DEL_CLIENTE);</span>
+<span class="nc" id="L31">		validarObligatorio(apellido, SE_DEBE_INGRESAR_EL_APELLIDO_DEL_CLIENTE);</span>
+<span class="nc" id="L32">		validarObligatorio(direccion, SE_DEBE_INGRESAR_LA_DIRECCION_DEL_CLIENTE);</span>
+<span class="nc" id="L33">		validarObligatorio(cedula, SE_DEBE_INGRESAR_LA_CEDULA_DEL_CLIENTE);</span>
+
+<span class="nc" id="L35">		this.id = id;</span>
+<span class="nc" id="L36">		this.nombre = nombre;</span>
+<span class="nc" id="L37">		this.apellido = apellido;</span>
+<span class="nc" id="L38">		this.direccion = direccion;</span>
+<span class="nc" id="L39">		this.cedula = cedula;</span>
+<span class="nc" id="L40">		this.estado = estado;</span>
+<span class="nc" id="L41">		this.fechaCreacion = fechaCreacion;</span>
+<span class="nc" id="L42">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

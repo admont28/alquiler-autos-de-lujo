@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.ceiba.auto.servicio.ServicioCrearAutoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-01-31T04:39:15" hostname="ANDRES-MONTOYA" time="0.315">
+<testsuite name="com.ceiba.auto.servicio.ServicioCrearAutoTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-02-01T22:06:48" hostname="ANDRES-MONTOYA" time="0.013">
   <properties/>
-  <testcase name="validarAutoExistenciaPreviaTest" classname="com.ceiba.auto.servicio.ServicioCrearAutoTest" time="0.315"/>
+  <testcase name="validarPrecioPorDiaAutoTest" classname="com.ceiba.auto.servicio.ServicioCrearAutoTest" time="0.001"/>
+  <testcase name="validarModeloAutoTest" classname="com.ceiba.auto.servicio.ServicioCrearAutoTest" time="0.001"/>
+  <testcase name="validarAutoExistenciaPreviaTest" classname="com.ceiba.auto.servicio.ServicioCrearAutoTest" time="0.001"/>
+  <testcase name="validarNombreAutoTest" classname="com.ceiba.auto.servicio.ServicioCrearAutoTest" time="0.0"/>
+  <testcase name="validarSerialAutoTest" classname="com.ceiba.auto.servicio.ServicioCrearAutoTest" time="0.001"/>
+  <testcase name="crearAutoTest" classname="com.ceiba.auto.servicio.ServicioCrearAutoTest" time="0.008"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

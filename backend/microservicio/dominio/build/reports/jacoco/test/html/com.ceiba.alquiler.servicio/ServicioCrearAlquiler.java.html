@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ServicioCrearAlquiler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">dominio</a> &gt; <a href="index.source.html" class="el_package">com.ceiba.alquiler.servicio</a> &gt; <span class="el_source">ServicioCrearAlquiler.java</span></div><h1>ServicioCrearAlquiler.java</h1><pre class="source lang-java linenums">package com.ceiba.alquiler.servicio;
+
+import java.util.Calendar;
+
+import com.ceiba.alquiler.modelo.entidad.Alquiler;
+import com.ceiba.alquiler.puerto.repositorio.RepositorioAlquiler;
+import com.ceiba.auto.modelo.entidad.Auto;
+import com.ceiba.auto.modelo.entidad.EstadoAuto;
+import com.ceiba.cliente.modelo.entidad.Cliente;
+import com.ceiba.cliente.modelo.entidad.EstadoCliente;
+import com.ceiba.dominio.excepcion.ExcepcionNegocio;
+
+public class ServicioCrearAlquiler {
+
+	private static final String EL_AUTO_NO_ESTA_DISPONIBLE_PARA_ALQUILAR = &quot;El auto no está disponible para alquilar&quot;;
+	private static final String EL_CLIENTE_NO_ESTA_ACTIVO = &quot;El cliente no está activo&quot;;
+	private static final String SOLO_SE_PERMITE_CREAR_EL_ALQUILER_DE_LUNES_A_VIERNES = &quot;Solo se permite crear el alquiler de Lunes a Viernes&quot;;
+	
+	private static final int CANTIDAD_DIAS_PARA_OBTENER_DESCUENTO = 15;
+<span class="nc" id="L20">	private static final int[] DIAS_DEL_MES_PARA_OBTENER_DESCUENTO = {1, 2, 3, 4, 5};</span>
+	// Descuento del 5%
+	private static final double PORCENTAJE_DESCUENTO_POR_CANTIDAD_DE_DIAS_DE_ALQUILER = 0.05;
+	// Descuento del 3%
+	private static final double PORCENTAJE_DESCUENTO_POR_DIA_DEL_MES_DEL_ALQUILER = 0.03;
+
+	private final RepositorioAlquiler repositorioAlquiler;
+
+<span class="nc" id="L28">	public ServicioCrearAlquiler(RepositorioAlquiler repositorioAlquiler) {</span>
+<span class="nc" id="L29">		this.repositorioAlquiler = repositorioAlquiler;</span>
+<span class="nc" id="L30">	}</span>
+
+	public Long ejecutar(Alquiler alquiler, Auto auto, Cliente cliente) {
+<span class="nc" id="L33">		alquiler.asignarAuto(auto);</span>
+<span class="nc" id="L34">		alquiler.asignarCliente(cliente);</span>
+		
+<span class="nc" id="L36">		validarFechaCreacionAlquilerLunesAViernes();</span>
+<span class="nc" id="L37">		validarEstadoDisponibleAuto(alquiler.getAuto());</span>
+<span class="nc" id="L38">		validarEstadoActivoCliente(alquiler.getCliente());</span>
+		
+<span class="nc" id="L40">		alquiler.calcularSubTotal(auto.getPrecioPorDia());</span>
+<span class="nc" id="L41">		alquiler.calcularDescuentos(CANTIDAD_DIAS_PARA_OBTENER_DESCUENTO, DIAS_DEL_MES_PARA_OBTENER_DESCUENTO, PORCENTAJE_DESCUENTO_POR_CANTIDAD_DE_DIAS_DE_ALQUILER, PORCENTAJE_DESCUENTO_POR_DIA_DEL_MES_DEL_ALQUILER);</span>
+<span class="nc" id="L42">		alquiler.calcularTotal();</span>
+
+<span class="nc" id="L44">		Long id = this.repositorioAlquiler.crear(alquiler);</span>
+		
+<span class="nc" id="L46">		auto.cambiarEstadoAutoAlquilado();</span>
+		
+<span class="nc" id="L48">		return id;</span>
+	}
+	
+	private void validarFechaCreacionAlquilerLunesAViernes() {
+<span class="nc bnc" id="L52" title="All 2 branches missed.">		switch (Calendar.getInstance().get(Calendar.DAY_OF_WEEK)) {</span>
+			case Calendar.SATURDAY:
+			case Calendar.SUNDAY:
+<span class="nc" id="L55">				throw new ExcepcionNegocio(SOLO_SE_PERMITE_CREAR_EL_ALQUILER_DE_LUNES_A_VIERNES);</span>
+			default:
+				break;
+		}
+<span class="nc" id="L59">	}</span>
+
+	private void validarEstadoDisponibleAuto(Auto auto) {
+<span class="nc bnc" id="L62" title="All 2 branches missed.">		if (! EstadoAuto.DISPONIBLE.equals(auto.getEstado())) {</span>
+<span class="nc" id="L63">			throw new ExcepcionNegocio(EL_AUTO_NO_ESTA_DISPONIBLE_PARA_ALQUILAR);</span>
+		}
+<span class="nc" id="L65">	}</span>
+	
+	private void validarEstadoActivoCliente(Cliente cliente) {
+<span class="nc bnc" id="L68" title="All 2 branches missed.">		if (! EstadoCliente.ACTIVO.equals(cliente.getEstado())) {</span>
+<span class="nc" id="L69">			throw new ExcepcionNegocio(EL_CLIENTE_NO_ESTA_ACTIVO);</span>
+		}
+<span class="nc" id="L71">	}</span>
+	
+	
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

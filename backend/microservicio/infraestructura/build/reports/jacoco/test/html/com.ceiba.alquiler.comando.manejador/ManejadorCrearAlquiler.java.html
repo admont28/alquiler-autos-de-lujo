@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ManejadorCrearAlquiler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">infraestructura</a> &gt; <a href="index.source.html" class="el_package">com.ceiba.alquiler.comando.manejador</a> &gt; <span class="el_source">ManejadorCrearAlquiler.java</span></div><h1>ManejadorCrearAlquiler.java</h1><pre class="source lang-java linenums">package com.ceiba.alquiler.comando.manejador;
+
+import org.springframework.stereotype.Component;
+
+import com.ceiba.ComandoRespuesta;
+import com.ceiba.alquiler.comando.ComandoAlquiler;
+import com.ceiba.alquiler.comando.fabrica.FabricaAlquiler;
+import com.ceiba.alquiler.modelo.entidad.Alquiler;
+import com.ceiba.alquiler.servicio.ServicioCrearAlquiler;
+import com.ceiba.auto.modelo.entidad.Auto;
+import com.ceiba.auto.puerto.repositorio.RepositorioAuto;
+import com.ceiba.auto.servicio.ServicioActualizarAuto;
+import com.ceiba.cliente.modelo.entidad.Cliente;
+import com.ceiba.cliente.puerto.repositorio.RepositorioCliente;
+import com.ceiba.manejador.ManejadorComandoRespuesta;
+
+@Component
+public class ManejadorCrearAlquiler implements ManejadorComandoRespuesta&lt;ComandoAlquiler, ComandoRespuesta&lt;Long&gt;&gt; {
+
+    private final FabricaAlquiler fabricaAlquiler;
+    private final ServicioCrearAlquiler servicioCrearAlquiler;
+    private final ServicioActualizarAuto servicioActualizarAuto;
+    private final RepositorioAuto repositorioAuto;
+    private final RepositorioCliente repositorioCliente;
+
+<span class="fc" id="L26">    public ManejadorCrearAlquiler(FabricaAlquiler fabricaAlquiler, ServicioCrearAlquiler servicioCrearAlquiler, RepositorioAuto repositorioAuto, RepositorioCliente repositorioCliente, ServicioActualizarAuto servicioActualizarAuto) {</span>
+<span class="fc" id="L27">        this.fabricaAlquiler = fabricaAlquiler;</span>
+<span class="fc" id="L28">        this.servicioCrearAlquiler = servicioCrearAlquiler;</span>
+<span class="fc" id="L29">		this.repositorioAuto = repositorioAuto;</span>
+<span class="fc" id="L30">		this.repositorioCliente = repositorioCliente;</span>
+<span class="fc" id="L31">		this.servicioActualizarAuto = servicioActualizarAuto;</span>
+<span class="fc" id="L32">    }</span>
+
+    public ComandoRespuesta&lt;Long&gt; ejecutar(ComandoAlquiler comandoAlquiler) {
+<span class="nc" id="L35">        Auto auto = this.repositorioAuto.buscar(comandoAlquiler.getAutoId());</span>
+<span class="nc" id="L36">        Cliente cliente = this.repositorioCliente.buscar(comandoAlquiler.getClienteId());</span>
+        
+<span class="nc" id="L38">    	Alquiler alquiler = this.fabricaAlquiler.crear(comandoAlquiler);</span>
+    	
+<span class="nc" id="L40">    	Long id = this.servicioCrearAlquiler.ejecutar(alquiler, auto, cliente);</span>
+<span class="nc" id="L41">    	this.servicioActualizarAuto.ejecutar(auto);</span>
+    	
+<span class="nc" id="L43">        return new ComandoRespuesta&lt;&gt;(id);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

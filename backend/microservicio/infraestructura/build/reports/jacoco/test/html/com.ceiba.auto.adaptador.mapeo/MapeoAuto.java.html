@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MapeoAuto.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">infraestructura</a> &gt; <a href="index.source.html" class="el_package">com.ceiba.auto.adaptador.mapeo</a> &gt; <span class="el_source">MapeoAuto.java</span></div><h1>MapeoAuto.java</h1><pre class="source lang-java linenums">package com.ceiba.auto.adaptador.mapeo;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDateTime;
+
+import org.springframework.jdbc.core.RowMapper;
+
+import com.ceiba.auto.modelo.entidad.Auto;
+import com.ceiba.auto.modelo.entidad.EstadoAuto;
+import com.ceiba.infraestructura.jdbc.MapperResult;
+
+<span class="nc" id="L13">public class MapeoAuto implements RowMapper&lt;Auto&gt;, MapperResult {</span>
+	
+	@Override
+	public Auto mapRow(ResultSet rs, int rowNum) throws SQLException {
+<span class="nc" id="L17">		Long id = rs.getLong(&quot;id&quot;);</span>
+<span class="nc" id="L18">		String serial = rs.getString(&quot;serial&quot;);</span>
+<span class="nc" id="L19">		String nombre = rs.getString(&quot;nombre&quot;);</span>
+<span class="nc" id="L20">		String modelo = rs.getString(&quot;modelo&quot;);</span>
+<span class="nc" id="L21">		Double precioPorDia = rs.getDouble(&quot;precio_dia&quot;);</span>
+<span class="nc" id="L22">		EstadoAuto estado = EstadoAuto.valueOf(rs.getString(&quot;estado&quot;));</span>
+<span class="nc" id="L23">		LocalDateTime fechaCreacion = extraerLocalDateTime(rs, &quot;fecha_creacion&quot;);</span>
+<span class="nc" id="L24">		Auto auto = Auto.builder().id(id).serial(serial).nombre(nombre).modelo(modelo).precioPorDia(precioPorDia).estado(estado).fechaCreacion(fechaCreacion).build();</span>
+<span class="nc" id="L25">		return auto;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

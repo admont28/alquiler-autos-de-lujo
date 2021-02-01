@@ -1,0 +1,1 @@
+select count(1) from auto where id <> :id and serial = :serial

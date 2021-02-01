@@ -1,8 +1,8 @@
 package com.ceiba.auto.servicio;
 
+import com.ceiba.auto.modelo.entidad.Auto;
+import com.ceiba.auto.puerto.repositorio.RepositorioAuto;
 import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
-import com.ceiba.usuario.modelo.entidad.Auto;
-import com.ceiba.usuario.puerto.repositorio.RepositorioAuto;
 
 public class ServicioCrearAuto {
 

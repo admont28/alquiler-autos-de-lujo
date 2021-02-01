@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Alquiler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">dominio</a> &gt; <a href="index.source.html" class="el_package">com.ceiba.alquiler.modelo.entidad</a> &gt; <span class="el_source">Alquiler.java</span></div><h1>Alquiler.java</h1><pre class="source lang-java linenums">package com.ceiba.alquiler.modelo.entidad;
+
+import static com.ceiba.dominio.ValidadorArgumento.validarMenor;
+import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+import java.util.Arrays;
+
+import com.ceiba.alquiler.modelo.dto.DTOAlquiler;
+import com.ceiba.auto.modelo.entidad.Auto;
+import com.ceiba.cliente.modelo.entidad.Cliente;
+
+import lombok.Getter;
+import lombok.ToString;
+
+@Getter
+<span class="nc" id="L19">@ToString</span>
+public class Alquiler {
+
+//	private static final String SE_DEBE_INGRESAR_EL_AUTO_DEL_ALQUILER = &quot;Se debe ingresar el auto del alquiler&quot;;
+//	private static final String SE_DEBE_INGRESAR_EL_CLIENTE_DEL_ALQUILER = &quot;Se debe ingresar el cliente del alquiler&quot;;
+//	private static final String SE_DEBE_INGRESAR_EL_SUB_TOTAL_DEL_ALQUILER = &quot;Se debe ingresar el sub total del alquiler&quot;;
+//	private static final String SE_DEBE_INGRESAR_EL_DESCUENTO_DEL_ALQUILER = &quot;Se debe ingresar el descuento del alquiler&quot;;
+//	private static final String SE_DEBE_INGRESAR_EL_TOTAL_DEL_ALQUILER = &quot;Se debe ingresar el total del alquiler&quot;;
+	private static final String SE_DEBE_INGRESAR_LA_FECHA_DEL_ALQUILER = &quot;Se debe ingresar la fecha de entrega del auto al cliente&quot;;
+	private static final String SE_DEBE_INGRESAR_LA_FECHA_DE_DEVOLUCION_DEL_ALQUILER = &quot;Se debe ingresar la fecha de devolucion del auto por parte del cliente&quot;;
+	private static final String LA_FECHA_DEL_ALQUILER_DEBE_SER_MENOR_A_LA_FECHA_DE_DEVOLUCION = &quot;La fecha del alquiler debe ser menor a la fecha de devolución&quot;;
+	
+	
+<span class="nc" id="L32">	private Long id;</span>
+<span class="nc" id="L33">	private Auto auto;</span>
+<span class="nc" id="L34">	private Cliente cliente;</span>
+<span class="nc" id="L35">	private Double subTotal;</span>
+<span class="nc" id="L36">	private Double descuento;</span>
+<span class="nc" id="L37">	private Double total;</span>
+<span class="nc" id="L38">	private LocalDate fechaAlquiler;</span>
+<span class="nc" id="L39">	private LocalDate fechaDevolucion;</span>
+<span class="nc" id="L40">	private LocalDateTime fechaCreacion;</span>
+	
+<span class="nc" id="L42">	public Alquiler(Long id, LocalDate fechaAlquiler, LocalDate fechaEntrega) {</span>
+//		validarObligatorio(auto, SE_DEBE_INGRESAR_EL_AUTO_DEL_ALQUILER);
+//		validarObligatorio(cliente, SE_DEBE_INGRESAR_EL_CLIENTE_DEL_ALQUILER);
+//		validarObligatorio(subTotal, SE_DEBE_INGRESAR_EL_SUB_TOTAL_DEL_ALQUILER);
+//		validarObligatorio(descuento, SE_DEBE_INGRESAR_EL_DESCUENTO_DEL_ALQUILER);
+//		validarObligatorio(total, SE_DEBE_INGRESAR_EL_TOTAL_DEL_ALQUILER);
+<span class="nc" id="L48">		validarObligatorio(fechaAlquiler, SE_DEBE_INGRESAR_LA_FECHA_DEL_ALQUILER);</span>
+<span class="nc" id="L49">		validarObligatorio(fechaEntrega, SE_DEBE_INGRESAR_LA_FECHA_DE_DEVOLUCION_DEL_ALQUILER);</span>
+<span class="nc" id="L50">		validarMenor(fechaAlquiler.atStartOfDay(), fechaEntrega.atStartOfDay(), LA_FECHA_DEL_ALQUILER_DEBE_SER_MENOR_A_LA_FECHA_DE_DEVOLUCION);</span>
+		
+<span class="nc" id="L52">		this.id = id;</span>
+//		this.auto = auto;
+//		this.cliente = cliente;
+<span class="nc" id="L55">		this.subTotal = 0.0;</span>
+<span class="nc" id="L56">		this.descuento = 0.0;</span>
+<span class="nc" id="L57">		this.total = 0.0;</span>
+<span class="nc" id="L58">		this.fechaAlquiler = fechaAlquiler;</span>
+<span class="nc" id="L59">		this.fechaDevolucion = fechaEntrega;</span>
+<span class="nc" id="L60">		this.fechaCreacion = LocalDateTime.now();</span>
+<span class="nc" id="L61">	}</span>
+
+	public void asignarAuto(Auto auto) {
+<span class="nc" id="L64">		this.auto = auto;</span>
+<span class="nc" id="L65">	}</span>
+
+	public void asignarCliente(Cliente cliente) {
+<span class="nc" id="L68">		this.cliente = cliente;</span>
+<span class="nc" id="L69">	}</span>
+	
+	public void calcularSubTotal(Double precioPorDia) {
+<span class="nc" id="L72">		long diasAlquiler = ChronoUnit.DAYS.between(this.fechaAlquiler, this.fechaDevolucion);</span>
+<span class="nc" id="L73">		this.subTotal = precioPorDia * diasAlquiler;</span>
+<span class="nc" id="L74">	}</span>
+	
+	public void calcularDescuentos(int diasParaObtenerDescuento, int[] diasDelMesParaObtenerDescuento, Double porcentajeDescuentoPorCantidadDias, Double porcentajeDescuentoPorDiaDelMes) {
+<span class="nc" id="L77">		long diasAlquiler = ChronoUnit.DAYS.between(this.fechaAlquiler, this.fechaDevolucion);</span>
+<span class="nc" id="L78">		this.descuento = 0.0;</span>
+		
+		// Si el alquiler del auto supera los 15 días, el cliente recibirá un descuento del 5% sobre el total del alquiler.
+<span class="nc bnc" id="L81" title="All 2 branches missed.">		if (diasAlquiler &gt; diasParaObtenerDescuento) {</span>
+<span class="nc" id="L82">			this.descuento += this.subTotal * porcentajeDescuentoPorCantidadDias;</span>
+		}
+		
+		// Si el alquiler del auto se realiza los primeros 5 días de cada mes, el cliente recibirá un descuento adicional del 3% sobre el total del alquiler.
+<span class="nc bnc" id="L86" title="All 4 branches missed.">		if (Arrays.stream(diasDelMesParaObtenerDescuento).anyMatch( dia -&gt; dia == this.fechaAlquiler.getDayOfMonth())) {</span>
+<span class="nc" id="L87">			this.descuento += this.subTotal * porcentajeDescuentoPorDiaDelMes;</span>
+		}
+<span class="nc" id="L89">	}</span>
+	
+	public void calcularTotal() {
+<span class="nc" id="L92">		this.total = this.subTotal - this.descuento;</span>
+<span class="nc" id="L93">	}</span>
+	
+	public DTOAlquiler toDTO() {
+<span class="nc bnc" id="L96" title="All 2 branches missed.">		Long autoId = auto != null ? auto.getId() : null;</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">		Long clienteId = cliente != null ? cliente.getId() : null;</span>
+<span class="nc" id="L98">		return DTOAlquiler.builder().id(id).autoId(autoId).clienteId(clienteId).subTotal(subTotal).descuento(descuento).total(total).fechaAlquiler(fechaAlquiler).fechaDevolucion(fechaDevolucion).fechaCreacion(fechaCreacion).build();</span>
+	}
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

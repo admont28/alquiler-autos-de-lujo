@@ -3,10 +3,11 @@
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Repository;
 
+import com.ceiba.auto.adaptador.mapeo.MapeoAuto;
+import com.ceiba.auto.modelo.entidad.Auto;
+import com.ceiba.auto.puerto.repositorio.RepositorioAuto;
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
-import com.ceiba.usuario.modelo.entidad.Auto;
-import com.ceiba.usuario.puerto.repositorio.RepositorioAuto;
 
 @Repository
 public class RepositorioAutoMysql implements RepositorioAuto {
@@ -15,35 +16,34 @@ public class RepositorioAutoMysql implements RepositorioAuto {
 
     @SqlStatement(namespace=&quot;auto&quot;, value=&quot;crear&quot;)
     private static String sqlCrear;
+    
+    @SqlStatement(namespace=&quot;auto&quot;, value=&quot;buscar&quot;)
+    private static String sqlBuscar;
 
     @SqlStatement(namespace=&quot;auto&quot;, value=&quot;actualizar&quot;)
     private static String sqlActualizar;
-
-    @SqlStatement(namespace=&quot;auto&quot;, value=&quot;eliminar&quot;)
-    private static String sqlEliminar;
-
+    
     @SqlStatement(namespace=&quot;auto&quot;, value=&quot;existe&quot;)
     private static String sqlExiste;
 
-    @SqlStatement(namespace=&quot;usuario&quot;, value=&quot;existeExcluyendoId&quot;) 
+    @SqlStatement(namespace=&quot;auto&quot;, value=&quot;existeExcluyendoId&quot;) 
     private static String sqlExisteExcluyendoId;
 
-<span class="fc" id="L31">    public RepositorioAutoMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {</span>
-<span class="fc" id="L32">        this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;</span>
-<span class="fc" id="L33">    }</span>
+<span class="fc" id="L32">    public RepositorioAutoMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {</span>
+<span class="fc" id="L33">        this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;</span>
+<span class="fc" id="L34">    }</span>
 
     @Override
     public Long crear(Auto auto) {
-<span class="nc" id="L37">        return this.customNamedParameterJdbcTemplate.crear(auto, sqlCrear);</span>
+<span class="nc" id="L38">        return this.customNamedParameterJdbcTemplate.crear(auto, sqlCrear);</span>
     }
-
+    
     @Override
-    public void eliminar(Long id) {
-<span class="nc" id="L42">        MapSqlParameterSource paramSource = new MapSqlParameterSource();</span>
-<span class="nc" id="L43">        paramSource.addValue(&quot;id&quot;, id);</span>
-
-<span class="nc" id="L45">        this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, paramSource);</span>
-<span class="nc" id="L46">    }</span>
+	public Auto buscar(Long id) {
+<span class="nc" id="L43">		MapSqlParameterSource paramSource = new MapSqlParameterSource();</span>
+<span class="nc" id="L44">		paramSource.addValue(&quot;id&quot;, id);</span>
+<span class="nc" id="L45">		return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlBuscar, paramSource, new MapeoAuto());</span>
+	}
 
     @Override
     public boolean existe(String serial) {
@@ -66,5 +66,6 @@ public class RepositorioAutoMysql implements RepositorioAuto {
 
 <span class="nc" id="L67">        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteExcluyendoId,paramSource, Boolean.class);</span>
     }
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,13 +1,15 @@
+com/ceiba/BasePrueba.java
+ com.ceiba.BasePrueba
+ com.ceiba.BasePrueba$Thunk
 com/ceiba/usuario/servicio/testdatabuilder/UsuarioTestDataBuilder.java
  com.ceiba.usuario.servicio.testdatabuilder.UsuarioTestDataBuilder
 com/ceiba/usuario/servicio/ServicioActualizarUsuarioTest.java
  com.ceiba.usuario.servicio.ServicioActualizarUsuarioTest
 com/ceiba/usuario/servicio/ServicioCrearUsuarioTest.java
  com.ceiba.usuario.servicio.ServicioCrearUsuarioTest
-com/ceiba/BasePrueba.java
- com.ceiba.BasePrueba
- com.ceiba.BasePrueba$Thunk
+com/ceiba/auto/servicio/testdatabuilder/AutoTestDataBuilder.java
+ com.ceiba.auto.servicio.testdatabuilder.AutoTestDataBuilder
 com/ceiba/auto/servicio/ServicioCrearAutoTest.java
  com.ceiba.auto.servicio.ServicioCrearAutoTest
-com/ceiba/usuario/servicio/testdatabuilder/AutoTestDataBuilder.java
- com.ceiba.usuario.servicio.testdatabuilder.AutoTestDataBuilder
+com/ceiba/auto/servicio/ServicioActualizarAutoTest.java
+ com.ceiba.auto.servicio.ServicioActualizarAutoTest

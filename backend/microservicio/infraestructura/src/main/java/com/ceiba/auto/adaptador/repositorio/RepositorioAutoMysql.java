@@ -3,10 +3,11 @@ package com.ceiba.auto.adaptador.repositorio;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Repository;
 
+import com.ceiba.auto.adaptador.mapeo.MapeoAuto;
+import com.ceiba.auto.modelo.entidad.Auto;
+import com.ceiba.auto.puerto.repositorio.RepositorioAuto;
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
-import com.ceiba.usuario.modelo.entidad.Auto;
-import com.ceiba.usuario.puerto.repositorio.RepositorioAuto;
 
 @Repository
 public class RepositorioAutoMysql implements RepositorioAuto {
@@ -15,13 +16,13 @@ public class RepositorioAutoMysql implements RepositorioAuto {
 
     @SqlStatement(namespace="auto", value="crear")
     private static String sqlCrear;
+    
+    @SqlStatement(namespace="auto", value="buscar")
+    private static String sqlBuscar;
 
     @SqlStatement(namespace="auto", value="actualizar")
     private static String sqlActualizar;
-
-    @SqlStatement(namespace="auto", value="eliminar")
-    private static String sqlEliminar;
-
+    
     @SqlStatement(namespace="auto", value="existe")
     private static String sqlExiste;
 
@@ -36,14 +37,13 @@ public class RepositorioAutoMysql implements RepositorioAuto {
     public Long crear(Auto auto) {
         return this.customNamedParameterJdbcTemplate.crear(auto, sqlCrear);
     }
-
+    
     @Override
-    public void eliminar(Long id) {
-        MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("id", id);
-
-        this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, paramSource);
-    }
+	public Auto buscar(Long id) {
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("id", id);
+		return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlBuscar, paramSource, new MapeoAuto());
+	}
 
     @Override
     public boolean existe(String serial) {
@@ -66,4 +66,5 @@ public class RepositorioAutoMysql implements RepositorioAuto {
 
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteExcluyendoId,paramSource, Boolean.class);
     }
+
 }

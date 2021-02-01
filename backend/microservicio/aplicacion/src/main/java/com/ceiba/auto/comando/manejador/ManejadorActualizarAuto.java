@@ -4,9 +4,9 @@ import org.springframework.stereotype.Component;
 
 import com.ceiba.auto.comando.ComandoAuto;
 import com.ceiba.auto.comando.fabrica.FabricaAuto;
+import com.ceiba.auto.modelo.entidad.Auto;
 import com.ceiba.auto.servicio.ServicioActualizarAuto;
 import com.ceiba.manejador.ManejadorComando;
-import com.ceiba.usuario.modelo.entidad.Auto;
 
 @Component
 public class ManejadorActualizarAuto implements ManejadorComando<ComandoAuto> {

@@ -12,7 +12,6 @@ import com.ceiba.ComandoRespuesta;
 import com.ceiba.auto.comando.ComandoAuto;
 import com.ceiba.auto.comando.manejador.ManejadorActualizarAuto;
 import com.ceiba.auto.comando.manejador.ManejadorCrearAuto;
-import com.ceiba.usuario.comando.ComandoUsuario;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
