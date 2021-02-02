@@ -40,9 +40,9 @@ public class RepositorioAutoMysql implements RepositorioAuto {
     
     @Override
 	public Auto buscar(Long id) {
-<span class="nc" id="L43">		MapSqlParameterSource paramSource = new MapSqlParameterSource();</span>
-<span class="nc" id="L44">		paramSource.addValue(&quot;id&quot;, id);</span>
-<span class="nc" id="L45">		return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlBuscar, paramSource, new MapeoAuto());</span>
+<span class="fc" id="L43">		MapSqlParameterSource paramSource = new MapSqlParameterSource();</span>
+<span class="fc" id="L44">		paramSource.addValue(&quot;id&quot;, id);</span>
+<span class="fc" id="L45">		return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlBuscar, paramSource, new MapeoAuto());</span>
 	}
 
     @Override

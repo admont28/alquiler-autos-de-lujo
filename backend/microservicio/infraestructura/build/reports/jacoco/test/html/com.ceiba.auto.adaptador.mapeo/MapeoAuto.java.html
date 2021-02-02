@@ -10,21 +10,21 @@ import com.ceiba.auto.modelo.entidad.Auto;
 import com.ceiba.auto.modelo.entidad.EstadoAuto;
 import com.ceiba.infraestructura.jdbc.MapperResult;
 
-<span class="nc" id="L13">public class MapeoAuto implements RowMapper&lt;Auto&gt;, MapperResult {</span>
+<span class="fc" id="L13">public class MapeoAuto implements RowMapper&lt;Auto&gt;, MapperResult {</span>
 	
 	@Override
 	public Auto mapRow(ResultSet rs, int rowNum) throws SQLException {
-<span class="nc" id="L17">		Long id = rs.getLong(&quot;id&quot;);</span>
-<span class="nc" id="L18">		String serial = rs.getString(&quot;serial&quot;);</span>
-<span class="nc" id="L19">		String nombre = rs.getString(&quot;nombre&quot;);</span>
-<span class="nc" id="L20">		String modelo = rs.getString(&quot;modelo&quot;);</span>
-<span class="nc" id="L21">		Double precioPorDia = rs.getDouble(&quot;precio_dia&quot;);</span>
-<span class="nc" id="L22">		EstadoAuto estado = EstadoAuto.valueOf(rs.getString(&quot;estado&quot;));</span>
-<span class="nc" id="L23">		LocalDateTime fechaCreacion = extraerLocalDateTime(rs, &quot;fecha_creacion&quot;);</span>
-<span class="nc" id="L24">		Auto auto = new Auto(id, serial, nombre, modelo, precioPorDia);</span>
-<span class="nc" id="L25">		auto.setEstado(estado);</span>
-<span class="nc" id="L26">		auto.setFechaCreacion(fechaCreacion);</span>
-<span class="nc" id="L27">		return auto;</span>
+<span class="fc" id="L17">		Long id = rs.getLong(&quot;id&quot;);</span>
+<span class="fc" id="L18">		String serial = rs.getString(&quot;serial&quot;);</span>
+<span class="fc" id="L19">		String nombre = rs.getString(&quot;nombre&quot;);</span>
+<span class="fc" id="L20">		String modelo = rs.getString(&quot;modelo&quot;);</span>
+<span class="fc" id="L21">		Double precioPorDia = rs.getDouble(&quot;precio_dia&quot;);</span>
+<span class="fc" id="L22">		EstadoAuto estado = EstadoAuto.valueOf(rs.getString(&quot;estado&quot;));</span>
+<span class="fc" id="L23">		LocalDateTime fechaCreacion = extraerLocalDateTime(rs, &quot;fecha_creacion&quot;);</span>
+<span class="fc" id="L24">		Auto auto = new Auto(id, serial, nombre, modelo, precioPorDia);</span>
+<span class="fc" id="L25">		auto.setEstado(estado);</span>
+<span class="fc" id="L26">		auto.setFechaCreacion(fechaCreacion);</span>
+<span class="fc" id="L27">		return auto;</span>
 	}
 
 }

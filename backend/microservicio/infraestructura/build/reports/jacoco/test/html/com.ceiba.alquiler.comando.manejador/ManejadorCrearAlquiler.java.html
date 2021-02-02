@@ -32,15 +32,15 @@ public class ManejadorCrearAlquiler implements ManejadorComandoRespuesta&lt;Coma
 <span class="fc" id="L32">    }</span>
 
     public ComandoRespuesta&lt;Long&gt; ejecutar(ComandoAlquiler comandoAlquiler) {
-<span class="nc" id="L35">        Auto auto = this.repositorioAuto.buscar(comandoAlquiler.getAutoId());</span>
-<span class="nc" id="L36">        Cliente cliente = this.repositorioCliente.buscar(comandoAlquiler.getClienteId());</span>
+<span class="fc" id="L35">        Auto auto = this.repositorioAuto.buscar(comandoAlquiler.getAutoId());</span>
+<span class="fc" id="L36">        Cliente cliente = this.repositorioCliente.buscar(comandoAlquiler.getClienteId());</span>
         
-<span class="nc" id="L38">    	Alquiler alquiler = this.fabricaAlquiler.crear(comandoAlquiler);</span>
+<span class="fc" id="L38">    	Alquiler alquiler = this.fabricaAlquiler.crear(comandoAlquiler);</span>
     	
-<span class="nc" id="L40">    	Long id = this.servicioCrearAlquiler.ejecutar(alquiler, auto, cliente);</span>
-<span class="nc" id="L41">    	this.servicioActualizarAuto.ejecutar(auto);</span>
+<span class="fc" id="L40">    	Long id = this.servicioCrearAlquiler.ejecutar(alquiler, auto, cliente);</span>
+<span class="fc" id="L41">    	this.servicioActualizarAuto.ejecutar(auto);</span>
     	
-<span class="nc" id="L43">        return new ComandoRespuesta&lt;&gt;(id);</span>
+<span class="fc" id="L43">        return new ComandoRespuesta&lt;&gt;(id);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

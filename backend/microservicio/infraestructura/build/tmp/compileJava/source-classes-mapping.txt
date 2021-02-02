@@ -4,8 +4,8 @@ com/ceiba/auto/adaptador/mapeo/MapeoAuto.java
  com.ceiba.auto.adaptador.mapeo.MapeoAuto
 com/ceiba/cliente/adaptador/mapeo/MapeoCliente.java
  com.ceiba.cliente.adaptador.mapeo.MapeoCliente
-com/ceiba/auto/controlador/ComandoControladorAuto.java
- com.ceiba.auto.controlador.ComandoControladorAuto
+com/ceiba/auto/adaptador/mapeo/MapeoDTOAuto.java
+ com.ceiba.auto.adaptador.mapeo.MapeoDTOAuto
 com/ceiba/auto/adaptador/repositorio/RepositorioAutoMysql.java
  com.ceiba.auto.adaptador.repositorio.RepositorioAutoMysql
 com/ceiba/cliente/adaptador/repositorio/RepositorioClienteMysql.java
@@ -18,5 +18,5 @@ com/ceiba/configuracion/BeanServicio.java
  com.ceiba.configuracion.BeanServicio
 com/ceiba/auto/adaptador/dao/DaoAutoMysql.java
  com.ceiba.auto.adaptador.dao.DaoAutoMysql
-com/ceiba/auto/adaptador/mapeo/MapeoDTOAuto.java
- com.ceiba.auto.adaptador.mapeo.MapeoDTOAuto
+com/ceiba/auto/controlador/ComandoControladorAuto.java
+ com.ceiba.auto.controlador.ComandoControladorAuto

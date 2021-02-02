@@ -8,7 +8,7 @@ VALUES(2, 'serial-1234', 'Chevrolet Corvette ', '2020', 200000.00, 'DISPONIBLE',
 
 INSERT INTO cliente
 (id, nombre, apellido, direccion, cedula, estado, fecha_creacion)
-VALUES(1, 'Andres David', 'Montoya Aguirre', 'Calle 39 #5-72', '1094937274', 'ELIMINADO', '2021-02-01 15:20:53');
+VALUES(1, 'Andres David', 'Montoya Aguirre', 'Calle 39 #5-72', '1094937274', 'ACTIVO', '2021-02-01 15:20:53');
 
 INSERT INTO cliente
 (id, nombre, apellido, direccion, cedula, estado, fecha_creacion)
