@@ -2,9 +2,10 @@ package com.ceiba.infraestructura.configuracion;
 
 import javax.sql.DataSource;
 
-import com.ceiba.infraestructura.actuator.DataSourceHealthIndicator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import com.ceiba.infraestructura.actuator.DataSourceHealthIndicator;
 
 @Configuration
 public class ConfiguracionHealth {

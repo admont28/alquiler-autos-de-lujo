@@ -15,19 +15,19 @@ public class RepositorioAutoMysql implements RepositorioAuto {
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
     @SqlStatement(namespace="auto", value="crear")
-    private static String sqlCrear;
+    private static String sqlCrearAuto;
     
     @SqlStatement(namespace="auto", value="buscar")
-    private static String sqlBuscar;
+    private static String sqlBuscarAuto;
 
     @SqlStatement(namespace="auto", value="actualizar")
-    private static String sqlActualizar;
+    private static String sqlActualizarAuto;
     
     @SqlStatement(namespace="auto", value="existe")
-    private static String sqlExiste;
+    private static String sqlExisteAuto;
 
     @SqlStatement(namespace="auto", value="existeExcluyendoId") 
-    private static String sqlExisteExcluyendoId;
+    private static String sqlExisteExcluyendoIdAuto;
 
     public RepositorioAutoMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
@@ -35,14 +35,14 @@ public class RepositorioAutoMysql implements RepositorioAuto {
 
     @Override
     public Long crear(Auto auto) {
-        return this.customNamedParameterJdbcTemplate.crear(auto, sqlCrear);
+        return this.customNamedParameterJdbcTemplate.crear(auto, sqlCrearAuto);
     }
     
     @Override
 	public Auto buscar(Long id) {
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("id", id);
-		return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlBuscar, paramSource, new MapeoAuto());
+		return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlBuscarAuto, paramSource, new MapeoAuto());
 	}
 
     @Override
@@ -50,12 +50,12 @@ public class RepositorioAutoMysql implements RepositorioAuto {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("serial", serial);
 
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource, Boolean.class);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteAuto,paramSource, Boolean.class);
     }
 
     @Override
     public void actualizar(Auto auto) {
-        this.customNamedParameterJdbcTemplate.actualizar(auto, sqlActualizar);
+        this.customNamedParameterJdbcTemplate.actualizar(auto, sqlActualizarAuto);
     }
 
     @Override
@@ -64,7 +64,7 @@ public class RepositorioAutoMysql implements RepositorioAuto {
         paramSource.addValue("id", id);
         paramSource.addValue("serial", serial);
 
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteExcluyendoId,paramSource, Boolean.class);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteExcluyendoIdAuto,paramSource, Boolean.class);
     }
 
 }

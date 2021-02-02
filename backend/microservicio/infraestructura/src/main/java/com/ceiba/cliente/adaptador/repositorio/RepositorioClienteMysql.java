@@ -15,19 +15,19 @@ public class RepositorioClienteMysql implements RepositorioCliente {
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
     @SqlStatement(namespace="cliente", value="crear")
-    private static String sqlCrear;
+    private static String sqlCrearCliente;
     
     @SqlStatement(namespace="cliente", value="buscar")
-    private static String sqlBuscar;
+    private static String sqlBuscarCliente;
 
     @SqlStatement(namespace="cliente", value="actualizar")
-    private static String sqlActualizar;
+    private static String sqlActualizarCliente;
 
     @SqlStatement(namespace="cliente", value="existe")
-    private static String sqlExiste;
+    private static String sqlExisteCliente;
 
     @SqlStatement(namespace="cliente", value="existeExcluyendoId") 
-    private static String sqlExisteExcluyendoId;
+    private static String sqlExisteExcluyendoIdCliente;
 
     public RepositorioClienteMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
@@ -35,19 +35,19 @@ public class RepositorioClienteMysql implements RepositorioCliente {
 
     @Override
     public Long crear(Cliente cliente) {
-        return this.customNamedParameterJdbcTemplate.crear(cliente, sqlCrear);
+        return this.customNamedParameterJdbcTemplate.crear(cliente, sqlCrearCliente);
     }
     
     @Override
 	public Cliente buscar(Long id) {
     	MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("id", id);
-		return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlBuscar, paramSource, new MapeoCliente());
+		return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlBuscarCliente, paramSource, new MapeoCliente());
 	}
     
     @Override
     public void actualizar(Cliente cliente) {
-        this.customNamedParameterJdbcTemplate.actualizar(cliente, sqlActualizar);
+        this.customNamedParameterJdbcTemplate.actualizar(cliente, sqlActualizarCliente);
     }
 
     @Override
@@ -55,7 +55,7 @@ public class RepositorioClienteMysql implements RepositorioCliente {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("cedula", cedula);
 
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource, Boolean.class);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteCliente,paramSource, Boolean.class);
     }
 
 
@@ -65,7 +65,7 @@ public class RepositorioClienteMysql implements RepositorioCliente {
         paramSource.addValue("id", id);
         paramSource.addValue("cedula", cedula);
 
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteExcluyendoId,paramSource, Boolean.class);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteExcluyendoIdCliente,paramSource, Boolean.class);
     }
 
 	
