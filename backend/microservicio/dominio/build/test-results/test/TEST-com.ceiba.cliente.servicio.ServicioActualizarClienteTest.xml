@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.ceiba.cliente.servicio.ServicioActualizarClienteTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-02-02T05:49:03" hostname="ANDRES-MONTOYA" time="0.01">
+<testsuite name="com.ceiba.cliente.servicio.ServicioActualizarClienteTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-02-02T06:23:22" hostname="ANDRES-MONTOYA" time="0.01">
   <properties/>
   <testcase name="actualizarClienteTest" classname="com.ceiba.cliente.servicio.ServicioActualizarClienteTest" time="0.009"/>
   <testcase name="validarClienteExistenciaPreviaTest" classname="com.ceiba.cliente.servicio.ServicioActualizarClienteTest" time="0.001"/>
