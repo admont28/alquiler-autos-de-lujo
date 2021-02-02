@@ -6,7 +6,7 @@ pipeline {
 
     //Opciones específicas de Pipeline dentro del Pipeline
 	options {
-		buildDiscarder(logRotator(numToKeepStr: '5')) //Número maximo de ejecuciones a guardar
+		buildDiscarder(logRotator(numToKeepStr: '3')) //Número maximo de ejecuciones a guardar
 		disableConcurrentBuilds() //No permitir compilaciones simultaneas
 	}
 
