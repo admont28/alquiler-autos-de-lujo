@@ -10,8 +10,8 @@ import com.ceiba.dominio.excepcion.ExcepcionNegocio;
 
 public class ServicioCrearAlquiler {
 
-	private static final String EL_AUTO_NO_ESTA_DISPONIBLE_PARA_ALQUILAR = "El auto no est· disponible para alquilar";
-	private static final String EL_CLIENTE_NO_ESTA_ACTIVO = "El cliente no est· activo";
+	private static final String EL_AUTO_NO_ESTA_DISPONIBLE_PARA_ALQUILAR = "El auto no est√° disponible para alquilar";
+	private static final String EL_CLIENTE_NO_ESTA_ACTIVO = "El cliente no est√° activo";
 
 	private final RepositorioAlquiler repositorioAlquiler;
 

@@ -28,8 +28,8 @@ public class Alquiler {
 //	private static final String SE_DEBE_INGRESAR_EL_DESCUENTO_DEL_ALQUILER = "Se debe ingresar el descuento del alquiler";
 //	private static final String SE_DEBE_INGRESAR_EL_TOTAL_DEL_ALQUILER = "Se debe ingresar el total del alquiler";
 	private static final String SE_DEBE_INGRESAR_LA_FECHA_DEL_ALQUILER = "Se debe ingresar la fecha de entrega del auto al cliente";
-	private static final String SE_DEBE_INGRESAR_LA_FECHA_DE_DEVOLUCION_DEL_ALQUILER = "Se debe ingresar la fecha de devolución del auto por parte del cliente";
-	private static final String LA_FECHA_DEL_ALQUILER_DEBE_SER_MENOR_A_LA_FECHA_DE_DEVOLUCION = "La fecha del alquiler debe ser menor a la fecha de devolución";
+	private static final String SE_DEBE_INGRESAR_LA_FECHA_DE_DEVOLUCION_DEL_ALQUILER = "Se debe ingresar la fecha de devoluciÃ³n del auto por parte del cliente";
+	private static final String LA_FECHA_DEL_ALQUILER_DEBE_SER_MENOR_A_LA_FECHA_DE_DEVOLUCION = "La fecha del alquiler debe ser menor a la fecha de devoluciÃ³n";
 	private static final String SOLO_SE_PERMITE_CREAR_EL_ALQUILER_DE_LUNES_A_VIERNES = "Solo se permite crear el alquiler de Lunes a Viernes";
 	
 	private static final int CANTIDAD_DIAS_PARA_OBTENER_DESCUENTO = 15;
@@ -88,12 +88,12 @@ public class Alquiler {
 		long diasAlquiler = ChronoUnit.DAYS.between(this.fechaAlquiler, this.fechaDevolucion) + 1;
 		this.descuento = 0.0;
 		
-		// Si el alquiler del auto supera los 15 días, el cliente recibirá un descuento del 5% sobre el total del alquiler.
+		// Si el alquiler del auto supera los 15 dï¿½as, el cliente recibirï¿½ un descuento del 5% sobre el total del alquiler.
 		if (diasAlquiler > CANTIDAD_DIAS_PARA_OBTENER_DESCUENTO) {
 			this.descuento += this.subTotal * PORCENTAJE_DESCUENTO_POR_CANTIDAD_DE_DIAS_DE_ALQUILER;
 		}
 		
-		// Si el alquiler del auto se realiza los primeros 5 días de cada mes, el cliente recibirá un descuento adicional del 3% sobre el total del alquiler.
+		// Si el alquiler del auto se realiza los primeros 5 dï¿½as de cada mes, el cliente recibirï¿½ un descuento adicional del 3% sobre el total del alquiler.
 		if (Arrays.stream(DIAS_DEL_MES_PARA_OBTENER_DESCUENTO).anyMatch( dia -> dia == this.fechaCreacion.getDayOfMonth())) {
 			this.descuento += this.subTotal * PORCENTAJE_DESCUENTO_POR_DIA_DEL_MES_DEL_ALQUILER;
 		}

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ceiba.usuario.controlador.ComandoControladorUsuarioTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-02-02T04:58:24" hostname="ANDRES-MONTOYA" time="0.032">
+  <properties/>
+  <testcase name="actualizar" classname="com.ceiba.usuario.controlador.ComandoControladorUsuarioTest" time="0.017"/>
+  <testcase name="crear" classname="com.ceiba.usuario.controlador.ComandoControladorUsuarioTest" time="0.007"/>
+  <testcase name="eliminar" classname="com.ceiba.usuario.controlador.ComandoControladorUsuarioTest" time="0.006"/>
+  <system-out><![CDATA[2021-02-01 23:58:23.421  INFO 10020 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.ceiba.usuario.controlador.ComandoControladorUsuarioTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-02-01 23:58:23.424  INFO 10020 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2021-02-01 23:58:23.425  INFO 10020 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5ee7dfa5, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@703288fc, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@385342b8, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@248dcb0c, org.springframework.test.context.support.DirtiesContextTestExecutionListener@447722cf, org.springframework.test.context.transaction.TransactionalTestExecutionListener@20e627d5, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@202e7f3, org.springframework.test.context.event.EventPublishingTestExecutionListener@489d8914, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@3581ab92, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@2448ea78, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@31e0bc7d, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1511467c, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@2d74a277]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.2.4.RELEASE)
+
+2021-02-01 23:58:23.448  INFO 10020 --- [    Test worker] c.c.u.c.ComandoControladorUsuarioTest    : Starting ComandoControladorUsuarioTest on ANDRES-MONTOYA with PID 10020 (started by andres.montoya in D:\CEIBA\ADN CEIBA\alquiler-autos-de-lujo\backend\microservicio\infraestructura)
+2021-02-01 23:58:23.449  INFO 10020 --- [    Test worker] c.c.u.c.ComandoControladorUsuarioTest    : No active profile set, falling back to default profiles: default
+2021-02-01 23:58:23.763  INFO 10020 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : pool - Starting...
+2021-02-01 23:58:23.764  INFO 10020 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : pool - Start completed.
+2021-02-01 23:58:24.087  INFO 10020 --- [    Test worker] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-02-01 23:58:24.090  INFO 10020 --- [    Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2021-02-01 23:58:24.099  INFO 10020 --- [    Test worker] o.f.c.internal.database.DatabaseFactory  : Database: jdbc:h2:mem:testdb (H2 1.4)
+2021-02-01 23:58:24.108  INFO 10020 --- [    Test worker] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.004s)
+2021-02-01 23:58:24.111  INFO 10020 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Current version of schema "PUBLIC": 1.1
+2021-02-01 23:58:24.111  INFO 10020 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Schema "PUBLIC" is up to date. No migration necessary.
+2021-02-01 23:58:24.174  INFO 10020 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01 23:58:24.269  INFO 10020 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-02-01 23:58:24.269  INFO 10020 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-01 23:58:24.274  INFO 10020 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 5 ms
+2021-02-01 23:58:24.289  INFO 10020 --- [    Test worker] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-02-01 23:58:24.290  INFO 10020 --- [    Test worker] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-02-01 23:58:24.301  INFO 10020 --- [    Test worker] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-02-01 23:58:24.326  INFO 10020 --- [    Test worker] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: crearUsingPOST_1
+2021-02-01 23:58:24.332  INFO 10020 --- [    Test worker] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: actualizarUsingPUT_1
+2021-02-01 23:58:24.335  INFO 10020 --- [    Test worker] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: crearUsingPOST_2
+2021-02-01 23:58:24.342  INFO 10020 --- [    Test worker] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: actualizarUsingPUT_2
+2021-02-01 23:58:24.344  INFO 10020 --- [    Test worker] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: crearUsingPOST_3
+2021-02-01 23:58:24.346  INFO 10020 --- [    Test worker] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: eliminarUsingDELETE_1
+2021-02-01 23:58:24.356  INFO 10020 --- [    Test worker] c.c.u.c.ComandoControladorUsuarioTest    : Started ComandoControladorUsuarioTest in 0.929 seconds (JVM running for 8.431)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

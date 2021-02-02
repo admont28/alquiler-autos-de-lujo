@@ -21,8 +21,10 @@ import com.ceiba.infraestructura.jdbc.MapperResult;
 <span class="fc" id="L21">		String cedula = rs.getString(&quot;cedula&quot;);</span>
 <span class="fc" id="L22">		EstadoCliente estado = EstadoCliente.valueOf(rs.getString(&quot;estado&quot;));</span>
 <span class="fc" id="L23">		LocalDateTime fechaCreacion = extraerLocalDateTime(rs, &quot;fecha_creacion&quot;);</span>
-<span class="fc" id="L24">		return Cliente.builder().id(id).nombre(nombre).apellido(apellido).direccion(direccion).cedula(cedula)</span>
-<span class="fc" id="L25">				.estado(estado).fechaCreacion(fechaCreacion).build();</span>
+<span class="fc" id="L24">		Cliente cliente = new Cliente(id, nombre, apellido, direccion, cedula);</span>
+<span class="fc" id="L25">		cliente.setEstado(estado);</span>
+<span class="fc" id="L26">		cliente.setFechaCreacion(fechaCreacion);</span>
+<span class="fc" id="L27">		return cliente;</span>
 	}
 
 }

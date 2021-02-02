@@ -8,9 +8,9 @@ com/ceiba/auto/servicio/testdatabuilder/ComandoAutoTestDataBuilder.java
  com.ceiba.auto.servicio.testdatabuilder.ComandoAutoTestDataBuilder
 com/ceiba/usuario/servicio/testdatabuilder/ComandoUsuarioTestDataBuilder.java
  com.ceiba.usuario.servicio.testdatabuilder.ComandoUsuarioTestDataBuilder
-com/ceiba/auto/controlador/ComandoControladorAutoTest.java
- com.ceiba.auto.controlador.ComandoControladorAutoTest
 com/ceiba/cliente/servicio/testdatabuilder/ComandoClienteTestDataBuilder.java
  com.ceiba.cliente.servicio.testdatabuilder.ComandoClienteTestDataBuilder
 com/ceiba/cliente/controlador/ComandoControladorClienteTest.java
  com.ceiba.cliente.controlador.ComandoControladorClienteTest
+com/ceiba/auto/controlador/ComandoControladorAutoTest.java
+ com.ceiba.auto.controlador.ComandoControladorAutoTest

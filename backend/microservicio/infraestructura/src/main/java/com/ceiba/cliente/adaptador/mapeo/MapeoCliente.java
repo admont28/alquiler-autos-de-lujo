@@ -21,8 +21,10 @@ public class MapeoCliente implements RowMapper<Cliente>, MapperResult {
 		String cedula = rs.getString("cedula");
 		EstadoCliente estado = EstadoCliente.valueOf(rs.getString("estado"));
 		LocalDateTime fechaCreacion = extraerLocalDateTime(rs, "fecha_creacion");
-		return Cliente.builder().id(id).nombre(nombre).apellido(apellido).direccion(direccion).cedula(cedula)
-				.estado(estado).fechaCreacion(fechaCreacion).build();
+		Cliente cliente = new Cliente(id, nombre, apellido, direccion, cedula);
+		cliente.setEstado(estado);
+		cliente.setFechaCreacion(fechaCreacion);
+		return cliente;
 	}
 
 }

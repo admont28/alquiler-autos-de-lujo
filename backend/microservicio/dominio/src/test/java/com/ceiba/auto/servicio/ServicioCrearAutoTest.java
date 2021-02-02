@@ -48,7 +48,7 @@ public class ServicioCrearAutoTest {
         AutoTestDataBuilder autoTestDataBuilder = new AutoTestDataBuilder().conPrecioPorDia(null);
         
         // act - assert
-        BasePrueba.assertThrows(() -> autoTestDataBuilder.build(), ExcepcionValorObligatorio.class, "Se debe ingresar el precio por dÌa del auto");
+        BasePrueba.assertThrows(() -> autoTestDataBuilder.build(), ExcepcionValorObligatorio.class, "Se debe ingresar el precio por d√≠a del auto");
 	}
 	
 	@Test

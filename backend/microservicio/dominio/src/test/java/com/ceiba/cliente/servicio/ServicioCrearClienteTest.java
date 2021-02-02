@@ -39,7 +39,7 @@ public class ServicioCrearClienteTest {
         ClienteTestDataBuilder clienteTestDataBuilder = new ClienteTestDataBuilder().conDireccion(null);
         
         // act - assert
-        BasePrueba.assertThrows(() -> clienteTestDataBuilder.build(), ExcepcionValorObligatorio.class, "Se debe ingresar la direcciÛn del cliente");
+        BasePrueba.assertThrows(() -> clienteTestDataBuilder.build(), ExcepcionValorObligatorio.class, "Se debe ingresar la direcci√≥n del cliente");
 	}
 	
 	@Test
@@ -48,7 +48,7 @@ public class ServicioCrearClienteTest {
         ClienteTestDataBuilder clienteTestDataBuilder = new ClienteTestDataBuilder().conCedula(null);
         
         // act - assert
-        BasePrueba.assertThrows(() -> clienteTestDataBuilder.build(), ExcepcionValorObligatorio.class, "Se debe ingresar la cÈdula del cliente");
+        BasePrueba.assertThrows(() -> clienteTestDataBuilder.build(), ExcepcionValorObligatorio.class, "Se debe ingresar la c√©dula del cliente");
 	}
 	
 	@Test

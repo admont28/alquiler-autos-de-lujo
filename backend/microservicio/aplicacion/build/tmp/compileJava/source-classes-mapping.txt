@@ -16,23 +16,23 @@ com/ceiba/usuario/comando/fabrica/FabricaUsuario.java
  com.ceiba.usuario.comando.fabrica.FabricaUsuario
 com/ceiba/usuario/comando/ComandoUsuario.java
  com.ceiba.usuario.comando.ComandoUsuario
+com/ceiba/cliente/comando/ComandoCliente.java
+ com.ceiba.cliente.comando.ComandoCliente
 com/ceiba/cliente/comando/fabrica/FabricaCliente.java
  com.ceiba.cliente.comando.fabrica.FabricaCliente
 com/ceiba/cliente/comando/manejador/ManejadorEliminarCliente.java
  com.ceiba.cliente.comando.manejador.ManejadorEliminarCliente
-com/ceiba/cliente/comando/manejador/ManejadorActualizarCliente.java
- com.ceiba.cliente.comando.manejador.ManejadorActualizarCliente
-com/ceiba/cliente/comando/ComandoCliente.java
- com.ceiba.cliente.comando.ComandoCliente
+com/ceiba/alquiler/comando/manejador/ManejadorCrearAlquiler.java
+ com.ceiba.alquiler.comando.manejador.ManejadorCrearAlquiler
 com/ceiba/cliente/comando/manejador/ManejadorCrearCliente.java
  com.ceiba.cliente.comando.manejador.ManejadorCrearCliente
 com/ceiba/auto/comando/fabrica/FabricaAuto.java
  com.ceiba.auto.comando.fabrica.FabricaAuto
-com/ceiba/auto/comando/manejador/ManejadorActualizarAuto.java
- com.ceiba.auto.comando.manejador.ManejadorActualizarAuto
-com/ceiba/auto/comando/manejador/ManejadorCrearAuto.java
- com.ceiba.auto.comando.manejador.ManejadorCrearAuto
-com/ceiba/alquiler/comando/manejador/ManejadorCrearAlquiler.java
- com.ceiba.alquiler.comando.manejador.ManejadorCrearAlquiler
 com/ceiba/alquiler/comando/fabrica/FabricaAlquiler.java
  com.ceiba.alquiler.comando.fabrica.FabricaAlquiler
+com/ceiba/auto/comando/manejador/ManejadorCrearAuto.java
+ com.ceiba.auto.comando.manejador.ManejadorCrearAuto
+com/ceiba/auto/comando/manejador/ManejadorActualizarAuto.java
+ com.ceiba.auto.comando.manejador.ManejadorActualizarAuto
+com/ceiba/cliente/comando/manejador/ManejadorActualizarCliente.java
+ com.ceiba.cliente.comando.manejador.ManejadorActualizarCliente

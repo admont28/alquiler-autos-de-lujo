@@ -65,7 +65,7 @@ public class ServicioCrearAlquilerTest {
         AlquilerTestDataBuilder alquilerTestDataBuilder = new AlquilerTestDataBuilder().conFechaDevolucion(null);
         
         // act - assert
-        BasePrueba.assertThrows(() -> alquilerTestDataBuilder.build(), ExcepcionValorObligatorio.class, "Se debe ingresar la fecha de devoluciÛn del auto por parte del cliente");
+        BasePrueba.assertThrows(() -> alquilerTestDataBuilder.build(), ExcepcionValorObligatorio.class, "Se debe ingresar la fecha de devoluci√≥n del auto por parte del cliente");
 	}
 	
 	@Test
@@ -74,7 +74,7 @@ public class ServicioCrearAlquilerTest {
         AlquilerTestDataBuilder alquilerTestDataBuilder = new AlquilerTestDataBuilder().conFechaAlquiler(LocalDate.parse("2021-02-01")).conFechaDevolucion(LocalDate.parse("2021-01-31"));
         
         // act - assert
-        BasePrueba.assertThrows(() -> alquilerTestDataBuilder.build(), ExcepcionValorInvalido.class, "La fecha del alquiler debe ser menor a la fecha de devoluciÛn");
+        BasePrueba.assertThrows(() -> alquilerTestDataBuilder.build(), ExcepcionValorInvalido.class, "La fecha del alquiler debe ser menor a la fecha de devoluci√≥n");
 	}
 	
 	@Test
@@ -95,7 +95,7 @@ public class ServicioCrearAlquilerTest {
         ServicioCrearAlquiler servicioCrearAlquiler = new ServicioCrearAlquiler(repositorioAlquiler);
 		
         // act - assert
-        BasePrueba.assertThrows(() -> servicioCrearAlquiler.ejecutar(alquiler, alquiler.getAuto(), alquiler.getCliente()), ExcepcionNegocio.class, "El auto no est· disponible para alquilar");
+        BasePrueba.assertThrows(() -> servicioCrearAlquiler.ejecutar(alquiler, alquiler.getAuto(), alquiler.getCliente()), ExcepcionNegocio.class, "El auto no est√° disponible para alquilar");
 	}
 	
 	@Test
@@ -107,7 +107,7 @@ public class ServicioCrearAlquilerTest {
         ServicioCrearAlquiler servicioCrearAlquiler = new ServicioCrearAlquiler(repositorioAlquiler);
         
         // act - assert
-        BasePrueba.assertThrows(() -> servicioCrearAlquiler.ejecutar(alquiler, alquiler.getAuto(), alquiler.getCliente()), ExcepcionNegocio.class, "El cliente no est· activo");
+        BasePrueba.assertThrows(() -> servicioCrearAlquiler.ejecutar(alquiler, alquiler.getAuto(), alquiler.getCliente()), ExcepcionNegocio.class, "El cliente no est√° activo");
 	}
 	
 	@Test
