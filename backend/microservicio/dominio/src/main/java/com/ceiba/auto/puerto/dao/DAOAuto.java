@@ -4,11 +4,12 @@ import java.util.List;
 
 import com.ceiba.auto.modelo.dto.DTOAuto;
 
-public interface DaoAuto {
+public interface DAOAuto {
 
-    /**
-     * Permite obtener todos los autos
-     * @return el auto
-     */
+	/**
+	 * Permite obtener todos los autos
+	 * 
+	 * @return los autos
+	 */
 	List<DTOAuto> listar();
 }
