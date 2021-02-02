@@ -152,15 +152,57 @@ public class AlquilerTest {
 		DTOAlquiler dtoAlquiler = alquiler.convertirADTO();
         
         // assert
-        assertEquals(dtoAlquiler.getId(), alquiler.getId());
-        assertEquals(dtoAlquiler.getAutoId(), alquiler.getAuto().getId());
-        assertEquals(dtoAlquiler.getClienteId(), alquiler.getCliente().getId());
-        assertEquals(dtoAlquiler.getSubTotal(), alquiler.getSubTotal());
-        assertEquals(dtoAlquiler.getDescuento(), alquiler.getDescuento());
-        assertEquals(dtoAlquiler.getTotal(), alquiler.getTotal());
-        assertEquals(dtoAlquiler.getFechaAlquiler(), alquiler.getFechaAlquiler());
-        assertEquals(dtoAlquiler.getFechaDevolucion(), alquiler.getFechaDevolucion());
-        assertEquals(dtoAlquiler.getFechaCreacion(), alquiler.getFechaCreacion());
+        assertEquals(alquiler.getId(), dtoAlquiler.getId());
+        assertEquals(alquiler.getAuto().getId(), dtoAlquiler.getAutoId());
+        assertEquals(alquiler.getCliente().getId(), dtoAlquiler.getClienteId());
+        assertEquals(alquiler.getSubTotal(), dtoAlquiler.getSubTotal());
+        assertEquals(alquiler.getDescuento(), dtoAlquiler.getDescuento());
+        assertEquals(alquiler.getTotal(), dtoAlquiler.getTotal());
+        assertEquals(alquiler.getFechaAlquiler(), dtoAlquiler.getFechaAlquiler());
+        assertEquals(alquiler.getFechaDevolucion(), dtoAlquiler.getFechaDevolucion());
+        assertEquals(alquiler.getFechaCreacion(), dtoAlquiler.getFechaCreacion());
+	}
+	
+	@Test
+	public void validarConvertirADTOAutoNulo() {
+		// arrange
+		Alquiler alquiler = new AlquilerTestDataBuilder().build();
+		alquiler.setAuto(null);
+		
+		// act
+		DTOAlquiler dtoAlquiler = alquiler.convertirADTO();
+        
+        // assert
+		assertEquals(alquiler.getId(), dtoAlquiler.getId());
+        assertEquals(null, dtoAlquiler.getAutoId());
+        assertEquals(alquiler.getCliente().getId(), dtoAlquiler.getClienteId());
+        assertEquals(alquiler.getSubTotal(), dtoAlquiler.getSubTotal());
+        assertEquals(alquiler.getDescuento(), dtoAlquiler.getDescuento());
+        assertEquals(alquiler.getTotal(), dtoAlquiler.getTotal());
+        assertEquals(alquiler.getFechaAlquiler(), dtoAlquiler.getFechaAlquiler());
+        assertEquals(alquiler.getFechaDevolucion(), dtoAlquiler.getFechaDevolucion());
+        assertEquals(alquiler.getFechaCreacion(), dtoAlquiler.getFechaCreacion());
+	}
+	
+	@Test
+	public void validarConvertirADTOClienteNulo() {
+		// arrange
+		Alquiler alquiler = new AlquilerTestDataBuilder().build();
+		alquiler.setCliente(null);
+		
+		// act
+		DTOAlquiler dtoAlquiler = alquiler.convertirADTO();
+        
+        // assert
+		assertEquals(alquiler.getId(), dtoAlquiler.getId());
+        assertEquals(alquiler.getAuto().getId(), dtoAlquiler.getAutoId());
+        assertEquals(null, dtoAlquiler.getClienteId());
+        assertEquals(alquiler.getSubTotal(), dtoAlquiler.getSubTotal());
+        assertEquals(alquiler.getDescuento(), dtoAlquiler.getDescuento());
+        assertEquals(alquiler.getTotal(), dtoAlquiler.getTotal());
+        assertEquals(alquiler.getFechaAlquiler(), dtoAlquiler.getFechaAlquiler());
+        assertEquals(alquiler.getFechaDevolucion(), dtoAlquiler.getFechaDevolucion());
+        assertEquals(alquiler.getFechaCreacion(), dtoAlquiler.getFechaCreacion());
 	}
 
 }
