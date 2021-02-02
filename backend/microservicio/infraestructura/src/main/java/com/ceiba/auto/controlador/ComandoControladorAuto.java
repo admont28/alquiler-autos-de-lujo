@@ -36,12 +36,6 @@ public class ComandoControladorAuto {
         return manejadorCrearAuto.ejecutar(comandoAuto);
     }
 
-//    @DeleteMapping(value="/{id}")
-//	@ApiOperation("Eliminar Usuario")
-//	public void eliminar(@PathVariable Long id) {
-//		manejadorEliminarUsuario.ejecutar(id);
-//	}
-//
 	@PutMapping(value="/{id}")
 	@ApiOperation("Actualizar A")
 	public void actualizar(@RequestBody ComandoAuto comandoAuto, @PathVariable Long id) {
