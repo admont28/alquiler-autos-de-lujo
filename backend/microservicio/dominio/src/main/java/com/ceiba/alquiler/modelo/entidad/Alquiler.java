@@ -21,12 +21,6 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Alquiler {
-
-//	private static final String SE_DEBE_INGRESAR_EL_AUTO_DEL_ALQUILER = "Se debe ingresar el auto del alquiler";
-//	private static final String SE_DEBE_INGRESAR_EL_CLIENTE_DEL_ALQUILER = "Se debe ingresar el cliente del alquiler";
-//	private static final String SE_DEBE_INGRESAR_EL_SUB_TOTAL_DEL_ALQUILER = "Se debe ingresar el sub total del alquiler";
-//	private static final String SE_DEBE_INGRESAR_EL_DESCUENTO_DEL_ALQUILER = "Se debe ingresar el descuento del alquiler";
-//	private static final String SE_DEBE_INGRESAR_EL_TOTAL_DEL_ALQUILER = "Se debe ingresar el total del alquiler";
 	private static final String SE_DEBE_INGRESAR_LA_FECHA_DEL_ALQUILER = "Se debe ingresar la fecha de entrega del auto al cliente";
 	private static final String SE_DEBE_INGRESAR_LA_FECHA_DE_DEVOLUCION_DEL_ALQUILER = "Se debe ingresar la fecha de devolución del auto por parte del cliente";
 	private static final String LA_FECHA_DEL_ALQUILER_DEBE_SER_MENOR_A_LA_FECHA_DE_DEVOLUCION = "La fecha del alquiler debe ser menor a la fecha de devolución";
@@ -39,7 +33,6 @@ public class Alquiler {
 	// Descuento del 3%
 	private static final double PORCENTAJE_DESCUENTO_POR_DIA_DEL_MES_DEL_ALQUILER = 0.03;
 	
-	
 	private Long id;
 	private Auto auto;
 	private Cliente cliente;
@@ -51,18 +44,11 @@ public class Alquiler {
 	private LocalDateTime fechaCreacion;
 	
 	public Alquiler(Long id, LocalDate fechaAlquiler, LocalDate fechaEntrega) {
-//		validarObligatorio(auto, SE_DEBE_INGRESAR_EL_AUTO_DEL_ALQUILER);
-//		validarObligatorio(cliente, SE_DEBE_INGRESAR_EL_CLIENTE_DEL_ALQUILER);
-//		validarObligatorio(subTotal, SE_DEBE_INGRESAR_EL_SUB_TOTAL_DEL_ALQUILER);
-//		validarObligatorio(descuento, SE_DEBE_INGRESAR_EL_DESCUENTO_DEL_ALQUILER);
-//		validarObligatorio(total, SE_DEBE_INGRESAR_EL_TOTAL_DEL_ALQUILER);
 		validarObligatorio(fechaAlquiler, SE_DEBE_INGRESAR_LA_FECHA_DEL_ALQUILER);
 		validarObligatorio(fechaEntrega, SE_DEBE_INGRESAR_LA_FECHA_DE_DEVOLUCION_DEL_ALQUILER);
 		validarMenor(fechaAlquiler.atStartOfDay(), fechaEntrega.atStartOfDay(), LA_FECHA_DEL_ALQUILER_DEBE_SER_MENOR_A_LA_FECHA_DE_DEVOLUCION);
 		
 		this.id = id;
-//		this.auto = auto;
-//		this.cliente = cliente;
 		this.subTotal = 0.0;
 		this.descuento = 0.0;
 		this.total = 0.0;

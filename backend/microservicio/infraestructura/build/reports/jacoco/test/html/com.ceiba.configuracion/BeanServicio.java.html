@@ -12,57 +12,38 @@ import com.ceiba.cliente.puerto.repositorio.RepositorioCliente;
 import com.ceiba.cliente.servicio.ServicioActualizarCliente;
 import com.ceiba.cliente.servicio.ServicioCrearCliente;
 import com.ceiba.cliente.servicio.ServicioEliminarCliente;
-import com.ceiba.usuario.puerto.repositorio.RepositorioUsuario;
-import com.ceiba.usuario.servicio.ServicioActualizarUsuario;
-import com.ceiba.usuario.servicio.ServicioCrearUsuario;
-import com.ceiba.usuario.servicio.ServicioEliminarUsuario;
 
 @Configuration
-<span class="fc" id="L21">public class BeanServicio {</span>
-
-    @Bean
-    public ServicioCrearUsuario servicioCrearUsuario(RepositorioUsuario repositorioUsuario) {
-<span class="fc" id="L25">        return new ServicioCrearUsuario(repositorioUsuario);</span>
-    }
-
-    @Bean
-    public ServicioEliminarUsuario servicioEliminarUsuario(RepositorioUsuario repositorioUsuario) {
-<span class="fc" id="L30">        return new ServicioEliminarUsuario(repositorioUsuario);</span>
-    }
-
-    @Bean
-    public ServicioActualizarUsuario servicioActualizarUsuario(RepositorioUsuario repositorioUsuario) {
-<span class="fc" id="L35">        return new ServicioActualizarUsuario(repositorioUsuario);</span>
-    }
-    
+<span class="fc" id="L17">public class BeanServicio {</span>
+	
     @Bean
     public ServicioCrearAuto servicioCrearAuto(RepositorioAuto repositorioAuto) {
-<span class="fc" id="L40">    	return new ServicioCrearAuto(repositorioAuto);</span>
+<span class="fc" id="L21">    	return new ServicioCrearAuto(repositorioAuto);</span>
     }
     
     @Bean
     public ServicioActualizarAuto servicioActualizarAuto(RepositorioAuto repositorioAuto) {
-<span class="fc" id="L45">    	return new ServicioActualizarAuto(repositorioAuto);</span>
+<span class="fc" id="L26">    	return new ServicioActualizarAuto(repositorioAuto);</span>
     }
     
     @Bean
     public ServicioCrearCliente servicioCrearCliente(RepositorioCliente repositorioCliente) {
-<span class="fc" id="L50">    	return new ServicioCrearCliente(repositorioCliente);</span>
+<span class="fc" id="L31">    	return new ServicioCrearCliente(repositorioCliente);</span>
     }
     
     @Bean
     public ServicioActualizarCliente servicioActualizarCliente(RepositorioCliente repositorioCliente) {
-<span class="fc" id="L55">    	return new ServicioActualizarCliente(repositorioCliente);</span>
+<span class="fc" id="L36">    	return new ServicioActualizarCliente(repositorioCliente);</span>
     }
     
     @Bean
     public ServicioEliminarCliente servicioEliminarCliente(RepositorioCliente repositorioCliente) {
-<span class="fc" id="L60">    	return new ServicioEliminarCliente(repositorioCliente);</span>
+<span class="fc" id="L41">    	return new ServicioEliminarCliente(repositorioCliente);</span>
     }
 	
     @Bean
     public ServicioCrearAlquiler servicioCrearAlquiler(RepositorioAlquiler repositorioAlquiler) {
-<span class="fc" id="L65">    	return new ServicioCrearAlquiler(repositorioAlquiler);</span>
+<span class="fc" id="L46">    	return new ServicioCrearAlquiler(repositorioAlquiler);</span>
     }
 
 }

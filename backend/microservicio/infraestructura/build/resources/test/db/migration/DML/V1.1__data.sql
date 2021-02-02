@@ -1,5 +1,3 @@
-insert into usuario(nombre,clave,fecha_creacion) values('test','1234',now());
-
 INSERT INTO auto
 (id, serial, nombre, modelo, precio_dia, estado, fecha_creacion)
 VALUES(1, 'serial-4321', 'BMW I3', '2021', 120000.00, 'DISPONIBLE', '2021-01-30 23:15:00');

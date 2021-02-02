@@ -21,24 +21,17 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Alquiler {
-
-//	private static final String SE_DEBE_INGRESAR_EL_AUTO_DEL_ALQUILER = &quot;Se debe ingresar el auto del alquiler&quot;;
-//	private static final String SE_DEBE_INGRESAR_EL_CLIENTE_DEL_ALQUILER = &quot;Se debe ingresar el cliente del alquiler&quot;;
-//	private static final String SE_DEBE_INGRESAR_EL_SUB_TOTAL_DEL_ALQUILER = &quot;Se debe ingresar el sub total del alquiler&quot;;
-//	private static final String SE_DEBE_INGRESAR_EL_DESCUENTO_DEL_ALQUILER = &quot;Se debe ingresar el descuento del alquiler&quot;;
-//	private static final String SE_DEBE_INGRESAR_EL_TOTAL_DEL_ALQUILER = &quot;Se debe ingresar el total del alquiler&quot;;
 	private static final String SE_DEBE_INGRESAR_LA_FECHA_DEL_ALQUILER = &quot;Se debe ingresar la fecha de entrega del auto al cliente&quot;;
 	private static final String SE_DEBE_INGRESAR_LA_FECHA_DE_DEVOLUCION_DEL_ALQUILER = &quot;Se debe ingresar la fecha de devoluciÃ³n del auto por parte del cliente&quot;;
 	private static final String LA_FECHA_DEL_ALQUILER_DEBE_SER_MENOR_A_LA_FECHA_DE_DEVOLUCION = &quot;La fecha del alquiler debe ser menor a la fecha de devoluciÃ³n&quot;;
 	private static final String SOLO_SE_PERMITE_CREAR_EL_ALQUILER_DE_LUNES_A_VIERNES = &quot;Solo se permite crear el alquiler de Lunes a Viernes&quot;;
 	
 	private static final int CANTIDAD_DIAS_PARA_OBTENER_DESCUENTO = 15;
-<span class="fc" id="L36">	private static final int[] DIAS_DEL_MES_PARA_OBTENER_DESCUENTO = {1, 2, 3, 4, 5};</span>
+<span class="fc" id="L30">	private static final int[] DIAS_DEL_MES_PARA_OBTENER_DESCUENTO = {1, 2, 3, 4, 5};</span>
 	// Descuento del 5%
 	private static final double PORCENTAJE_DESCUENTO_POR_CANTIDAD_DE_DIAS_DE_ALQUILER = 0.05;
 	// Descuento del 3%
 	private static final double PORCENTAJE_DESCUENTO_POR_DIA_DEL_MES_DEL_ALQUILER = 0.03;
-	
 	
 	private Long id;
 	private Auto auto;
@@ -50,73 +43,66 @@ public class Alquiler {
 	private LocalDate fechaDevolucion;
 	private LocalDateTime fechaCreacion;
 	
-<span class="fc" id="L53">	public Alquiler(Long id, LocalDate fechaAlquiler, LocalDate fechaEntrega) {</span>
-//		validarObligatorio(auto, SE_DEBE_INGRESAR_EL_AUTO_DEL_ALQUILER);
-//		validarObligatorio(cliente, SE_DEBE_INGRESAR_EL_CLIENTE_DEL_ALQUILER);
-//		validarObligatorio(subTotal, SE_DEBE_INGRESAR_EL_SUB_TOTAL_DEL_ALQUILER);
-//		validarObligatorio(descuento, SE_DEBE_INGRESAR_EL_DESCUENTO_DEL_ALQUILER);
-//		validarObligatorio(total, SE_DEBE_INGRESAR_EL_TOTAL_DEL_ALQUILER);
-<span class="fc" id="L59">		validarObligatorio(fechaAlquiler, SE_DEBE_INGRESAR_LA_FECHA_DEL_ALQUILER);</span>
-<span class="fc" id="L60">		validarObligatorio(fechaEntrega, SE_DEBE_INGRESAR_LA_FECHA_DE_DEVOLUCION_DEL_ALQUILER);</span>
-<span class="fc" id="L61">		validarMenor(fechaAlquiler.atStartOfDay(), fechaEntrega.atStartOfDay(), LA_FECHA_DEL_ALQUILER_DEBE_SER_MENOR_A_LA_FECHA_DE_DEVOLUCION);</span>
+<span class="fc" id="L46">	public Alquiler(Long id, LocalDate fechaAlquiler, LocalDate fechaEntrega) {</span>
+<span class="fc" id="L47">		validarObligatorio(fechaAlquiler, SE_DEBE_INGRESAR_LA_FECHA_DEL_ALQUILER);</span>
+<span class="fc" id="L48">		validarObligatorio(fechaEntrega, SE_DEBE_INGRESAR_LA_FECHA_DE_DEVOLUCION_DEL_ALQUILER);</span>
+<span class="fc" id="L49">		validarMenor(fechaAlquiler.atStartOfDay(), fechaEntrega.atStartOfDay(), LA_FECHA_DEL_ALQUILER_DEBE_SER_MENOR_A_LA_FECHA_DE_DEVOLUCION);</span>
 		
-<span class="fc" id="L63">		this.id = id;</span>
-//		this.auto = auto;
-//		this.cliente = cliente;
-<span class="fc" id="L66">		this.subTotal = 0.0;</span>
-<span class="fc" id="L67">		this.descuento = 0.0;</span>
-<span class="fc" id="L68">		this.total = 0.0;</span>
-<span class="fc" id="L69">		this.fechaAlquiler = fechaAlquiler;</span>
-<span class="fc" id="L70">		this.fechaDevolucion = fechaEntrega;</span>
-<span class="fc" id="L71">		this.fechaCreacion = LocalDateTime.now();</span>
-<span class="fc" id="L72">	}</span>
+<span class="fc" id="L51">		this.id = id;</span>
+<span class="fc" id="L52">		this.subTotal = 0.0;</span>
+<span class="fc" id="L53">		this.descuento = 0.0;</span>
+<span class="fc" id="L54">		this.total = 0.0;</span>
+<span class="fc" id="L55">		this.fechaAlquiler = fechaAlquiler;</span>
+<span class="fc" id="L56">		this.fechaDevolucion = fechaEntrega;</span>
+<span class="fc" id="L57">		this.fechaCreacion = LocalDateTime.now();</span>
+<span class="fc" id="L58">	}</span>
 
 	public void asignarAuto(Auto auto) {
-<span class="fc" id="L75">		this.auto = auto;</span>
-<span class="fc" id="L76">	}</span>
+<span class="fc" id="L61">		this.auto = auto;</span>
+<span class="fc" id="L62">	}</span>
 
 	public void asignarCliente(Cliente cliente) {
-<span class="fc" id="L79">		this.cliente = cliente;</span>
-<span class="fc" id="L80">	}</span>
+<span class="fc" id="L65">		this.cliente = cliente;</span>
+<span class="fc" id="L66">	}</span>
 	
 	public void calcularSubTotal() {
-<span class="fc" id="L83">		long diasAlquiler = ChronoUnit.DAYS.between(this.fechaAlquiler, this.fechaDevolucion) + 1;</span>
-<span class="fc" id="L84">		this.subTotal = this.auto.getPrecioPorDia() * diasAlquiler;</span>
-<span class="fc" id="L85">	}</span>
+<span class="fc" id="L69">		long diasAlquiler = ChronoUnit.DAYS.between(this.fechaAlquiler, this.fechaDevolucion) + 1;</span>
+<span class="fc" id="L70">		this.subTotal = this.auto.getPrecioPorDia() * diasAlquiler;</span>
+<span class="fc" id="L71">	}</span>
 	
 	public void calcularDescuentos() {
-<span class="fc" id="L88">		long diasAlquiler = ChronoUnit.DAYS.between(this.fechaAlquiler, this.fechaDevolucion) + 1;</span>
-<span class="fc" id="L89">		this.descuento = 0.0;</span>
+<span class="fc" id="L74">		long diasAlquiler = ChronoUnit.DAYS.between(this.fechaAlquiler, this.fechaDevolucion) + 1;</span>
+<span class="fc" id="L75">		this.descuento = 0.0;</span>
 		
 		// Si el alquiler del auto supera los 15 dï¿½as, el cliente recibirï¿½ un descuento del 5% sobre el total del alquiler.
-<span class="fc bfc" id="L92" title="All 2 branches covered.">		if (diasAlquiler &gt; CANTIDAD_DIAS_PARA_OBTENER_DESCUENTO) {</span>
-<span class="fc" id="L93">			this.descuento += this.subTotal * PORCENTAJE_DESCUENTO_POR_CANTIDAD_DE_DIAS_DE_ALQUILER;</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">		if (diasAlquiler &gt; CANTIDAD_DIAS_PARA_OBTENER_DESCUENTO) {</span>
+<span class="fc" id="L79">			this.descuento += this.subTotal * PORCENTAJE_DESCUENTO_POR_CANTIDAD_DE_DIAS_DE_ALQUILER;</span>
 		}
 		
 		// Si el alquiler del auto se realiza los primeros 5 dï¿½as de cada mes, el cliente recibirï¿½ un descuento adicional del 3% sobre el total del alquiler.
-<span class="fc bfc" id="L97" title="All 4 branches covered.">		if (Arrays.stream(DIAS_DEL_MES_PARA_OBTENER_DESCUENTO).anyMatch( dia -&gt; dia == this.fechaCreacion.getDayOfMonth())) {</span>
-<span class="fc" id="L98">			this.descuento += this.subTotal * PORCENTAJE_DESCUENTO_POR_DIA_DEL_MES_DEL_ALQUILER;</span>
+<span class="fc bfc" id="L83" title="All 4 branches covered.">		if (Arrays.stream(DIAS_DEL_MES_PARA_OBTENER_DESCUENTO).anyMatch( dia -&gt; dia == this.fechaCreacion.getDayOfMonth())) {</span>
+<span class="fc" id="L84">			this.descuento += this.subTotal * PORCENTAJE_DESCUENTO_POR_DIA_DEL_MES_DEL_ALQUILER;</span>
 		}
-<span class="fc" id="L100">	}</span>
+<span class="fc" id="L86">	}</span>
 	
 	public void calcularTotal() {
-<span class="fc" id="L103">		this.total = this.subTotal - this.descuento;</span>
-<span class="fc" id="L104">	}</span>
+<span class="fc" id="L89">		this.total = this.subTotal - this.descuento;</span>
+<span class="fc" id="L90">	}</span>
 	
 	public void validarFechaCreacionLunesAViernes() {
-<span class="fc bfc" id="L107" title="All 2 branches covered.">		switch (this.fechaCreacion.getDayOfWeek()) {</span>
+<span class="fc bfc" id="L93" title="All 2 branches covered.">		switch (this.fechaCreacion.getDayOfWeek()) {</span>
 			case SATURDAY:
 			case SUNDAY:
-<span class="fc" id="L110">				throw new ExcepcionNegocio(SOLO_SE_PERMITE_CREAR_EL_ALQUILER_DE_LUNES_A_VIERNES);</span>
+<span class="fc" id="L96">				throw new ExcepcionNegocio(SOLO_SE_PERMITE_CREAR_EL_ALQUILER_DE_LUNES_A_VIERNES);</span>
 			default:
 				break;
 		}
-<span class="fc" id="L114">	}</span>
+<span class="fc" id="L100">	}</span>
 	
 	public DTOAlquiler toDTO() {
-<span class="nc bnc" id="L117" title="All 2 branches missed.">		Long autoId = auto != null ? auto.getId() : null;</span>
-<span class="nc bnc" id="L118" title="All 2 branches missed.">		Long clienteId = cliente != null ? cliente.getId() : null;</span>
-<span class="nc" id="L119">		return DTOAlquiler.builder().id(id).autoId(autoId).clienteId(clienteId).subTotal(subTotal).descuento(descuento).total(total).fechaAlquiler(fechaAlquiler).fechaDevolucion(fechaDevolucion).fechaCreacion(fechaCreacion).build();</span>
+<span class="nc bnc" id="L103" title="All 2 branches missed.">		Long autoId = auto != null ? auto.getId() : null;</span>
+<span class="nc bnc" id="L104" title="All 2 branches missed.">		Long clienteId = cliente != null ? cliente.getId() : null;</span>
+<span class="nc" id="L105">		return DTOAlquiler.builder().id(id).autoId(autoId).clienteId(clienteId).subTotal(subTotal).descuento(descuento).total(total).fechaAlquiler(fechaAlquiler).fechaDevolucion(fechaDevolucion).fechaCreacion(fechaCreacion).build();</span>
 	}
 	
 }

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.ceiba.cliente.servicio.ServicioCrearClienteTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2021-02-02T04:58:14" hostname="ANDRES-MONTOYA" time="0.012">
+<testsuite name="com.ceiba.cliente.servicio.ServicioCrearClienteTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2021-02-02T05:49:03" hostname="ANDRES-MONTOYA" time="0.006">
   <properties/>
-  <testcase name="crearClienteTest" classname="com.ceiba.cliente.servicio.ServicioCrearClienteTest" time="0.008"/>
+  <testcase name="crearClienteTest" classname="com.ceiba.cliente.servicio.ServicioCrearClienteTest" time="0.001"/>
   <testcase name="validarCambioEstadoClienteEliminadoTest" classname="com.ceiba.cliente.servicio.ServicioCrearClienteTest" time="0.0"/>
-  <testcase name="validarDireccionClienteTest" classname="com.ceiba.cliente.servicio.ServicioCrearClienteTest" time="0.0"/>
-  <testcase name="validarApellidoClienteTest" classname="com.ceiba.cliente.servicio.ServicioCrearClienteTest" time="0.001"/>
+  <testcase name="validarDireccionClienteTest" classname="com.ceiba.cliente.servicio.ServicioCrearClienteTest" time="0.001"/>
+  <testcase name="validarApellidoClienteTest" classname="com.ceiba.cliente.servicio.ServicioCrearClienteTest" time="0.0"/>
   <testcase name="validarNombreClienteTest" classname="com.ceiba.cliente.servicio.ServicioCrearClienteTest" time="0.0"/>
   <testcase name="validarClienteExistenciaPreviaTest" classname="com.ceiba.cliente.servicio.ServicioCrearClienteTest" time="0.001"/>
   <testcase name="validarCedulaClienteTest" classname="com.ceiba.cliente.servicio.ServicioCrearClienteTest" time="0.001"/>

@@ -2,19 +2,19 @@ package com.ceiba.auto.consulta;
 
 import java.util.List;
 
-import com.ceiba.usuario.puerto.dao.DaoUsuario;
 import org.springframework.stereotype.Component;
 
-import com.ceiba.usuario.modelo.dto.DtoUsuario;
+import com.ceiba.auto.modelo.dto.DTOAuto;
+import com.ceiba.auto.puerto.dao.DaoAuto;
 
 @Component
 public class ManejadorObtenerAuto {
 
-    private final DaoUsuario daoUsuario;
+    private final DaoAuto daoAuto;
 
-    public ManejadorObtenerAuto(DaoUsuario daoUsuario){
-        this.daoUsuario = daoUsuario;
+    public ManejadorObtenerAuto(DaoAuto daoAuto){
+        this.daoAuto = daoAuto;
     }
 
-    public List<DtoUsuario> ejecutar(){ return this.daoUsuario.listar(); }
+    public List<DTOAuto> ejecutar(){ return this.daoAuto.listar(); }
 }

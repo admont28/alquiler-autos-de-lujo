@@ -1,12 +1,14 @@
 package com.ceiba.auto.puerto.dao;
 
-import com.ceiba.auto.modelo.entidad.Auto;
+import java.util.List;
+
+import com.ceiba.auto.modelo.dto.DTOAuto;
 
 public interface DaoAuto {
 
     /**
-     * Permite obtener un auto
+     * Permite obtener todos los autos
      * @return el auto
      */
-    Auto obtener(Long id);
+	List<DTOAuto> listar();
 }
