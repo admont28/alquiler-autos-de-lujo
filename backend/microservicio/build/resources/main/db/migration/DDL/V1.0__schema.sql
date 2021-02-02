@@ -12,7 +12,7 @@ create table auto (
  nombre varchar(100) not null,
  modelo varchar(45) not null,
  precio_dia decimal(10,2) not null,
- -- estado enum('DISPONIBLE', 'ELIMINADO', 'ALQUILADO', 'MANTENIMIENTO') not null default 'DISPONIBLE',
+/* estado enum('DISPONIBLE', 'ELIMINADO', 'ALQUILADO', 'MANTENIMIENTO') not null default 'DISPONIBLE', */
  estado varchar(100) NOT NULL DEFAULT 'DISPONIBLE',
  fecha_creacion datetime NULL DEFAULT now(),
  primary key (id)
@@ -24,7 +24,7 @@ create table cliente (
  apellido varchar(100) not null,
  direccion varchar(256) not null,
  cedula varchar(100) not null,
- --estado enum('ACTIVO', 'ELIMINADO') not NULL DEFAULT 'ACTIVO',
+/* estado enum('ACTIVO', 'ELIMINADO') not NULL DEFAULT 'ACTIVO', */
  estado varchar(100) NOT NULL DEFAULT 'ACTIVO',
  fecha_creacion datetime NULL DEFAULT now(),
  primary key (id)

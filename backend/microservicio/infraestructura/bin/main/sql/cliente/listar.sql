@@ -1,2 +1,2 @@
-select id, serial, nombre, modelo, precio_dia, estado, fecha_creacion
-from auto
+SELECT id, nombre, apellido, direccion, cedula, estado, fecha_creacion
+FROM cliente

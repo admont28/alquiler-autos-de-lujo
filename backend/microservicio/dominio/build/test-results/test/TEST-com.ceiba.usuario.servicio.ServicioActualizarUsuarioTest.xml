@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.ceiba.usuario.servicio.ServicioActualizarUsuarioTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-02-01T22:06:48" hostname="ANDRES-MONTOYA" time="0.009">
+<testsuite name="com.ceiba.usuario.servicio.ServicioActualizarUsuarioTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-02-02T04:40:52" hostname="ANDRES-MONTOYA" time="0.007">
   <properties/>
-  <testcase name="validarUsuarioExistenciaPreviaTest" classname="com.ceiba.usuario.servicio.ServicioActualizarUsuarioTest" time="0.009"/>
+  <testcase name="validarUsuarioExistenciaPreviaTest" classname="com.ceiba.usuario.servicio.ServicioActualizarUsuarioTest" time="0.007"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

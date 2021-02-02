@@ -1,1 +1,1 @@
-select count(1) from auto where serial = :serial
+select count(1) from cliente where cedula = :cedula

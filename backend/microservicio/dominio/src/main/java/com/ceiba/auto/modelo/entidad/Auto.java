@@ -4,6 +4,7 @@ import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 
 import java.time.LocalDateTime;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,7 +12,6 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@Builder
 @ToString
 public class Auto {
 
@@ -28,7 +28,7 @@ public class Auto {
 	private EstadoAuto estado;
 	private LocalDateTime fechaCreacion;
 
-	public Auto(Long id, String serial, String nombre, String modelo, Double precioPorDia, EstadoAuto estado, LocalDateTime fechaCreacion) {
+	public Auto(Long id, String serial, String nombre, String modelo, Double precioPorDia) {
 		validarObligatorio(serial, SE_DEBE_INGRESAR_EL_SERIAL_DEL_AUTO);
 		validarObligatorio(nombre, SE_DEBE_INGRESAR_EL_NOMBRE_DEL_AUTO);
 		validarObligatorio(modelo, SE_DEBE_INGRESAR_EL_MODELO_DEL_AUTO);
@@ -39,8 +39,8 @@ public class Auto {
 		this.nombre = nombre;
 		this.modelo = modelo;
 		this.precioPorDia = precioPorDia;
-		this.estado = estado;
-		this.fechaCreacion = fechaCreacion;
+		this.estado = EstadoAuto.DISPONIBLE;
+		this.fechaCreacion = LocalDateTime.now();
 	}
 	
 	public void cambiarEstadoAutoAlquilado() {

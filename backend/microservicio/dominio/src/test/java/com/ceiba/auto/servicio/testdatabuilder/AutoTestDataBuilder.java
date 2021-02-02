@@ -20,7 +20,7 @@ public class AutoTestDataBuilder {
 		this.serial = "1234";
 		this.nombre = "Auto 1";
 		this.modelo = "2021";
-		this.precioPorDia = 120000.00;
+		this.precioPorDia = 100000.00;
 		this.estado = EstadoAuto.DISPONIBLE;
 		this.fechaCreacion = LocalDateTime.now();
 	}
@@ -61,6 +61,9 @@ public class AutoTestDataBuilder {
     }
 
 	public Auto build() {
-		return new Auto(id, serial, nombre, modelo, precioPorDia, estado, fechaCreacion);
+		Auto auto = new Auto(id, serial, nombre, modelo, precioPorDia);
+		auto.setEstado(estado);
+		auto.setFechaCreacion(fechaCreacion);
+		return auto;
 	}
 }

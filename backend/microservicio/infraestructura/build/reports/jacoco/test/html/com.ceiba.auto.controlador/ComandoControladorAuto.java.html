@@ -33,7 +33,7 @@ public class ComandoControladorAuto {
     @PostMapping
     @ApiOperation(&quot;Crear Auto&quot;)
     public ComandoRespuesta&lt;Long&gt; crear(@RequestBody ComandoAuto comandoAuto) {
-<span class="nc" id="L36">        return manejadorCrearAuto.ejecutar(comandoAuto);</span>
+<span class="fc" id="L36">        return manejadorCrearAuto.ejecutar(comandoAuto);</span>
     }
 
 //    @DeleteMapping(value=&quot;/{id}&quot;)
@@ -45,8 +45,8 @@ public class ComandoControladorAuto {
 	@PutMapping(value=&quot;/{id}&quot;)
 	@ApiOperation(&quot;Actualizar A&quot;)
 	public void actualizar(@RequestBody ComandoAuto comandoAuto, @PathVariable Long id) {
-<span class="nc" id="L48">		comandoAuto.setId(id);</span>
-<span class="nc" id="L49">		manejadorActualizarAuto.ejecutar(comandoAuto);</span>
-<span class="nc" id="L50">	}</span>
+<span class="fc" id="L48">		comandoAuto.setId(id);</span>
+<span class="fc" id="L49">		manejadorActualizarAuto.ejecutar(comandoAuto);</span>
+<span class="fc" id="L50">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

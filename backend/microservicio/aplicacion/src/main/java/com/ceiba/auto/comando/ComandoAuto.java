@@ -1,9 +1,5 @@
 package com.ceiba.auto.comando;
 
-import java.time.LocalDateTime;
-
-import com.ceiba.auto.modelo.entidad.EstadoAuto;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,6 +16,4 @@ public class ComandoAuto {
 	private String nombre;
 	private String modelo;
 	private Double precioPorDia;
-	private EstadoAuto estado;
-	private LocalDateTime fechaCreacion;
 }

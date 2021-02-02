@@ -35,7 +35,7 @@ public class RepositorioAutoMysql implements RepositorioAuto {
 
     @Override
     public Long crear(Auto auto) {
-<span class="nc" id="L38">        return this.customNamedParameterJdbcTemplate.crear(auto, sqlCrear);</span>
+<span class="fc" id="L38">        return this.customNamedParameterJdbcTemplate.crear(auto, sqlCrear);</span>
     }
     
     @Override
@@ -47,24 +47,24 @@ public class RepositorioAutoMysql implements RepositorioAuto {
 
     @Override
     public boolean existe(String serial) {
-<span class="nc" id="L50">        MapSqlParameterSource paramSource = new MapSqlParameterSource();</span>
-<span class="nc" id="L51">        paramSource.addValue(&quot;serial&quot;, serial);</span>
+<span class="fc" id="L50">        MapSqlParameterSource paramSource = new MapSqlParameterSource();</span>
+<span class="fc" id="L51">        paramSource.addValue(&quot;serial&quot;, serial);</span>
 
-<span class="nc" id="L53">        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource, Boolean.class);</span>
+<span class="fc" id="L53">        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource, Boolean.class);</span>
     }
 
     @Override
     public void actualizar(Auto auto) {
-<span class="nc" id="L58">        this.customNamedParameterJdbcTemplate.actualizar(auto, sqlActualizar);</span>
-<span class="nc" id="L59">    }</span>
+<span class="fc" id="L58">        this.customNamedParameterJdbcTemplate.actualizar(auto, sqlActualizar);</span>
+<span class="fc" id="L59">    }</span>
 
     @Override
     public boolean existeExcluyendoId(Long id, String serial) {
-<span class="nc" id="L63">        MapSqlParameterSource paramSource = new MapSqlParameterSource();</span>
-<span class="nc" id="L64">        paramSource.addValue(&quot;id&quot;, id);</span>
-<span class="nc" id="L65">        paramSource.addValue(&quot;serial&quot;, serial);</span>
+<span class="fc" id="L63">        MapSqlParameterSource paramSource = new MapSqlParameterSource();</span>
+<span class="fc" id="L64">        paramSource.addValue(&quot;id&quot;, id);</span>
+<span class="fc" id="L65">        paramSource.addValue(&quot;serial&quot;, serial);</span>
 
-<span class="nc" id="L67">        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteExcluyendoId,paramSource, Boolean.class);</span>
+<span class="fc" id="L67">        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteExcluyendoId,paramSource, Boolean.class);</span>
     }
 
 }

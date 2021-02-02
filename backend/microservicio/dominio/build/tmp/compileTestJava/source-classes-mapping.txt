@@ -7,9 +7,21 @@ com/ceiba/usuario/servicio/ServicioActualizarUsuarioTest.java
  com.ceiba.usuario.servicio.ServicioActualizarUsuarioTest
 com/ceiba/usuario/servicio/ServicioCrearUsuarioTest.java
  com.ceiba.usuario.servicio.ServicioCrearUsuarioTest
-com/ceiba/auto/servicio/testdatabuilder/AutoTestDataBuilder.java
- com.ceiba.auto.servicio.testdatabuilder.AutoTestDataBuilder
-com/ceiba/auto/servicio/ServicioCrearAutoTest.java
- com.ceiba.auto.servicio.ServicioCrearAutoTest
 com/ceiba/auto/servicio/ServicioActualizarAutoTest.java
  com.ceiba.auto.servicio.ServicioActualizarAutoTest
+com/ceiba/auto/servicio/ServicioCrearAutoTest.java
+ com.ceiba.auto.servicio.ServicioCrearAutoTest
+com/ceiba/auto/servicio/testdatabuilder/AutoTestDataBuilder.java
+ com.ceiba.auto.servicio.testdatabuilder.AutoTestDataBuilder
+com/ceiba/cliente/servicio/ServicioActualizarClienteTest.java
+ com.ceiba.cliente.servicio.ServicioActualizarClienteTest
+com/ceiba/cliente/servicio/ServicioCrearClienteTest.java
+ com.ceiba.cliente.servicio.ServicioCrearClienteTest
+com/ceiba/cliente/servicio/ServicioEliminarClienteTest.java
+ com.ceiba.cliente.servicio.ServicioEliminarClienteTest
+com/ceiba/alquiler/servicio/testdatabuilder/AlquilerTestDataBuilder.java
+ com.ceiba.alquiler.servicio.testdatabuilder.AlquilerTestDataBuilder
+com/ceiba/cliente/servicio/testdatabuilder/ClienteTestDataBuilder.java
+ com.ceiba.cliente.servicio.testdatabuilder.ClienteTestDataBuilder
+com/ceiba/alquiler/servicio/ServicioCrearAlquilerTest.java
+ com.ceiba.alquiler.servicio.ServicioCrearAlquilerTest

@@ -10,19 +10,19 @@ import com.ceiba.cliente.modelo.entidad.Cliente;
 import com.ceiba.cliente.modelo.entidad.EstadoCliente;
 import com.ceiba.infraestructura.jdbc.MapperResult;
 
-<span class="nc" id="L13">public class MapeoCliente implements RowMapper&lt;Cliente&gt;, MapperResult {</span>
+<span class="fc" id="L13">public class MapeoCliente implements RowMapper&lt;Cliente&gt;, MapperResult {</span>
 
 	@Override
 	public Cliente mapRow(ResultSet rs, int rowNum) throws SQLException {
-<span class="nc" id="L17">		Long id = rs.getLong(&quot;id&quot;);</span>
-<span class="nc" id="L18">		String nombre = rs.getString(&quot;nombre&quot;);</span>
-<span class="nc" id="L19">		String apellido = rs.getString(&quot;apellido&quot;);</span>
-<span class="nc" id="L20">		String direccion = rs.getString(&quot;direccion&quot;);</span>
-<span class="nc" id="L21">		String cedula = rs.getString(&quot;cedula&quot;);</span>
-<span class="nc" id="L22">		EstadoCliente estado = EstadoCliente.valueOf(rs.getString(&quot;estado&quot;));</span>
-<span class="nc" id="L23">		LocalDateTime fechaCreacion = extraerLocalDateTime(rs, &quot;fecha_creacion&quot;);</span>
-<span class="nc" id="L24">		return Cliente.builder().id(id).nombre(nombre).apellido(apellido).direccion(direccion).cedula(cedula)</span>
-<span class="nc" id="L25">				.estado(estado).fechaCreacion(fechaCreacion).build();</span>
+<span class="fc" id="L17">		Long id = rs.getLong(&quot;id&quot;);</span>
+<span class="fc" id="L18">		String nombre = rs.getString(&quot;nombre&quot;);</span>
+<span class="fc" id="L19">		String apellido = rs.getString(&quot;apellido&quot;);</span>
+<span class="fc" id="L20">		String direccion = rs.getString(&quot;direccion&quot;);</span>
+<span class="fc" id="L21">		String cedula = rs.getString(&quot;cedula&quot;);</span>
+<span class="fc" id="L22">		EstadoCliente estado = EstadoCliente.valueOf(rs.getString(&quot;estado&quot;));</span>
+<span class="fc" id="L23">		LocalDateTime fechaCreacion = extraerLocalDateTime(rs, &quot;fecha_creacion&quot;);</span>
+<span class="fc" id="L24">		return Cliente.builder().id(id).nombre(nombre).apellido(apellido).direccion(direccion).cedula(cedula)</span>
+<span class="fc" id="L25">				.estado(estado).fechaCreacion(fechaCreacion).build();</span>
 	}
 
 }

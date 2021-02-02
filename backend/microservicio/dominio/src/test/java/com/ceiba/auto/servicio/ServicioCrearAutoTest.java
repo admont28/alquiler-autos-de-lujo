@@ -7,6 +7,7 @@ import org.mockito.Mockito;
 
 import com.ceiba.BasePrueba;
 import com.ceiba.auto.modelo.entidad.Auto;
+import com.ceiba.auto.modelo.entidad.EstadoAuto;
 import com.ceiba.auto.puerto.repositorio.RepositorioAuto;
 import com.ceiba.auto.servicio.testdatabuilder.AutoTestDataBuilder;
 import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
@@ -48,6 +49,18 @@ public class ServicioCrearAutoTest {
         
         // act - assert
         BasePrueba.assertThrows(() -> autoTestDataBuilder.build(), ExcepcionValorObligatorio.class, "Se debe ingresar el precio por día del auto");
+	}
+	
+	@Test
+	public void validarCambioEstadoAutoAlquiladoTest() {
+		// arrange
+        Auto auto = new AutoTestDataBuilder().build();
+        
+        // act 
+        auto.cambiarEstadoAutoAlquilado();
+        
+        // assert
+        assertEquals(EstadoAuto.ALQUILADO, auto.getEstado());
 	}
 
     @Test

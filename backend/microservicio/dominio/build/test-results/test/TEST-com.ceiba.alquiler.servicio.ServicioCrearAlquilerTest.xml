@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ceiba.alquiler.servicio.ServicioCrearAlquilerTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2021-02-02T04:40:52" hostname="ANDRES-MONTOYA" time="0.214">
+  <properties/>
+  <testcase name="validarFechaAlquilerMenorQueFechaDevolucionTest" classname="com.ceiba.alquiler.servicio.ServicioCrearAlquilerTest" time="0.026"/>
+  <testcase name="validarCalcularSubTotalTest" classname="com.ceiba.alquiler.servicio.ServicioCrearAlquilerTest" time="0.005"/>
+  <testcase name="validarCalcularTotalTest" classname="com.ceiba.alquiler.servicio.ServicioCrearAlquilerTest" time="0.0"/>
+  <testcase name="validarAsignarAutoTest" classname="com.ceiba.alquiler.servicio.ServicioCrearAlquilerTest" time="0.0"/>
+  <testcase name="crearAlquilerTest" classname="com.ceiba.alquiler.servicio.ServicioCrearAlquilerTest" time="0.175"/>
+  <testcase name="validarCalcularDescuentosPrimerosDiasDelMesTest" classname="com.ceiba.alquiler.servicio.ServicioCrearAlquilerTest" time="0.0"/>
+  <testcase name="validarFechaAlquilerTest" classname="com.ceiba.alquiler.servicio.ServicioCrearAlquilerTest" time="0.001"/>
+  <testcase name="validarFechaCreacionLunesAViernesTest" classname="com.ceiba.alquiler.servicio.ServicioCrearAlquilerTest" time="0.001"/>
+  <testcase name="validarEstadoDisponibleAutoTest" classname="com.ceiba.alquiler.servicio.ServicioCrearAlquilerTest" time="0.001"/>
+  <testcase name="validarEstadoActivoCliente" classname="com.ceiba.alquiler.servicio.ServicioCrearAlquilerTest" time="0.001"/>
+  <testcase name="validarAsignarClienteTest" classname="com.ceiba.alquiler.servicio.ServicioCrearAlquilerTest" time="0.001"/>
+  <testcase name="validarCalcularDescuentosMasDe15DiasTest" classname="com.ceiba.alquiler.servicio.ServicioCrearAlquilerTest" time="0.0"/>
+  <testcase name="validarCalcularDescuentosMasDe15DiasYPrimerosDiasDelMesTest" classname="com.ceiba.alquiler.servicio.ServicioCrearAlquilerTest" time="0.001"/>
+  <testcase name="validarFechaDevolucionTest" classname="com.ceiba.alquiler.servicio.ServicioCrearAlquilerTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

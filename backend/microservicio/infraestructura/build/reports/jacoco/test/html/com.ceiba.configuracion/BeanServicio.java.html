@@ -1,48 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BeanServicio.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">infraestructura</a> &gt; <a href="index.source.html" class="el_package">com.ceiba.configuracion</a> &gt; <span class="el_source">BeanServicio.java</span></div><h1>BeanServicio.java</h1><pre class="source lang-java linenums">package com.ceiba.configuracion;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
 import com.ceiba.alquiler.puerto.repositorio.RepositorioAlquiler;
 import com.ceiba.alquiler.servicio.ServicioCrearAlquiler;
 import com.ceiba.auto.puerto.repositorio.RepositorioAuto;
 import com.ceiba.auto.servicio.ServicioActualizarAuto;
 import com.ceiba.auto.servicio.ServicioCrearAuto;
+import com.ceiba.cliente.puerto.repositorio.RepositorioCliente;
+import com.ceiba.cliente.servicio.ServicioActualizarCliente;
+import com.ceiba.cliente.servicio.ServicioCrearCliente;
+import com.ceiba.cliente.servicio.ServicioEliminarCliente;
 import com.ceiba.usuario.puerto.repositorio.RepositorioUsuario;
 import com.ceiba.usuario.servicio.ServicioActualizarUsuario;
 import com.ceiba.usuario.servicio.ServicioCrearUsuario;
 import com.ceiba.usuario.servicio.ServicioEliminarUsuario;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 @Configuration
-<span class="fc" id="L16">public class BeanServicio {</span>
+<span class="fc" id="L21">public class BeanServicio {</span>
 
     @Bean
     public ServicioCrearUsuario servicioCrearUsuario(RepositorioUsuario repositorioUsuario) {
-<span class="fc" id="L20">        return new ServicioCrearUsuario(repositorioUsuario);</span>
+<span class="fc" id="L25">        return new ServicioCrearUsuario(repositorioUsuario);</span>
     }
 
     @Bean
     public ServicioEliminarUsuario servicioEliminarUsuario(RepositorioUsuario repositorioUsuario) {
-<span class="fc" id="L25">        return new ServicioEliminarUsuario(repositorioUsuario);</span>
+<span class="fc" id="L30">        return new ServicioEliminarUsuario(repositorioUsuario);</span>
     }
 
     @Bean
     public ServicioActualizarUsuario servicioActualizarUsuario(RepositorioUsuario repositorioUsuario) {
-<span class="fc" id="L30">        return new ServicioActualizarUsuario(repositorioUsuario);</span>
+<span class="fc" id="L35">        return new ServicioActualizarUsuario(repositorioUsuario);</span>
     }
     
     @Bean
     public ServicioCrearAuto servicioCrearAuto(RepositorioAuto repositorioAuto) {
-<span class="fc" id="L35">    	return new ServicioCrearAuto(repositorioAuto);</span>
+<span class="fc" id="L40">    	return new ServicioCrearAuto(repositorioAuto);</span>
     }
     
     @Bean
     public ServicioActualizarAuto servicioActualizarAuto(RepositorioAuto repositorioAuto) {
-<span class="fc" id="L40">    	return new ServicioActualizarAuto(repositorioAuto);</span>
+<span class="fc" id="L45">    	return new ServicioActualizarAuto(repositorioAuto);</span>
+    }
+    
+    @Bean
+    public ServicioCrearCliente servicioCrearCliente(RepositorioCliente repositorioCliente) {
+<span class="fc" id="L50">    	return new ServicioCrearCliente(repositorioCliente);</span>
+    }
+    
+    @Bean
+    public ServicioActualizarCliente servicioActualizarCliente(RepositorioCliente repositorioCliente) {
+<span class="fc" id="L55">    	return new ServicioActualizarCliente(repositorioCliente);</span>
+    }
+    
+    @Bean
+    public ServicioEliminarCliente servicioEliminarCliente(RepositorioCliente repositorioCliente) {
+<span class="fc" id="L60">    	return new ServicioEliminarCliente(repositorioCliente);</span>
     }
 	
     @Bean
     public ServicioCrearAlquiler servicioCrearAlquiler(RepositorioAlquiler repositorioAlquiler) {
-<span class="fc" id="L45">    	return new ServicioCrearAlquiler(repositorioAlquiler);</span>
+<span class="fc" id="L65">    	return new ServicioCrearAlquiler(repositorioAlquiler);</span>
     }
 
 }

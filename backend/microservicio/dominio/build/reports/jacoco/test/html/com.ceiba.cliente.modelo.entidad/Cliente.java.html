@@ -4,42 +4,46 @@ import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 
 import java.time.LocalDateTime;
 
-import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 @Getter
-<span class="nc" id="L12">@Builder</span>
-<span class="nc" id="L13">@ToString</span>
+@Setter
+@ToString
 public class Cliente {
 
 	private static final String SE_DEBE_INGRESAR_EL_NOMBRE_DEL_CLIENTE = &quot;Se debe ingresar el nombre del cliente&quot;;
 	private static final String SE_DEBE_INGRESAR_EL_APELLIDO_DEL_CLIENTE = &quot;Se debe ingresar el apellido del cliente&quot;;
-	private static final String SE_DEBE_INGRESAR_LA_DIRECCION_DEL_CLIENTE = &quot;Se debe ingresar el apellido del cliente&quot;;
+	private static final String SE_DEBE_INGRESAR_LA_DIRECCION_DEL_CLIENTE = &quot;Se debe ingresar la dirección del cliente&quot;;
 	private static final String SE_DEBE_INGRESAR_LA_CEDULA_DEL_CLIENTE = &quot;Se debe ingresar la cédula del cliente&quot;;
 
-<span class="nc" id="L21">	private Long id;</span>
-<span class="nc" id="L22">	private String nombre;</span>
-<span class="nc" id="L23">	private String apellido;</span>
-<span class="nc" id="L24">	private String direccion;</span>
-<span class="nc" id="L25">	private String cedula;</span>
-<span class="nc" id="L26">	private EstadoCliente estado;</span>
-<span class="nc" id="L27">	private LocalDateTime fechaCreacion;</span>
+	private Long id;
+	private String nombre;
+	private String apellido;
+	private String direccion;
+	private String cedula;
+	private EstadoCliente estado;
+	private LocalDateTime fechaCreacion;
 
-<span class="nc" id="L29">	public Cliente(Long id, String nombre, String apellido, String direccion, String cedula, EstadoCliente estado, LocalDateTime fechaCreacion) {</span>
-<span class="nc" id="L30">		validarObligatorio(nombre, SE_DEBE_INGRESAR_EL_NOMBRE_DEL_CLIENTE);</span>
-<span class="nc" id="L31">		validarObligatorio(apellido, SE_DEBE_INGRESAR_EL_APELLIDO_DEL_CLIENTE);</span>
-<span class="nc" id="L32">		validarObligatorio(direccion, SE_DEBE_INGRESAR_LA_DIRECCION_DEL_CLIENTE);</span>
-<span class="nc" id="L33">		validarObligatorio(cedula, SE_DEBE_INGRESAR_LA_CEDULA_DEL_CLIENTE);</span>
+<span class="fc" id="L29">	public Cliente(Long id, String nombre, String apellido, String direccion, String cedula) {</span>
+<span class="fc" id="L30">		validarObligatorio(nombre, SE_DEBE_INGRESAR_EL_NOMBRE_DEL_CLIENTE);</span>
+<span class="fc" id="L31">		validarObligatorio(apellido, SE_DEBE_INGRESAR_EL_APELLIDO_DEL_CLIENTE);</span>
+<span class="fc" id="L32">		validarObligatorio(direccion, SE_DEBE_INGRESAR_LA_DIRECCION_DEL_CLIENTE);</span>
+<span class="fc" id="L33">		validarObligatorio(cedula, SE_DEBE_INGRESAR_LA_CEDULA_DEL_CLIENTE);</span>
 
-<span class="nc" id="L35">		this.id = id;</span>
-<span class="nc" id="L36">		this.nombre = nombre;</span>
-<span class="nc" id="L37">		this.apellido = apellido;</span>
-<span class="nc" id="L38">		this.direccion = direccion;</span>
-<span class="nc" id="L39">		this.cedula = cedula;</span>
-<span class="nc" id="L40">		this.estado = estado;</span>
-<span class="nc" id="L41">		this.fechaCreacion = fechaCreacion;</span>
-<span class="nc" id="L42">	}</span>
+<span class="fc" id="L35">		this.id = id;</span>
+<span class="fc" id="L36">		this.nombre = nombre;</span>
+<span class="fc" id="L37">		this.apellido = apellido;</span>
+<span class="fc" id="L38">		this.direccion = direccion;</span>
+<span class="fc" id="L39">		this.cedula = cedula;</span>
+<span class="fc" id="L40">		this.estado = EstadoCliente.ACTIVO;</span>
+<span class="fc" id="L41">		this.fechaCreacion = LocalDateTime.now();</span>
+<span class="fc" id="L42">	}</span>
+	
+	public void cambiarEstadoAEliminado() {
+<span class="fc" id="L45">		this.estado = EstadoCliente.ELIMINADO;</span>
+<span class="fc" id="L46">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -14,9 +14,7 @@ public class FabricaAuto {
                 comandoAuto.getSerial(),
                 comandoAuto.getNombre(),
                 comandoAuto.getModelo(),
-                comandoAuto.getPrecioPorDia(),
-                comandoAuto.getEstado(),
-                comandoAuto.getFechaCreacion()
+                comandoAuto.getPrecioPorDia()
         );
     }
 
