@@ -114,7 +114,7 @@ public class Alquiler {
 		}
 	}
 	
-	public DTOAlquiler toDTO() {
+	public DTOAlquiler convertirADTO() {
 		Long autoId = auto != null ? auto.getId() : null;
 		Long clienteId = cliente != null ? cliente.getId() : null;
 		return DTOAlquiler.builder().id(id).autoId(autoId).clienteId(clienteId).subTotal(subTotal).descuento(descuento).total(total).fechaAlquiler(fechaAlquiler).fechaDevolucion(fechaDevolucion).fechaCreacion(fechaCreacion).build();

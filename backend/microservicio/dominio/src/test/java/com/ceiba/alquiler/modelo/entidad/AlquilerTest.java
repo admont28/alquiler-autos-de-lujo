@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import org.junit.Test;
 
 import com.ceiba.BasePrueba;
+import com.ceiba.alquiler.modelo.dto.DTOAlquiler;
 import com.ceiba.alquiler.servicio.testdatabuilder.AlquilerTestDataBuilder;
 import com.ceiba.auto.modelo.entidad.EstadoAuto;
 import com.ceiba.auto.servicio.testdatabuilder.AutoTestDataBuilder;
@@ -140,6 +141,26 @@ public class AlquilerTest {
         
         // act - assert
         BasePrueba.assertThrows(() -> alquiler.validarEstadoActivoCliente(), ExcepcionNegocio.class, "El cliente no está activo");
+	}
+	
+	@Test
+	public void validarConvertirADTO() {
+		// arrange
+		Alquiler alquiler = new AlquilerTestDataBuilder().build();
+		
+		// act
+		DTOAlquiler dtoAlquiler = alquiler.convertirADTO();
+        
+        // assert
+        assertEquals(dtoAlquiler.getId(), alquiler.getId());
+        assertEquals(dtoAlquiler.getAutoId(), alquiler.getAuto().getId());
+        assertEquals(dtoAlquiler.getClienteId(), alquiler.getCliente().getId());
+        assertEquals(dtoAlquiler.getSubTotal(), alquiler.getSubTotal());
+        assertEquals(dtoAlquiler.getDescuento(), alquiler.getDescuento());
+        assertEquals(dtoAlquiler.getTotal(), alquiler.getTotal());
+        assertEquals(dtoAlquiler.getFechaAlquiler(), alquiler.getFechaAlquiler());
+        assertEquals(dtoAlquiler.getFechaDevolucion(), alquiler.getFechaDevolucion());
+        assertEquals(dtoAlquiler.getFechaCreacion(), alquiler.getFechaCreacion());
 	}
 
 }

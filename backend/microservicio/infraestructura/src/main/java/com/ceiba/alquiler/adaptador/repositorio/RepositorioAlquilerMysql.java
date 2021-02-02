@@ -32,7 +32,7 @@ public class RepositorioAlquilerMysql implements RepositorioAlquiler {
 
     @Override
     public Long crear(Alquiler alquiler) {
-        return this.customNamedParameterJdbcTemplate.crear(alquiler.toDTO(), sqlCrearAlquiler);
+        return this.customNamedParameterJdbcTemplate.crear(alquiler.convertirADTO(), sqlCrearAlquiler);
     }
     
     @Override
