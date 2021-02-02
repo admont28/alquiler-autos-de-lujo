@@ -21,8 +21,8 @@ public class ManejadorCrearCliente implements ManejadorComandoRespuesta&lt;Coman
 <span class="fc" id="L21">    }</span>
 
     public ComandoRespuesta&lt;Long&gt; ejecutar(ComandoCliente comandoCliente) {
-<span class="fc" id="L24">        Cliente cliente = this.fabricaCliente.crear(comandoCliente);</span>
-<span class="fc" id="L25">        return new ComandoRespuesta&lt;&gt;(this.servicioCrearCliente.ejecutar(cliente));</span>
+<span class="nc" id="L24">        Cliente cliente = this.fabricaCliente.crear(comandoCliente);</span>
+<span class="nc" id="L25">        return new ComandoRespuesta&lt;&gt;(this.servicioCrearCliente.ejecutar(cliente));</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

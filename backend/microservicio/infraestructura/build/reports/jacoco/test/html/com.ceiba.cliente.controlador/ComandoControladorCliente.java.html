@@ -37,21 +37,21 @@ public class ComandoControladorCliente {
     @PostMapping
     @ApiOperation(&quot;Crear Cliente&quot;)
     public ComandoRespuesta&lt;Long&gt; crear(@RequestBody ComandoCliente comandoCliente) {
-<span class="fc" id="L40">        return manejadorCrearCliente.ejecutar(comandoCliente);</span>
+<span class="nc" id="L40">        return manejadorCrearCliente.ejecutar(comandoCliente);</span>
     }
 
 	@PutMapping(value=&quot;/{id}&quot;)
 	@ApiOperation(&quot;Actualizar Cliente&quot;)
 	public void actualizar(@RequestBody ComandoCliente comandoCliente, @PathVariable Long id) {
-<span class="fc" id="L46">		comandoCliente.setId(id);</span>
-<span class="fc" id="L47">		manejadorActualizarCliente.ejecutar(comandoCliente);</span>
-<span class="fc" id="L48">	}</span>
+<span class="nc" id="L46">		comandoCliente.setId(id);</span>
+<span class="nc" id="L47">		manejadorActualizarCliente.ejecutar(comandoCliente);</span>
+<span class="nc" id="L48">	}</span>
 	
     @DeleteMapping(value=&quot;/{id}&quot;)
 	@ApiOperation(&quot;Eliminar Cliente&quot;)
 	public void eliminar(@PathVariable Long id) {
-<span class="fc" id="L53">		manejadorEliminarCliente.ejecutar(id);</span>
-<span class="fc" id="L54">	}</span>
+<span class="nc" id="L53">		manejadorEliminarCliente.ejecutar(id);</span>
+<span class="nc" id="L54">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

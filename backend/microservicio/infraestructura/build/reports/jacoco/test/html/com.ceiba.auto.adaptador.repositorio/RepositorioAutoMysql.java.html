@@ -35,7 +35,7 @@ public class RepositorioAutoMysql implements RepositorioAuto {
 
     @Override
     public Long crear(Auto auto) {
-<span class="fc" id="L38">        return this.customNamedParameterJdbcTemplate.crear(auto, sqlCrear);</span>
+<span class="nc" id="L38">        return this.customNamedParameterJdbcTemplate.crear(auto, sqlCrear);</span>
     }
     
     @Override
@@ -47,10 +47,10 @@ public class RepositorioAutoMysql implements RepositorioAuto {
 
     @Override
     public boolean existe(String serial) {
-<span class="fc" id="L50">        MapSqlParameterSource paramSource = new MapSqlParameterSource();</span>
-<span class="fc" id="L51">        paramSource.addValue(&quot;serial&quot;, serial);</span>
+<span class="nc" id="L50">        MapSqlParameterSource paramSource = new MapSqlParameterSource();</span>
+<span class="nc" id="L51">        paramSource.addValue(&quot;serial&quot;, serial);</span>
 
-<span class="fc" id="L53">        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource, Boolean.class);</span>
+<span class="nc" id="L53">        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource, Boolean.class);</span>
     }
 
     @Override

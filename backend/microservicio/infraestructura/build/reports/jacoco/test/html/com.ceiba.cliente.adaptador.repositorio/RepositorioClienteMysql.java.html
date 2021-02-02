@@ -35,7 +35,7 @@ public class RepositorioClienteMysql implements RepositorioCliente {
 
     @Override
     public Long crear(Cliente cliente) {
-<span class="fc" id="L38">        return this.customNamedParameterJdbcTemplate.crear(cliente, sqlCrear);</span>
+<span class="nc" id="L38">        return this.customNamedParameterJdbcTemplate.crear(cliente, sqlCrear);</span>
     }
     
     @Override
@@ -47,25 +47,25 @@ public class RepositorioClienteMysql implements RepositorioCliente {
     
     @Override
     public void actualizar(Cliente cliente) {
-<span class="fc" id="L50">        this.customNamedParameterJdbcTemplate.actualizar(cliente, sqlActualizar);</span>
-<span class="fc" id="L51">    }</span>
+<span class="nc" id="L50">        this.customNamedParameterJdbcTemplate.actualizar(cliente, sqlActualizar);</span>
+<span class="nc" id="L51">    }</span>
 
     @Override
     public boolean existe(String cedula) {
-<span class="fc" id="L55">        MapSqlParameterSource paramSource = new MapSqlParameterSource();</span>
-<span class="fc" id="L56">        paramSource.addValue(&quot;cedula&quot;, cedula);</span>
+<span class="nc" id="L55">        MapSqlParameterSource paramSource = new MapSqlParameterSource();</span>
+<span class="nc" id="L56">        paramSource.addValue(&quot;cedula&quot;, cedula);</span>
 
-<span class="fc" id="L58">        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource, Boolean.class);</span>
+<span class="nc" id="L58">        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource, Boolean.class);</span>
     }
 
 
     @Override
     public boolean existeExcluyendoId(Long id, String cedula) {
-<span class="fc" id="L64">        MapSqlParameterSource paramSource = new MapSqlParameterSource();</span>
-<span class="fc" id="L65">        paramSource.addValue(&quot;id&quot;, id);</span>
-<span class="fc" id="L66">        paramSource.addValue(&quot;cedula&quot;, cedula);</span>
+<span class="nc" id="L64">        MapSqlParameterSource paramSource = new MapSqlParameterSource();</span>
+<span class="nc" id="L65">        paramSource.addValue(&quot;id&quot;, id);</span>
+<span class="nc" id="L66">        paramSource.addValue(&quot;cedula&quot;, cedula);</span>
 
-<span class="fc" id="L68">        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteExcluyendoId,paramSource, Boolean.class);</span>
+<span class="nc" id="L68">        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteExcluyendoId,paramSource, Boolean.class);</span>
     }
 
 	

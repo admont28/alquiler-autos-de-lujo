@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.ceiba.auto.servicio.ServicioActualizarAutoTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-02-02T06:23:22" hostname="ANDRES-MONTOYA" time="0.015">
-  <properties/>
-  <testcase name="validarAutoExistenciaPreviaTest" classname="com.ceiba.auto.servicio.ServicioActualizarAutoTest" time="0.008"/>
-  <testcase name="actualizarAutoTest" classname="com.ceiba.auto.servicio.ServicioActualizarAutoTest" time="0.007"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
