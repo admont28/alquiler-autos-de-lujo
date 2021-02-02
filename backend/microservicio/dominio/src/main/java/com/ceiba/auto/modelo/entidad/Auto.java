@@ -31,6 +31,7 @@ public class Auto {
 		validarObligatorio(nombre, SE_DEBE_INGRESAR_EL_NOMBRE_DEL_AUTO);
 		validarObligatorio(modelo, SE_DEBE_INGRESAR_EL_MODELO_DEL_AUTO);
 		validarObligatorio(precioPorDia, SE_DEBE_INGRESAR_EL_PRECIO_POR_DIA_DEL_AUTO);
+		// TODO: Validar también que los campos sean correctos. Y la coherencia de los mismos.
 
 		this.id = id;
 		this.serial = serial;

@@ -40,5 +40,7 @@ public class ComandoControladorAlquilerTest {
                 .content(objectMapper.writeValueAsString(alquiler)))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{'valor': 3}"));
+        
+        // TODO: Validar estado de auto haya cambiado y que el alquiler exista en bd.
     }
 }
