@@ -12,4 +12,12 @@ public interface RepositorioAlquiler {
 	 */
 	Long crear(Alquiler usuario);
 
+	/**
+	 * Permite buscar un alquiler por su id.
+	 * 
+	 * @param id del alquiler
+	 * @return el alquiler
+	 */
+	Alquiler buscar(Long id);
+
 }

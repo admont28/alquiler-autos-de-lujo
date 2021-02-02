@@ -79,9 +79,7 @@ public class AlquilerTestDataBuilder {
     }
 
 	public Alquiler build() {
-		Alquiler alquiler = new Alquiler(id, fechaAlquiler, fechaDevolucion);
-		alquiler.asignarAuto(auto);
-		alquiler.asignarCliente(cliente);
+		Alquiler alquiler = new Alquiler(id, auto, cliente, fechaAlquiler, fechaDevolucion);
 		alquiler.setSubTotal(subTotal);
 		alquiler.setDescuento(descuento);
 		alquiler.setTotal(total);

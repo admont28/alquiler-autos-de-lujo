@@ -1,5 +1,6 @@
 package com.ceiba.alquiler.controlador;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -15,7 +16,10 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.ceiba.ApplicationMock;
 import com.ceiba.alquiler.comando.ComandoAlquiler;
+import com.ceiba.alquiler.puerto.repositorio.RepositorioAlquiler;
 import com.ceiba.alquiler.servicio.testdatabuilder.ComandoAlquilerTestDataBuilder;
+import com.ceiba.auto.modelo.entidad.EstadoAuto;
+import com.ceiba.auto.puerto.repositorio.RepositorioAuto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RunWith(SpringRunner.class)
@@ -28,7 +32,13 @@ public class ComandoControladorAlquilerTest {
 
     @Autowired
     private MockMvc mocMvc;
-
+    
+    @Autowired
+    private RepositorioAlquiler repositorioAlquiler;
+    
+    @Autowired
+    private RepositorioAuto repositorioAuto;
+    
     @Test
     public void crearAlquilerTest() throws Exception{
         // arrange
@@ -41,6 +51,7 @@ public class ComandoControladorAlquilerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().json("{'valor': 3}"));
         
-        // TODO: Validar estado de auto haya cambiado y que el alquiler exista en bd.
+        assertEquals(3, repositorioAlquiler.buscar(3L).getId().longValue());
+        assertEquals(EstadoAuto.ALQUILADO, repositorioAuto.buscar(alquiler.getAutoId()).getEstado());
     }
 }

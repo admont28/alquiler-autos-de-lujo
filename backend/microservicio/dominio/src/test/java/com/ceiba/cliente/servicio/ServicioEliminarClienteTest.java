@@ -28,5 +28,4 @@ public class ServicioEliminarClienteTest {
         assertEquals(EstadoCliente.ELIMINADO, cliente.getEstado());
     }
     
-    
 }

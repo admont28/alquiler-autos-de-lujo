@@ -1,17 +1,14 @@
 package com.ceiba.cliente.modelo.entidad;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public enum EstadoCliente {
 
 	ACTIVO("ACTIVO"), ELIMINADO("ELIMINADO");
 
 	private String estado;
-
-	private EstadoCliente(String estado) {
-		this.estado = estado;
-	}
-
-	public String getEstado() {
-		return estado;
-	}
 
 }

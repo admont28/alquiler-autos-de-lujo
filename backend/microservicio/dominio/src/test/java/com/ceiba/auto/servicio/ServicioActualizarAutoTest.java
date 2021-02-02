@@ -13,7 +13,6 @@ import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 
 public class ServicioActualizarAutoTest {
 	
-
     @Test
     public void validarAutoExistenciaPreviaTest() {
         // arrange
@@ -40,6 +39,5 @@ public class ServicioActualizarAutoTest {
         // assert
         Mockito.verify(repositorioAuto, atLeastOnce()).actualizar(auto);
     }
-    
     
 }

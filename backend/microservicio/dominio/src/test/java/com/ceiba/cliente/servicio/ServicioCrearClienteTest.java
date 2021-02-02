@@ -7,61 +7,11 @@ import org.mockito.Mockito;
 
 import com.ceiba.BasePrueba;
 import com.ceiba.cliente.modelo.entidad.Cliente;
-import com.ceiba.cliente.modelo.entidad.EstadoCliente;
 import com.ceiba.cliente.puerto.repositorio.RepositorioCliente;
 import com.ceiba.cliente.servicio.testdatabuilder.ClienteTestDataBuilder;
 import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
-import com.ceiba.dominio.excepcion.ExcepcionValorObligatorio;
 
 public class ServicioCrearClienteTest {
-	
-	@Test
-	public void validarNombreClienteTest() {
-		// arrange
-        ClienteTestDataBuilder clienteTestDataBuilder = new ClienteTestDataBuilder().conNombre(null);
-        
-        // act - assert
-        BasePrueba.assertThrows(() -> clienteTestDataBuilder.build(), ExcepcionValorObligatorio.class, "Se debe ingresar el nombre del cliente");
-	}
-	
-	@Test
-	public void validarApellidoClienteTest() {
-		// arrange
-        ClienteTestDataBuilder clienteTestDataBuilder = new ClienteTestDataBuilder().conApellido(null);
-        
-        // act - assert
-        BasePrueba.assertThrows(() -> clienteTestDataBuilder.build(), ExcepcionValorObligatorio.class, "Se debe ingresar el apellido del cliente");
-	}
-	
-	@Test
-	public void validarDireccionClienteTest() {
-		// arrange
-        ClienteTestDataBuilder clienteTestDataBuilder = new ClienteTestDataBuilder().conDireccion(null);
-        
-        // act - assert
-        BasePrueba.assertThrows(() -> clienteTestDataBuilder.build(), ExcepcionValorObligatorio.class, "Se debe ingresar la dirección del cliente");
-	}
-	
-	@Test
-	public void validarCedulaClienteTest() {
-		// arrange
-        ClienteTestDataBuilder clienteTestDataBuilder = new ClienteTestDataBuilder().conCedula(null);
-        
-        // act - assert
-        BasePrueba.assertThrows(() -> clienteTestDataBuilder.build(), ExcepcionValorObligatorio.class, "Se debe ingresar la cédula del cliente");
-	}
-	
-	@Test
-	public void validarCambioEstadoClienteEliminadoTest() {
-		// arrange
-        Cliente cliente = new ClienteTestDataBuilder().build();
-        
-        // act 
-        cliente.cambiarEstadoAEliminado();
-        
-        // assert
-        assertEquals(EstadoCliente.ELIMINADO, cliente.getEstado());
-	}
 
     @Test
     public void validarClienteExistenciaPreviaTest() {
@@ -90,6 +40,5 @@ public class ServicioCrearClienteTest {
         // assert
         assertEquals(cliente.getId(), clienteId);
     }
-    
     
 }

@@ -35,9 +35,9 @@ public class ManejadorCrearAlquiler implements ManejadorComandoRespuesta<Comando
         Auto auto = this.repositorioAuto.buscar(comandoAlquiler.getAutoId());
         Cliente cliente = this.repositorioCliente.buscar(comandoAlquiler.getClienteId());
         
-    	Alquiler alquiler = this.fabricaAlquiler.crear(comandoAlquiler);
+    	Alquiler alquiler = this.fabricaAlquiler.crear(comandoAlquiler, auto, cliente);
     	
-    	Long id = this.servicioCrearAlquiler.ejecutar(alquiler, auto, cliente);
+    	Long id = this.servicioCrearAlquiler.ejecutar(alquiler);
     	this.servicioActualizarAuto.ejecutar(auto);
     	
         return new ComandoRespuesta<>(id);

@@ -12,7 +12,6 @@ import com.ceiba.cliente.servicio.testdatabuilder.ClienteTestDataBuilder;
 import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 
 public class ServicioActualizarClienteTest {
-	
 
     @Test
     public void validarClienteExistenciaPreviaTest() {
@@ -40,6 +39,5 @@ public class ServicioActualizarClienteTest {
         // assert
         Mockito.verify(repositorioCliente, times(1)).actualizar(cliente);
     }
-    
     
 }
