@@ -1,11 +1,3 @@
-create table usuario (
- id int(11) not null auto_increment,
- nombre varchar(100) not null,
- clave varchar(45) not null,
- fecha_creacion datetime NULL DEFAULT now(),
- primary key (id)
-);
-
 create table auto (
  id int(11) not null auto_increment,
  serial varchar(100) NOT NULL,
