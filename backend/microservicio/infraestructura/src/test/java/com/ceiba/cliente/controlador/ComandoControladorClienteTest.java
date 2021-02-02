@@ -47,7 +47,7 @@ public class ComandoControladorClienteTest {
     @Test
     public void actualizar() throws Exception{
         // arrange
-        Long id = 2L;
+        Long id = 1L;
         ComandoCliente cliente = new ComandoClienteTestDataBuilder().conCedula("1094951666").conNombre("Nombre actualizado").conApellido("Apellido actualizado").build();
 
         // act - assert

@@ -14,8 +14,8 @@ public class ComandoAlquilerTestDataBuilder {
 
 	public ComandoAlquilerTestDataBuilder() {
 		this.id = 1L;
-		this.autoId = 1L;
-		this.clienteId = 1L;
+		this.autoId = 2L;
+		this.clienteId = 2L;
 		this.fechaAlquiler = LocalDate.now().plusDays(1);
 		this.fechaDevolucion = LocalDate.now().plusDays(6);
 	}
