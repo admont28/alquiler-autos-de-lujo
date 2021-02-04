@@ -4,13 +4,13 @@ import { SharedModule } from '@shared/shared.module';
 import { AutoService } from './shared/service/auto.service';
 import { AutoComponent } from './components/auto/auto.component';
 import { AutoRoutingModule } from './auto-routing.module';
-
-
+import { ListarAutoComponent } from './components/listar-auto/listar-auto.component';
 
 @NgModule({
   declarations: [
-    CrearAutoComponent, 
-    AutoComponent
+    CrearAutoComponent,
+    AutoComponent,
+    ListarAutoComponent
   ],
   imports: [
     AutoRoutingModule,

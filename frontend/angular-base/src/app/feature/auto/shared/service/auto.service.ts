@@ -10,8 +10,8 @@ export class AutoService {
 
   constructor(protected http: HttpService) {}
 
-  public consultar() {
-    return this.http.doGet<Auto[]>(`${environment.endpoint}/autos`, this.http.optsName('consultar autos'));
+  public listar() {
+    return this.http.doGet<Auto[]>(`${environment.endpoint}/autos`, this.http.optsName('listar autos'));
   }
 
   public crear(auto: Auto) {
@@ -27,4 +27,5 @@ export class AutoService {
     return this.http.doDelete<boolean>(`${environment.endpoint}/autos/${auto.id}`,
                                                  this.http.optsName('eliminar autos'));
   } */
+
 }
