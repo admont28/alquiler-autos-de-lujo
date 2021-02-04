@@ -36,6 +36,12 @@
       "@auto/*": [
         "src/app/feature/auto/*"
       ],
+      "@cliente/*": [
+        "src/app/feature/cliente/*"
+      ],
+      "@alquiler/*": [
+        "src/app/feature/alquiler/*"
+      ],
       "@shared/*": [
         "src/app/shared/*"
       ]

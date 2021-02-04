@@ -8,6 +8,7 @@ import { ProductoModule } from '@producto/producto.module';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
 import { AutoModule } from './feature/auto/auto.module';
+import { ClienteModule } from './feature/cliente/cliente.module';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { AutoModule } from './feature/auto/auto.module';
     AppRoutingModule,
     ProductoModule,
     AutoModule,
+    ClienteModule,
     CoreModule
   ],
   providers: [CookieService],
