@@ -21,8 +21,8 @@ public class ConsultaControladorAuto {
     private final ManejadorListarAuto manejadorListarAuto;
 
     @Autowired
-    public ConsultaControladorAuto(ManejadorListarAuto manejadorListarAlquiler) {
-        this.manejadorListarAuto = manejadorListarAlquiler;
+    public ConsultaControladorAuto(ManejadorListarAuto manejadorListarAuto) {
+        this.manejadorListarAuto = manejadorListarAuto;
     }
 
     @GetMapping
