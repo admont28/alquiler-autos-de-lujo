@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 
 import com.ceiba.cliente.comando.ComandoCliente;
 import com.ceiba.cliente.modelo.entidad.Cliente;
+import com.ceiba.cliente.modelo.entidad.EstadoCliente;
 
 @Component
 public class FabricaCliente {
@@ -14,7 +15,8 @@ public class FabricaCliente {
                 comandoCliente.getNombre(),
                 comandoCliente.getApellido(),
                 comandoCliente.getDireccion(),
-                comandoCliente.getCedula()
+                comandoCliente.getCedula(),
+                comandoCliente.getEstado() != null ? EstadoCliente.valueOf(comandoCliente.getEstado()) : null
         );
     }
 

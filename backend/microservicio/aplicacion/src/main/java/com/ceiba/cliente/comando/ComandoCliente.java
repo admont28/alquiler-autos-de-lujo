@@ -16,4 +16,5 @@ public class ComandoCliente {
 	private String apellido;
 	private String direccion;
 	private String cedula;
+	private String estado;
 }

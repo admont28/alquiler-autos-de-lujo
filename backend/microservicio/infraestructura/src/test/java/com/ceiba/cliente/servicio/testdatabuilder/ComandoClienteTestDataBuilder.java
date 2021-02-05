@@ -9,6 +9,7 @@ public class ComandoClienteTestDataBuilder {
 	private String apellido;
 	private String direccion;
 	private String cedula;
+	private String estado;
 
 	public ComandoClienteTestDataBuilder() {
 		this.id = 1L;
@@ -16,6 +17,7 @@ public class ComandoClienteTestDataBuilder {
 		this.apellido = "Apellido de prueba";
 		this.direccion = "Direccion de prueba";
 		this.cedula = "109499999";
+		this.estado = "ACTIVO";
 	}
 
 	public ComandoClienteTestDataBuilder conId(Long id) {
@@ -44,6 +46,6 @@ public class ComandoClienteTestDataBuilder {
 	}
 
 	public ComandoCliente build() {
-		return new ComandoCliente(id, nombre, apellido, direccion, cedula);
+		return new ComandoCliente(id, nombre, apellido, direccion, cedula, estado);
 	}
 }

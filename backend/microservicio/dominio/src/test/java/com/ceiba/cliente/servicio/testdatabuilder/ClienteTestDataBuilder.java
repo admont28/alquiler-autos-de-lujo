@@ -61,8 +61,7 @@ public class ClienteTestDataBuilder {
     }
 
 	public Cliente build() {
-		Cliente cliente = new Cliente(id, nombre, apellido, direccion, cedula);
-		cliente.setEstado(estado);
+		Cliente cliente = new Cliente(id, nombre, apellido, direccion, cedula, estado);
 		cliente.setFechaCreacion(fechaCreacion);
 		return cliente;
 	}

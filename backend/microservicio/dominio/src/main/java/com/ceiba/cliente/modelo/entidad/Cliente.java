@@ -37,7 +37,7 @@ public class Cliente {
 	private EstadoCliente estado;
 	private LocalDateTime fechaCreacion;
 
-	public Cliente(Long id, String nombre, String apellido, String direccion, String cedula) {
+	public Cliente(Long id, String nombre, String apellido, String direccion, String cedula, EstadoCliente estado) {
 		validarObligatorio(nombre, SE_DEBE_INGRESAR_EL_NOMBRE_DEL_CLIENTE);
 		validarLongitudMinima(nombre, LONGITUD_MINIMA_NOMBRE, MessageFormat.format(EL_NOMBRE_DEL_CLIENTE_DEBE_TENER_MINIMO_X_CARACTERES, LONGITUD_MINIMA_NOMBRE));
 		validarObligatorio(apellido, SE_DEBE_INGRESAR_EL_APELLIDO_DEL_CLIENTE);
@@ -52,7 +52,7 @@ public class Cliente {
 		this.apellido = apellido;
 		this.direccion = direccion;
 		this.cedula = cedula;
-		this.estado = EstadoCliente.ACTIVO;
+		this.estado = estado == null ? EstadoCliente.ACTIVO : estado;
 		this.fechaCreacion = LocalDateTime.now();
 	}
 	
