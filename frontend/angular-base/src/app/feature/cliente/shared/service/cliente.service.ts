@@ -8,6 +8,8 @@ import { Cliente } from '../model/cliente';
 })
 export class ClienteService {
 
+  clienteActivo: Cliente;
+
   constructor(protected http: HttpService) { }
 
   public crear(cliente: Cliente) {
@@ -23,5 +25,9 @@ export class ClienteService {
   public eliminar(cliente: Cliente) {
     return this.http.doDelete<boolean>(`${environment.endpoint}/clientes/${cliente.id}`, this.http.optsName('eliminar clientes'));
   } 
+
+  public listar(){
+    return this.http.doGet<Cliente[]>(`${environment.endpoint}/clientes`,  this.http.optsName('listar clientes'));
+  }
   
 }

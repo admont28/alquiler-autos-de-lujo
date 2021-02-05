@@ -1,1 +1,29 @@
-<p>listar-cliente works!</p>
+<table class="table table-striped table-hover table-responsive caption-top">
+    <caption>Lista de clientes activos y eliminados</caption>
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Dirección</th>
+        <th scope="col">Cédula</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Fecha creación</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cliente of clientes">
+        <th scope="row">{{ cliente.id }}</th>
+        <td>{{ cliente.nombre }}</td>
+        <td>{{ cliente.apellido }}</td>
+        <td>{{ cliente.direccion }}</td>
+        <td>{{ cliente.cedula }}</td>
+        <td><span class="badge rounded-pill bg-success" *ngIf="cliente.estado == 'ACTIVO'">{{ cliente.estado }}</span>
+            <span class="badge rounded-pill bg-danger" *ngIf="cliente.estado == 'ELIMINADO'">{{ cliente.estado }}</span>
+        </td>
+        <td>{{ cliente.fechaCreacion }}</td>
+        <td><button (click)="navegarAEditar(cliente)" class="btn btn-primary me-1">Editar</button><button class="btn btn-danger">Eliminar</button></td>
+      </tr>
+    </tbody>
+  </table>
