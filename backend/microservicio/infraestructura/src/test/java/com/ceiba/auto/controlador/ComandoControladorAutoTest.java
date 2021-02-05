@@ -47,10 +47,11 @@ public class ComandoControladorAutoTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(comandoAuto)))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{'valor': 3}"));
+                .andExpect(content().json("{'valor': 4}"));
         
-        Auto auto = repositorioAuto.buscar(3L);
-        assertEquals(3, auto.getId().longValue());
+        Long id = 4L;
+		Auto auto = repositorioAuto.buscar(id);
+        assertEquals(id, auto.getId());
         assertEquals(comandoAuto.getSerial(), auto.getSerial());
         assertEquals(comandoAuto.getNombre(), auto.getNombre());
         assertEquals(comandoAuto.getModelo(), auto.getModelo());

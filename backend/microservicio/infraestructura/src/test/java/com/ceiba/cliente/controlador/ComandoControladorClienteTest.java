@@ -48,10 +48,11 @@ public class ComandoControladorClienteTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(comandoCliente)))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{'valor': 3}"));
+                .andExpect(content().json("{'valor': 4}"));
         
-        Cliente cliente = repositorioCliente.buscar(3L);
-        assertEquals(3, cliente.getId().longValue());
+        Long id = 4L;
+        Cliente cliente = repositorioCliente.buscar(id);
+        assertEquals(id, cliente.getId());
         assertEquals(comandoCliente.getNombre(), cliente.getNombre());
         assertEquals(comandoCliente.getApellido(), cliente.getApellido());
         assertEquals(comandoCliente.getDireccion(), cliente.getDireccion());
