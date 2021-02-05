@@ -1,5 +1,6 @@
 package com.ceiba.auto.controlador;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -16,6 +17,9 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.ceiba.ApplicationMock;
 import com.ceiba.auto.comando.ComandoAuto;
+import com.ceiba.auto.modelo.entidad.Auto;
+import com.ceiba.auto.modelo.entidad.EstadoAuto;
+import com.ceiba.auto.puerto.repositorio.RepositorioAuto;
 import com.ceiba.auto.servicio.testdatabuilder.ComandoAutoTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -29,30 +33,49 @@ public class ComandoControladorAutoTest {
 
     @Autowired
     private MockMvc mocMvc;
+    
+    @Autowired
+    private RepositorioAuto repositorioAuto;
 
     @Test
     public void crear() throws Exception{
         // arrange
-        ComandoAuto auto = new ComandoAutoTestDataBuilder().build();
+        ComandoAuto comandoAuto = new ComandoAutoTestDataBuilder().build();
 
         // act - assert
         mocMvc.perform(post("/autos")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(auto)))
+                .content(objectMapper.writeValueAsString(comandoAuto)))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{'valor': 3}"));
+        
+        Auto auto = repositorioAuto.buscar(3L);
+        assertEquals(3, auto.getId().longValue());
+        assertEquals(comandoAuto.getSerial(), auto.getSerial());
+        assertEquals(comandoAuto.getNombre(), auto.getNombre());
+        assertEquals(comandoAuto.getModelo(), auto.getModelo());
+        assertEquals(comandoAuto.getPrecioPorDia(), auto.getPrecioPorDia());
+        assertEquals(EstadoAuto.DISPONIBLE, auto.getEstado());
     }
 
     @Test
     public void actualizar() throws Exception{
         // arrange
         Long id = 2L;
-        ComandoAuto auto = new ComandoAutoTestDataBuilder().conSerial("nuevo-serial-1234").conNombre("Bugatti Veyron").build();
+        ComandoAuto comandoAuto = new ComandoAutoTestDataBuilder().conSerial("nuevo-serial-1234").conNombre("Bugatti Veyron").build();
 
         // act - assert
         mocMvc.perform(put("/autos/{id}",id)
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(auto)))
+                .content(objectMapper.writeValueAsString(comandoAuto)))
                 .andExpect(status().isOk());
+        
+        Auto auto = repositorioAuto.buscar(id);
+        assertEquals(id, auto.getId());
+        assertEquals(comandoAuto.getSerial(), auto.getSerial());
+        assertEquals(comandoAuto.getNombre(), auto.getNombre());
+        assertEquals(comandoAuto.getModelo(), auto.getModelo());
+        assertEquals(comandoAuto.getPrecioPorDia(), auto.getPrecioPorDia());
+        assertEquals(EstadoAuto.DISPONIBLE, auto.getEstado());
     }
 }
