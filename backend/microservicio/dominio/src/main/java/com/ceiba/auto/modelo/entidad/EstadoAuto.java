@@ -7,7 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum EstadoAuto {
 
-	DISPONIBLE("DISPONIBLE"), ELIMINADO("ELIMINADO"), ALQUILADO("ALQUILADO");
+	DISPONIBLE("DISPONIBLE"), MANTENIMIENTO("MANTENIMIENTO"), ELIMINADO("ELIMINADO"), ALQUILADO("ALQUILADO");
 	
 	private String estado;
 	

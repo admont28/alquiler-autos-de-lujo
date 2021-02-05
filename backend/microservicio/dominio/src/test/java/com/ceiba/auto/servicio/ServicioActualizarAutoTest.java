@@ -18,6 +18,7 @@ public class ServicioActualizarAutoTest {
         // arrange
         Auto auto = new AutoTestDataBuilder().build();
         RepositorioAuto repositorioAuto = Mockito.mock(RepositorioAuto.class);
+        Mockito.when(repositorioAuto.buscar(Mockito.anyLong())).thenReturn(auto);
         Mockito.when(repositorioAuto.existeExcluyendoId(Mockito.anyLong(), Mockito.anyString())).thenReturn(true);
         ServicioActualizarAuto servicioActualizarAuto = new ServicioActualizarAuto(repositorioAuto);
         
@@ -30,6 +31,7 @@ public class ServicioActualizarAutoTest {
         // arrange
         Auto auto = new AutoTestDataBuilder().build();
         RepositorioAuto repositorioAuto = Mockito.mock(RepositorioAuto.class);
+        Mockito.when(repositorioAuto.buscar(Mockito.anyLong())).thenReturn(auto);
         Mockito.when(repositorioAuto.existeExcluyendoId(Mockito.anyLong(), Mockito.anyString())).thenReturn(false);
         ServicioActualizarAuto servicioActualizarAuto = new ServicioActualizarAuto(repositorioAuto);
         

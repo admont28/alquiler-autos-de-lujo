@@ -61,8 +61,7 @@ public class AutoTestDataBuilder {
     }
 
 	public Auto build() {
-		Auto auto = new Auto(id, serial, nombre, modelo, precioPorDia);
-		auto.setEstado(estado);
+		Auto auto = new Auto(id, serial, nombre, modelo, precioPorDia, estado);
 		auto.setFechaCreacion(fechaCreacion);
 		return auto;
 	}

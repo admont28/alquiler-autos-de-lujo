@@ -16,4 +16,5 @@ public class ComandoAuto {
 	private String nombre;
 	private String modelo;
 	private Double precioPorDia;
+	private String estado;
 }

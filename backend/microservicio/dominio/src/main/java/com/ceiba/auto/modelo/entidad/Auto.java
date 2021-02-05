@@ -37,7 +37,7 @@ public class Auto {
 	private EstadoAuto estado;
 	private LocalDateTime fechaCreacion;
 
-	public Auto(Long id, String serial, String nombre, String modelo, Double precioPorDia) {
+	public Auto(Long id, String serial, String nombre, String modelo, Double precioPorDia, EstadoAuto estado) {
 		validarObligatorio(serial, SE_DEBE_INGRESAR_EL_SERIAL_DEL_AUTO);
 		validarLongitudMinima(serial, LONGITUD_MINIMA_SERIAL, MessageFormat.format(EL_SERIAL_DEBE_TENER_MINIMO_X_CARACTERES, LONGITUD_MINIMA_SERIAL));
 		validarObligatorio(nombre, SE_DEBE_INGRESAR_EL_NOMBRE_DEL_AUTO);
@@ -52,7 +52,7 @@ public class Auto {
 		this.nombre = nombre;
 		this.modelo = modelo;
 		this.precioPorDia = precioPorDia;
-		this.estado = EstadoAuto.DISPONIBLE;
+		this.estado = estado != null ? estado : EstadoAuto.DISPONIBLE;
 		this.fechaCreacion = LocalDateTime.now();
 	}
 	

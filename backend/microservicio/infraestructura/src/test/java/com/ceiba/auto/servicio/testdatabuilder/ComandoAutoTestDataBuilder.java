@@ -9,6 +9,7 @@ public class ComandoAutoTestDataBuilder {
 	private String nombre;
 	private String modelo;
 	private Double precioPorDia;
+	private String estado;
 
 	public ComandoAutoTestDataBuilder() {
 		this.id = 1L;
@@ -16,6 +17,7 @@ public class ComandoAutoTestDataBuilder {
 		this.nombre = "Auto 1";
 		this.modelo = "2021";
 		this.precioPorDia = 120000.00;
+		this.estado = "DISPONIBLE";
 	}
 
 	public ComandoAutoTestDataBuilder conId(Long id) {
@@ -44,6 +46,6 @@ public class ComandoAutoTestDataBuilder {
 	}
 
 	public ComandoAuto build() {
-		return new ComandoAuto(id, serial, nombre, modelo, precioPorDia);
+		return new ComandoAuto(id, serial, nombre, modelo, precioPorDia, estado);
 	}
 }
