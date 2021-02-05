@@ -1,12 +1,21 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { AlquilerComponent } from './components/alquiler/alquiler.component';
+import { CrearAlquilerComponent } from './components/crear-alquiler/crear-alquiler.component';
+import { AlquilerRoutingModule } from './alquiler-routing.module';
+import { SharedModule } from '@shared/shared.module';
+import { ListarAlquilerComponent } from './components/listar-alquiler/listar-alquiler.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    AlquilerComponent, 
+    CrearAlquilerComponent, 
+    ListarAlquilerComponent
+  ],
   imports: [
-    CommonModule
+    AlquilerRoutingModule,
+    SharedModule
   ]
 })
 export class AlquilerModule { }
