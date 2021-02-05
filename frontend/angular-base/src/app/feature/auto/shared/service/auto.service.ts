@@ -8,6 +8,8 @@ import { Auto } from '../model/auto';
 })
 export class AutoService {
 
+  autoActivo: Auto;
+
   constructor(protected http: HttpService) {}
 
   public listar() {
@@ -20,7 +22,7 @@ export class AutoService {
   }
 
   public actualizar(auto: Auto) {
-    return this.http.doPut<Auto, boolean>(`${environment.endpoint}/autos`, auto, this.http.optsName('actualizar autos'));
+    return this.http.doPut<Auto, boolean>(`${environment.endpoint}/autos/${auto.id}`, auto, this.http.optsName('actualizar autos'));
   }
 
   /* public eliminar(auto: Auto) {

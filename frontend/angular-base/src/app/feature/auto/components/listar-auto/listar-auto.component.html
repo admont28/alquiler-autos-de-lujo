@@ -1,14 +1,15 @@
 <div class="row">
     <div class="col-sm-3 mt-3" *ngFor="let auto of autos">
-      <div class="card text-white" [ngClass]="{ 'bg-danger' : auto.estado == 'ALQUILADO', 'bg-success' : auto.estado == 'DISPONIBLE' }">
+      <div class="card text-white" [ngClass]="{ 'bg-danger' : auto.estado == 'ALQUILADO', 'bg-success' : auto.estado == 'DISPONIBLE', 'bg-warning' : auto.estado == 'MANTENIMIENTO' }">
         <div class="card-body">
+          <span class="badge bg-dark">{{ auto.estado }}</span>
           <h4 class="card-title">{{ auto.nombre }} - {{ auto.modelo}}</h4>
           <div class="card-text">
               <h5>{{ auto.precioPorDia | currency }}</h5>
               <p>Estado: {{ auto.estado }}</p>
               <p>Fecha de creación: {{ auto.fechaCreacion | date:'short' }}</p>
           </div>
-          <a href="#" class="btn btn-primary">Editar</a>
+          <button class="btn btn-primary" (click)="navegarAEditar(auto)">Editar</button>
         </div>
       </div>
     </div>

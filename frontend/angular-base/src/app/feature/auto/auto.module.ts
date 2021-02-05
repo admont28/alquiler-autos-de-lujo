@@ -5,12 +5,14 @@ import { AutoService } from './shared/service/auto.service';
 import { AutoComponent } from './components/auto/auto.component';
 import { AutoRoutingModule } from './auto-routing.module';
 import { ListarAutoComponent } from './components/listar-auto/listar-auto.component';
+import { EditarAutoComponent } from './components/editar-auto/editar-auto.component';
 
 @NgModule({
   declarations: [
     CrearAutoComponent,
     AutoComponent,
-    ListarAutoComponent
+    ListarAutoComponent,
+    EditarAutoComponent
   ],
   imports: [
     AutoRoutingModule,

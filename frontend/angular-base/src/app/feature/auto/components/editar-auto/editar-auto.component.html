@@ -1,0 +1,46 @@
+<div class="container-sm">
+    <div class="row">
+      <h1>Editar Auto</h1>
+    </div>
+    <div class="row">
+      <form [formGroup]="autoForm" (ngSubmit)="editar()">
+        <div class="mb-3">
+          <label for="serial" class="form-label">Serial:</label>
+          <input validar type="text" id="serial" name="serial" placeholder="Serial del auto" class="form-control" formControlName="serial" aria-describedby="serialAyuda">
+          <div id="serialAyuda" class="form-text">Serial único de cada auto.</div>
+        </div>
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre:</label>
+          <input validar type="text" id="nombre" name="nombre" placeholder="Nombre del auto" class="form-control" formControlName="nombre" aria-describedby="nombreAyuda">
+          <div id="nombreAyuda" class="form-text">Nombre comercial del auto.</div>
+        </div>
+        <div class="mb-3">
+          <label for="modelo" class="form-label">Modelo:</label>
+          <input validar type="text" id="modelo" name="modelo" placeholder="Modelo del auto" class="form-control" formControlName="modelo" aria-describedby="modeloAyuda">
+          <div id="modeloAyuda" class="form-text">Año de fabricación del auto.</div>
+        </div>
+        <div class="mb-3">
+          <label for="precioPorDia" class="form-label">Precio por día:</label>
+          <input validar type="number" id="precioPorDia" name="precioPorDia" placeholder="Precio por día del auto" class="form-control" formControlName="precioPorDia" aria-describedby="precioPorDiaAyuda">
+          <div id="precioPorDiaAyuda" class="form-text">Precio por día de alquiler del auto.</div>
+        </div>
+        <div class="mb-3">
+            <label for="estado" class="form-label">Estado: </label>
+            <div class="form-check form-check-inline">
+                <input validar class="form-check-input" type="radio" name="estado" id="disponible" value="DISPONIBLE" formControlName="estado">
+                <label class="form-check-label" for="disponible">DISPONIBLE</label>
+              </div>
+              <div class="form-check form-check-inline" *ngIf="auto.estado == 'ALQUILADO'">
+                <input validar class="form-check-input" type="radio" name="estado" id="alquilado" value="ALQUILADO" formControlName="estado"> 
+                <label class="form-check-label" for="alquilado">ALQUILADO</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input validar class="form-check-input" type="radio" name="estado" id="mantenimiento" value="MANTENIMIENTO" formControlName="estado">
+                <label class="form-check-label" for="mantenimiento">MANTENIMIENTO</label>
+              </div>
+            <div id="estadoAyuda" class="form-text">Estado del auto.</div>
+          </div>
+        <button type="submit" class="btn btn-primary" [disabled]="autoForm.invalid">Editar</button>
+      </form>    
+    </div>
+  </div>

@@ -3,6 +3,7 @@ import { AutoComponent } from './components/auto/auto.component';
 import { CrearAutoComponent } from './components/crear-auto/crear-auto.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ListarAutoComponent } from './components/listar-auto/listar-auto.component';
+import { EditarAutoComponent } from './components/editar-auto/editar-auto.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
       {
         path: 'listar',
         component: ListarAutoComponent
+      },
+      {
+        path: 'editar',
+        component: EditarAutoComponent
       }
     ]
   }
