@@ -22,5 +22,8 @@ export class ListarClienteComponent implements OnInit {
     this.clienteService.clienteActivo = cliente;
     this.router.navigateByUrl('/cliente/editar');
   }
-
+  
+  eliminar(cliente: Cliente){
+    this.clienteService.eliminar(cliente).subscribe( () => window.location.reload() );
+  }
 }
