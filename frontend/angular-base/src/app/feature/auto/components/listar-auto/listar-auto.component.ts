@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Auto } from '../../shared/model/auto';
+import { AutoService } from '../../shared/service/auto.service';
 
 @Component({
   selector: 'app-listar-auto',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarAutoComponent implements OnInit {
 
-  constructor() { }
+  autos : Auto[];
+
+  constructor(protected autoService: AutoService) { }
 
   ngOnInit(): void {
+    this.autoService.listar().subscribe( autos => this.autos = autos);
   }
 
 }
