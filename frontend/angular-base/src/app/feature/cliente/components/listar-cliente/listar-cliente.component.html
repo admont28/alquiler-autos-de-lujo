@@ -23,7 +23,7 @@
             <span class="badge rounded-pill bg-danger" *ngIf="cliente.estado == 'ELIMINADO'">{{ cliente.estado }}</span>
         </td>
         <td>{{ cliente.fechaCreacion }}</td>
-        <td><button (click)="navegarAEditar(cliente)" class="btn btn-primary me-1">Editar</button><button class="btn btn-danger">Eliminar</button></td>
+        <td><button (click)="navegarAEditar(cliente)" class="btn btn-primary me-1">Editar</button><button class="btn btn-danger" *ngIf="cliente.estado == 'ACTIVO'">Eliminar</button></td>
       </tr>
     </tbody>
   </table>
