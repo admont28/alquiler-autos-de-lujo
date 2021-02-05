@@ -32,7 +32,7 @@ export class EditarAutoComponent implements OnInit {
       nombre: new FormControl(this.auto.nombre, [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO), Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
       modelo: new FormControl(this.auto.modelo, [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO), Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
       precioPorDia: new FormControl(this.auto.precioPorDia, [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO), Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
-      estado: new FormControl(this.auto.estado, [Validators.required, ])
+      estado: new FormControl(this.auto.estado, [Validators.required])
     });
   }
 

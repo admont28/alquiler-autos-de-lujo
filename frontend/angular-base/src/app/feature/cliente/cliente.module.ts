@@ -5,11 +5,12 @@ import { ClienteRoutingModule } from './cliente-routing.module';
 import { SharedModule } from '@shared/shared.module';
 import { ClienteService } from './shared/service/cliente.service';
 import { ListarClienteComponent } from './components/listar-cliente/listar-cliente.component';
+import { EditarClienteComponent } from './components/editar-cliente/editar-cliente.component';
 
 @NgModule({
   declarations: [
     CrearClienteComponent, 
-    ClienteComponent, ListarClienteComponent
+    ClienteComponent, ListarClienteComponent, EditarClienteComponent
   ],
   imports: [
     ClienteRoutingModule,

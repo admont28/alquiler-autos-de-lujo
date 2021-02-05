@@ -1,0 +1,42 @@
+<div class="container-sm">
+    <div class="row">
+      <h1>Editar Cliente</h1>
+    </div>
+    <div class="row">
+        <form [formGroup]="clienteForm" (ngSubmit)="editar()">
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Nombre:</label>
+              <input validar type="text" id="nombre" name="nombre" placeholder="Nombre del cliente" class="form-control" formControlName="nombre" aria-describedby="nombreAyuda">
+              <div id="nombreAyuda" class="form-text">Nombre del cliente.</div>
+            </div>
+            <div class="mb-3">
+              <label for="apellido" class="form-label">Apellido:</label>
+              <input validar type="text" id="apellido" name="apellido" placeholder="Apellido del cliente" class="form-control" formControlName="apellido" aria-describedby="apellidoAyuda">
+              <div id="apellidoAyuda" class="form-text">Apellido del cliente.</div>
+            </div>
+            <div class="mb-3">
+            <label for="direccion" class="form-label">Dirección:</label>
+            <input validar type="text" id="direccion" name="direccion" placeholder="Dirección del cliente" class="form-control" formControlName="direccion" aria-describedby="direccionAyuda">
+            <div id="direccionAyuda" class="form-text">Dirección de residencia del cliente.</div>
+            </div>
+            <div class="mb-3">
+            <label for="cedula" class="form-label">Cédula:</label>
+            <input validar type="number" id="cedula" name="cedula" placeholder="Cédula del cliente" class="form-control" formControlName="cedula" aria-describedby="cedulaAyuda">
+            <div id="cedulaAyuda" class="form-text">Cédula de ciudadanía del cliente.</div>
+            </div>
+            <div class="mb-3" *ngIf="cliente.estado == 'ELIMINADO'">
+                <label for="estado" class="form-label">Estado: </label>
+                <div class="form-check form-check-inline">
+                    <input validar class="form-check-input" type="radio" name="estado" id="activo" value="ACTIVO" formControlName="estado">
+                    <label class="form-check-label" for="activo">ACTIVO</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input validar class="form-check-input" type="radio" name="estado" id="alquilado" value="ELIMINADO" formControlName="estado"> 
+                    <label class="form-check-label" for="alquilado">ELIMINADO</label>
+                  </div>
+                <div id="estadoAyuda" class="form-text">Estado del cliente.</div>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="clienteForm.invalid">Editar</button>
+      </form>    
+    </div>
+  </div>

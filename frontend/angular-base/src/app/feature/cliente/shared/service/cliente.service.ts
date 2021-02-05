@@ -19,7 +19,7 @@ export class ClienteService {
 
   public actualizar(cliente: Cliente) {
     console.log("Servicio actualizar cliente");
-    return this.http.doPut<Cliente, boolean>(`${environment.endpoint}/clientes`, cliente, this.http.optsName('actualizar clientes'));
+    return this.http.doPut<Cliente, boolean>(`${environment.endpoint}/clientes/${cliente.id}`, cliente, this.http.optsName('actualizar clientes'));
   }
 
   public eliminar(cliente: Cliente) {
