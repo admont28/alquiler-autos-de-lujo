@@ -94,5 +94,17 @@ public class ClienteTest {
         // assert
         assertEquals(EstadoCliente.ELIMINADO, cliente.getEstado());
 	}
+	
+	@Test
+	public void validarEstadoActivoSiVieneNuloEnConstructorTest() {
+		// arrange
+		ClienteTestDataBuilder clienteTestDataBuilder = new ClienteTestDataBuilder().conEstado(null);
+        
+        // act 
+        Cliente cliente = clienteTestDataBuilder.build();
+        
+        // assert
+        assertEquals(EstadoCliente.ACTIVO, cliente.getEstado());
+	}
 
 }

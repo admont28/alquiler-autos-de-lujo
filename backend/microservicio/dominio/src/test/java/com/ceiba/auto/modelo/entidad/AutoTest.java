@@ -95,5 +95,17 @@ public class AutoTest {
         // assert
         assertEquals(EstadoAuto.ALQUILADO, auto.getEstado());
 	}
+	
+	@Test
+	public void validarEstadoDisponibleSiVieneNuloEnConstructorTest() {
+		// arrange
+		AutoTestDataBuilder autoTestDataBuilder = new AutoTestDataBuilder().conEstado(null);
+        
+        // act 
+        Auto auto = autoTestDataBuilder.build();
+        
+        // assert
+        assertEquals(EstadoAuto.DISPONIBLE, auto.getEstado());
+	}
 
 }
