@@ -16,8 +16,10 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.ceiba.ApplicationMock;
 import com.ceiba.alquiler.comando.ComandoAlquiler;
+import com.ceiba.alquiler.modelo.entidad.Alquiler;
 import com.ceiba.alquiler.puerto.repositorio.RepositorioAlquiler;
 import com.ceiba.alquiler.servicio.testdatabuilder.ComandoAlquilerTestDataBuilder;
+import com.ceiba.auto.modelo.entidad.Auto;
 import com.ceiba.auto.modelo.entidad.EstadoAuto;
 import com.ceiba.auto.puerto.repositorio.RepositorioAuto;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -42,16 +44,22 @@ public class ComandoControladorAlquilerTest {
     @Test
     public void crearAlquilerTest() throws Exception{
         // arrange
-        ComandoAlquiler alquiler = new ComandoAlquilerTestDataBuilder().build();
+        ComandoAlquiler comanndoAlquiler = new ComandoAlquilerTestDataBuilder().build();
 
         // act - assert
         mocMvc.perform(post("/alquiler")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(alquiler)))
+                .content(objectMapper.writeValueAsString(comanndoAlquiler)))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{'valor': 3}"));
         
-        assertEquals(3, repositorioAlquiler.buscar(3L).getId().longValue());
-        assertEquals(EstadoAuto.ALQUILADO, repositorioAuto.buscar(alquiler.getAutoId()).getEstado());
+        Alquiler alquiler = repositorioAlquiler.buscar(3L);
+        Auto auto = repositorioAuto.buscar(comanndoAlquiler.getAutoId());
+		assertEquals(3, alquiler.getId().longValue());
+		assertEquals(comanndoAlquiler.getFechaAlquiler(), alquiler.getFechaAlquiler());
+		assertEquals(comanndoAlquiler.getFechaDevolucion(), alquiler.getFechaDevolucion());
+		assertEquals(comanndoAlquiler.getAutoId(), alquiler.getAuto().getId());
+		assertEquals(comanndoAlquiler.getClienteId(), alquiler.getCliente().getId());
+        assertEquals(EstadoAuto.ALQUILADO, auto.getEstado());
     }
 }
