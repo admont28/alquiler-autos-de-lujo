@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Auto } from '../../../auto/shared/model/auto';
+import { Cliente } from '../../../cliente/shared/model/cliente';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ClienteService } from '../../../cliente/shared/service/cliente.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AlquilerService } from '../../shared/service/alquiler.service';
 
 @Component({
   selector: 'app-crear-alquiler',
@@ -7,9 +13,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrearAlquilerComponent implements OnInit {
 
-  constructor() { }
+  auto: Auto;
+  clientes: Cliente[];
+  alquilerForm: FormGroup;
+
+  constructor( protected alquilerService: AlquilerService, protected clienteService: ClienteService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    if(Object.keys(this.activatedRoute.snapshot.params).length == 0){
+      this.router.navigate(['/auto/listar'], {skipLocationChange: true});
+    }
+    this.auto = JSON.parse(this.activatedRoute.snapshot.params.auto);
+    this.clienteService.listar().subscribe( (clientes) => {
+      this.clientes = clientes.filter( cliente => cliente.estado == 'ACTIVO');
+    });
+    this.construirFormularioAlquiler();
+  }
+
+  private construirFormularioAlquiler() {
+    this.alquilerForm = new FormGroup({
+      autoId: new FormControl(this.auto.id, [Validators.required]),
+      clienteId: new FormControl('', [Validators.required]),
+      fechaAlquiler: new FormControl('', [Validators.required]),
+      fechaDevolucion: new FormControl('', [Validators.required])
+    });
+  }
+
+  crear(){
+    this.alquilerService.crear(this.alquilerForm.value).subscribe((alquiler) =>{
+      console.log(alquiler);
+      
+      this.router.navigate(['/alquiler/listar'], {skipLocationChange: true});
+    });
   }
 
 }

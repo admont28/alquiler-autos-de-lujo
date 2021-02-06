@@ -23,4 +23,9 @@ export class ListarAutoComponent implements OnInit {
     this.router.navigateByUrl('/auto/editar');
   }
 
+  asignarAutoParaAlquiler(auto: Auto){
+    this.autoService.autoActivo = auto;
+    this.router.navigate(['alquiler/crear', { auto: JSON.stringify(auto) }]);
+  }
+
 }

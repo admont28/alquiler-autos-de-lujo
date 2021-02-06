@@ -1,1 +1,32 @@
-<p>crear-alquiler works!</p>
+<div class="container-sm">
+    <div class="row">
+      <h1>Crear Alquiler</h1>
+    </div>
+    <div class="row">
+        <form [formGroup]="alquilerForm" (ngSubmit)="crear()">
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Auto:</label>
+              <div class="form-control" aria-describedby="autoAyuda">{{ auto.nombre }} - {{ auto.modelo }}</div>
+              <div id="autoAyuda" class="form-text">Auto que se desea alquilar.</div>
+            </div>
+            <div class="mb-3">
+              <label for="cliente" class="form-label">Cliente:</label>
+              <select class="form-select" name="cliente" aria-label="Cliente que toma el alquiler del auto" formControlName="clienteId">
+                  <option *ngFor="let cliente of clientes" [ngValue]="cliente.id"> {{ cliente.nombre }} {{ cliente.apellido }}</option>
+              </select>
+              <div id="clienteAyuda" class="form-text">Cliente que toma el alquiler del auto.</div>
+            </div>
+            <div class="mb-3">
+            <label for="fechaAlquiler" class="form-label">Fecha de alquiler:</label>
+            <input validar type="date" id="fechaAlquiler" name="fechaAlquiler" placeholder="Fecha de alquiler del cliente" class="form-control" formControlName="fechaAlquiler" aria-describedby="fechaAlquilerAyuda">
+            <div id="fechaAlquilerAyuda" class="form-text">Fecha en la que el cliente retira el auto.</div>
+            </div>
+            <div class="mb-3">
+            <label for="fechaDevolucion" class="form-label">Fecha de devolución:</label>
+            <input validar type="date" id="fechaDevolucion" name="fechaDevolucion" placeholder="Cédula del cliente" class="form-control" formControlName="fechaDevolucion" aria-describedby="fechaDevolucionAyuda">
+            <div id="fechaDevolucionAyuda" class="form-text">Fecha en la que el cliente devuelve el auto.</div>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="alquilerForm.invalid">Crear</button>
+      </form>    
+    </div>
+  </div>
