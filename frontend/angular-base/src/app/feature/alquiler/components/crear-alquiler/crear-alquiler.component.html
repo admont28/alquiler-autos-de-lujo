@@ -10,8 +10,8 @@
               <div id="autoAyuda" class="form-text">Auto que se desea alquilar.</div>
             </div>
             <div class="mb-3">
-              <label for="cliente" class="form-label">Cliente:</label>
-              <select class="form-select" name="cliente" aria-label="Cliente que toma el alquiler del auto" formControlName="clienteId">
+              <label for="clienteId" class="form-label">Cliente:</label>
+              <select validar class="form-select" name="clienteId" aria-label="Cliente que toma el alquiler del auto" formControlName="clienteId">
                   <option *ngFor="let cliente of clientes" [ngValue]="cliente.id"> {{ cliente.nombre }} {{ cliente.apellido }}</option>
               </select>
               <div id="clienteAyuda" class="form-text">Cliente que toma el alquiler del auto.</div>
