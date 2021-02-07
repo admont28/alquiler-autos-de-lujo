@@ -66,7 +66,7 @@ public class Alquiler {
 		this.total = 0.0;
 		this.fechaAlquiler = fechaAlquiler;
 		this.fechaDevolucion = fechaEntrega;
-		this.fechaCreacion = LocalDateTime.parse("2021-02-05T11:15:00");
+		this.fechaCreacion = LocalDateTime.now();
 	}
 	
 	public void calcularSubTotal() {
