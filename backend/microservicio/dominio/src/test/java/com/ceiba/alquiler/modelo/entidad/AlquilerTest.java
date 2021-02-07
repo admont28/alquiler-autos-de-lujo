@@ -8,7 +8,6 @@ import java.time.LocalDateTime;
 import org.junit.Test;
 
 import com.ceiba.BasePrueba;
-import com.ceiba.alquiler.modelo.dto.DTOAlquiler;
 import com.ceiba.alquiler.servicio.testdatabuilder.AlquilerTestDataBuilder;
 import com.ceiba.auto.modelo.entidad.EstadoAuto;
 import com.ceiba.auto.servicio.testdatabuilder.AutoTestDataBuilder;
@@ -41,17 +40,25 @@ public class AlquilerTest {
 	@Test
 	public void validarFechaAlquilerMenorQueFechaDevolucionTest() {
 		// arrange
-        AlquilerTestDataBuilder alquilerTestDataBuilder = new AlquilerTestDataBuilder().conFechaAlquiler(LocalDate.parse("2021-02-01")).conFechaDevolucion(LocalDate.parse("2021-01-31"));
+        AlquilerTestDataBuilder alquilerTestDataBuilder = new AlquilerTestDataBuilder().conFechaAlquiler(LocalDate.now()).conFechaDevolucion(LocalDate.now().minusDays(1));
         
         // act - assert
-        BasePrueba.assertThrows(() -> alquilerTestDataBuilder.build(), ExcepcionValorInvalido.class, "La fecha del alquiler debe ser menor a la fecha de devolución");
+        BasePrueba.assertThrows(() -> alquilerTestDataBuilder.build(), ExcepcionValorInvalido.class, "La fecha del alquiler debe ser antes de la fecha de devolución");
+	}
+	
+	@Test
+	public void validarFechaAlquilerMenorQueFechaSistemaTest() {
+		// arrange
+        AlquilerTestDataBuilder alquilerTestDataBuilder = new AlquilerTestDataBuilder().conFechaAlquiler(LocalDate.now().minusDays(1));
+        
+        // act - assert
+        BasePrueba.assertThrows(() -> alquilerTestDataBuilder.build(), ExcepcionValorInvalido.class, "La fecha del alquiler debe ser igual o posterior a la fecha de creación");
 	}
 	
 	@Test
 	public void validarCalcularSubTotalTest() {
 		// arrange
-		LocalDate fechaAlquiler = LocalDate.parse("2021-02-01");
-        Alquiler alquiler = new AlquilerTestDataBuilder().conFechaAlquiler(fechaAlquiler).conFechaDevolucion(LocalDate.parse("2021-02-05")).build();
+        Alquiler alquiler = new AlquilerTestDataBuilder().conFechaAlquiler(LocalDate.now()).conFechaDevolucion(LocalDate.now().plusDays(4)).build();
         
         // act 
         alquiler.calcularSubTotal();
@@ -64,7 +71,7 @@ public class AlquilerTest {
 	public void validarCalcularDescuentosMasDe15DiasTest() {
 		// arrange
 		Double subTotal = 2000000.00;
-        Alquiler alquiler = new AlquilerTestDataBuilder().conSubTotal(subTotal).conFechaCreacion(LocalDateTime.parse("2021-02-15T13:00:00")).conFechaAlquiler(LocalDate.parse("2021-02-01")).conFechaDevolucion(LocalDate.parse("2021-02-20")).build();
+        Alquiler alquiler = new AlquilerTestDataBuilder().conSubTotal(subTotal).conFechaCreacion(LocalDateTime.parse("2021-01-15T13:00:00")).conFechaAlquiler(LocalDate.parse("2050-02-01")).conFechaDevolucion(LocalDate.parse("2050-02-20")).build();
         Double descuentos = subTotal * 0.05;
         
         // act 
@@ -78,7 +85,7 @@ public class AlquilerTest {
 	public void validarCalcularDescuentosPrimerosDiasDelMesTest() {
 		// arrange
 		Double subTotal = 500000.00;
-        Alquiler alquiler = new AlquilerTestDataBuilder().conSubTotal(subTotal).conFechaCreacion(LocalDateTime.parse("2021-02-03T13:00:00")).conFechaAlquiler(LocalDate.parse("2021-02-01")).conFechaDevolucion(LocalDate.parse("2021-02-05")).build();
+        Alquiler alquiler = new AlquilerTestDataBuilder().conSubTotal(subTotal).conFechaCreacion(LocalDateTime.parse("2021-02-03T13:00:00")).conFechaAlquiler(LocalDate.parse("2050-02-01")).conFechaDevolucion(LocalDate.parse("2050-02-05")).build();
         Double descuentos = subTotal * 0.03;
         
         // act 
@@ -92,7 +99,7 @@ public class AlquilerTest {
 	public void validarCalcularDescuentosMasDe15DiasYPrimerosDiasDelMesTest() {
 		// arrange
 		Double subTotal = 2000000.00;
-        Alquiler alquiler = new AlquilerTestDataBuilder().conSubTotal(subTotal).conFechaCreacion(LocalDateTime.parse("2021-02-01T13:00:00")).conFechaAlquiler(LocalDate.parse("2021-02-01")).conFechaDevolucion(LocalDate.parse("2021-02-20")).build();
+        Alquiler alquiler = new AlquilerTestDataBuilder().conSubTotal(subTotal).conFechaCreacion(LocalDateTime.parse("2021-02-01T13:00:00")).conFechaAlquiler(LocalDate.parse("2050-02-01")).conFechaDevolucion(LocalDate.parse("2050-02-20")).build();
         Double descuentos = (subTotal * 0.05) + (subTotal * 0.03);
         
         // act 
@@ -107,7 +114,7 @@ public class AlquilerTest {
 		// arrange
 		Double subTotal = 500000.00;
 		Double descuento = 100000.00;
-        Alquiler alquiler = new AlquilerTestDataBuilder().conSubTotal(subTotal).conDescuento(descuento).conFechaAlquiler(LocalDate.parse("2021-02-01")).conFechaDevolucion(LocalDate.parse("2021-02-05")).build();
+        Alquiler alquiler = new AlquilerTestDataBuilder().conSubTotal(subTotal).conDescuento(descuento).conFechaAlquiler(LocalDate.parse("2050-02-01")).conFechaDevolucion(LocalDate.parse("2050-02-05")).build();
         
         // act 
         alquiler.calcularTotal();
@@ -141,68 +148,6 @@ public class AlquilerTest {
         
         // act - assert
         BasePrueba.assertThrows(() -> alquiler.validarEstadoActivoCliente(), ExcepcionNegocio.class, "El cliente no está activo");
-	}
-	
-	@Test
-	public void validarConvertirADTO() {
-		// arrange
-		Alquiler alquiler = new AlquilerTestDataBuilder().build();
-		
-		// act
-		DTOAlquiler dtoAlquiler = alquiler.convertirADTO();
-        
-        // assert
-        assertEquals(alquiler.getId(), dtoAlquiler.getId());
-        assertEquals(alquiler.getAuto().getId(), dtoAlquiler.getAutoId());
-        assertEquals(alquiler.getCliente().getId(), dtoAlquiler.getClienteId());
-        assertEquals(alquiler.getSubTotal(), dtoAlquiler.getSubTotal());
-        assertEquals(alquiler.getDescuento(), dtoAlquiler.getDescuento());
-        assertEquals(alquiler.getTotal(), dtoAlquiler.getTotal());
-        assertEquals(alquiler.getFechaAlquiler(), dtoAlquiler.getFechaAlquiler());
-        assertEquals(alquiler.getFechaDevolucion(), dtoAlquiler.getFechaDevolucion());
-        assertEquals(alquiler.getFechaCreacion(), dtoAlquiler.getFechaCreacion());
-	}
-	
-	@Test
-	public void validarConvertirADTOAutoNulo() {
-		// arrange
-		Alquiler alquiler = new AlquilerTestDataBuilder().build();
-		alquiler.setAuto(null);
-		
-		// act
-		DTOAlquiler dtoAlquiler = alquiler.convertirADTO();
-        
-        // assert
-		assertEquals(alquiler.getId(), dtoAlquiler.getId());
-        assertEquals(null, dtoAlquiler.getAutoId());
-        assertEquals(alquiler.getCliente().getId(), dtoAlquiler.getClienteId());
-        assertEquals(alquiler.getSubTotal(), dtoAlquiler.getSubTotal());
-        assertEquals(alquiler.getDescuento(), dtoAlquiler.getDescuento());
-        assertEquals(alquiler.getTotal(), dtoAlquiler.getTotal());
-        assertEquals(alquiler.getFechaAlquiler(), dtoAlquiler.getFechaAlquiler());
-        assertEquals(alquiler.getFechaDevolucion(), dtoAlquiler.getFechaDevolucion());
-        assertEquals(alquiler.getFechaCreacion(), dtoAlquiler.getFechaCreacion());
-	}
-	
-	@Test
-	public void validarConvertirADTOClienteNulo() {
-		// arrange
-		Alquiler alquiler = new AlquilerTestDataBuilder().build();
-		alquiler.setCliente(null);
-		
-		// act
-		DTOAlquiler dtoAlquiler = alquiler.convertirADTO();
-        
-        // assert
-		assertEquals(alquiler.getId(), dtoAlquiler.getId());
-        assertEquals(alquiler.getAuto().getId(), dtoAlquiler.getAutoId());
-        assertEquals(null, dtoAlquiler.getClienteId());
-        assertEquals(alquiler.getSubTotal(), dtoAlquiler.getSubTotal());
-        assertEquals(alquiler.getDescuento(), dtoAlquiler.getDescuento());
-        assertEquals(alquiler.getTotal(), dtoAlquiler.getTotal());
-        assertEquals(alquiler.getFechaAlquiler(), dtoAlquiler.getFechaAlquiler());
-        assertEquals(alquiler.getFechaDevolucion(), dtoAlquiler.getFechaDevolucion());
-        assertEquals(alquiler.getFechaCreacion(), dtoAlquiler.getFechaCreacion());
-	}
+	}	
 
 }

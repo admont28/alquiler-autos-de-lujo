@@ -8,7 +8,6 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
 
-import com.ceiba.alquiler.modelo.dto.DTOAlquiler;
 import com.ceiba.auto.modelo.entidad.Auto;
 import com.ceiba.auto.modelo.entidad.EstadoAuto;
 import com.ceiba.cliente.modelo.entidad.Cliente;
@@ -28,7 +27,8 @@ public class Alquiler {
 	private static final String SE_DEBE_INGRESAR_EL_CLIENTE_DEL_ALQUILER = "Se debe ingresar el cliente del alquiler";
 	private static final String SE_DEBE_INGRESAR_LA_FECHA_DEL_ALQUILER = "Se debe ingresar la fecha de entrega del auto al cliente";
 	private static final String SE_DEBE_INGRESAR_LA_FECHA_DE_DEVOLUCION_DEL_ALQUILER = "Se debe ingresar la fecha de devolución del auto por parte del cliente";
-	private static final String LA_FECHA_DEL_ALQUILER_DEBE_SER_MENOR_A_LA_FECHA_DE_DEVOLUCION = "La fecha del alquiler debe ser menor a la fecha de devolución";
+	private static final String LA_FECHA_DEL_ALQUILER_DEBE_SER_IGUAL_O_POSTERIOR_A_LA_FECHA_DE_CREACION = "La fecha del alquiler debe ser igual o posterior a la fecha de creación";
+	private static final String LA_FECHA_DEL_ALQUILER_DEBE_SER_ANTES_DE_LA_FECHA_DE_DEVOLUCION = "La fecha del alquiler debe ser antes de la fecha de devolución";
 	private static final String SOLO_SE_PERMITE_CREAR_EL_ALQUILER_DE_LUNES_A_VIERNES = "Solo se permite crear el alquiler de Lunes a Viernes";
 	private static final String EL_AUTO_NO_ESTA_DISPONIBLE_PARA_ALQUILAR = "El auto no está disponible para alquilar";
 	private static final String EL_CLIENTE_NO_ESTA_ACTIVO = "El cliente no está activo";
@@ -55,7 +55,8 @@ public class Alquiler {
 		validarObligatorio(cliente, SE_DEBE_INGRESAR_EL_CLIENTE_DEL_ALQUILER);
 		validarObligatorio(fechaAlquiler, SE_DEBE_INGRESAR_LA_FECHA_DEL_ALQUILER);
 		validarObligatorio(fechaEntrega, SE_DEBE_INGRESAR_LA_FECHA_DE_DEVOLUCION_DEL_ALQUILER);
-		validarMenor(fechaAlquiler.atStartOfDay(), fechaEntrega.atStartOfDay(), LA_FECHA_DEL_ALQUILER_DEBE_SER_MENOR_A_LA_FECHA_DE_DEVOLUCION);
+		validarMenor(LocalDate.now().atStartOfDay(), fechaAlquiler.atStartOfDay(), LA_FECHA_DEL_ALQUILER_DEBE_SER_IGUAL_O_POSTERIOR_A_LA_FECHA_DE_CREACION);
+		validarMenor(fechaAlquiler.atStartOfDay(), fechaEntrega.atStartOfDay(), LA_FECHA_DEL_ALQUILER_DEBE_SER_ANTES_DE_LA_FECHA_DE_DEVOLUCION);
 		
 		this.id = id;
 		this.auto = auto;
@@ -65,7 +66,7 @@ public class Alquiler {
 		this.total = 0.0;
 		this.fechaAlquiler = fechaAlquiler;
 		this.fechaDevolucion = fechaEntrega;
-		this.fechaCreacion = LocalDateTime.now();
+		this.fechaCreacion = LocalDateTime.parse("2021-02-05T11:15:00");
 	}
 	
 	public void calcularSubTotal() {
@@ -114,10 +115,6 @@ public class Alquiler {
 		}
 	}
 	
-	public DTOAlquiler convertirADTO() {
-		Long autoId = auto != null ? auto.getId() : null;
-		Long clienteId = cliente != null ? cliente.getId() : null;
-		return DTOAlquiler.builder().id(id).autoId(autoId).clienteId(clienteId).subTotal(subTotal).descuento(descuento).total(total).fechaAlquiler(fechaAlquiler).fechaDevolucion(fechaDevolucion).fechaCreacion(fechaCreacion).build();
-	}
+	
 	
 }

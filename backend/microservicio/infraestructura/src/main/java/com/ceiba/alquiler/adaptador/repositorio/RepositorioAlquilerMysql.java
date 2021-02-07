@@ -1,13 +1,13 @@
 package com.ceiba.alquiler.adaptador.repositorio;
 
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import com.ceiba.alquiler.adaptador.mapeo.MapeoAlquiler;
 import com.ceiba.alquiler.modelo.entidad.Alquiler;
 import com.ceiba.alquiler.puerto.repositorio.RepositorioAlquiler;
-import com.ceiba.auto.puerto.repositorio.RepositorioAuto;
-import com.ceiba.cliente.puerto.repositorio.RepositorioCliente;
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
 
@@ -15,13 +15,9 @@ import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
 public class RepositorioAlquilerMysql implements RepositorioAlquiler {
 
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
-    private final RepositorioAuto repositorioAuto;
-	private final RepositorioCliente repositorioCliente;
 	
-	public RepositorioAlquilerMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate, RepositorioAuto repositorioAuto, RepositorioCliente repositorioCliente) {
+	public RepositorioAlquilerMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
 		this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
-		this.repositorioAuto = repositorioAuto;
-		this.repositorioCliente = repositorioCliente;
 	}
 
     @SqlStatement(namespace="alquiler", value="crear")
@@ -32,14 +28,25 @@ public class RepositorioAlquilerMysql implements RepositorioAlquiler {
 
     @Override
     public Long crear(Alquiler alquiler) {
-        return this.customNamedParameterJdbcTemplate.crear(alquiler.convertirADTO(), sqlCrearAlquiler);
+    	MapSqlParameterSource paramSource = new MapSqlParameterSource();
+    	paramSource.addValue("autoId", alquiler.getAuto().getId());
+    	paramSource.addValue("clienteId", alquiler.getCliente().getId());
+    	paramSource.addValue("subTotal", alquiler.getSubTotal());
+    	paramSource.addValue("descuento", alquiler.getDescuento());
+    	paramSource.addValue("total", alquiler.getTotal());
+    	paramSource.addValue("fechaAlquiler", alquiler.getFechaAlquiler());
+    	paramSource.addValue("fechaDevolucion", alquiler.getFechaDevolucion());
+    	paramSource.addValue("fechaCreacion", alquiler.getFechaCreacion());
+		KeyHolder keyHolder = new GeneratedKeyHolder();
+		this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlCrearAlquiler, paramSource,keyHolder,new String[] { "id" });
+		return keyHolder.getKey().longValue();
     }
     
     @Override
 	public Alquiler buscar(Long id) {
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("id", id);
-		return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlBuscarAlquiler, paramSource, new MapeoAlquiler(repositorioAuto, repositorioCliente));
+		return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlBuscarAlquiler, paramSource, new MapeoAlquiler());
 	}
     
 

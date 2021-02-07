@@ -43,7 +43,7 @@ public class CustomNamedParameterJdbcTemplate {
 				if (!Modifier.isStatic(field.getModifiers()) && !Modifier.isFinal(field.getModifiers())) {
 					field.setAccessible(true);
 					if (field.get(object) != null && field.get(object).getClass().isEnum()) {
-						paramSource.addValue(field.getName(), field.get(object), java.sql.Types.VARCHAR);						
+						paramSource.addValue(field.getName(), field.get(object), java.sql.Types.VARCHAR);
 					} else {
 						paramSource.addValue(field.getName(), field.get(object));
 					}
