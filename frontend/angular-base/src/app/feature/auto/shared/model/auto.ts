@@ -1,5 +1,5 @@
 export class Auto {
-    id: string;
+    id: number;
     serial: string;
     nombre: string;
     modelo: string;
@@ -7,7 +7,7 @@ export class Auto {
     estado: string;
     fechaCreacion: Date;
 
-    constructor(id: string, serial: string, nombre: string, modelo: string, precioPorDia: number, estado: string, fechaCreacion: Date){
+    constructor(id: number, serial: string, nombre: string, modelo: string, precioPorDia: number, estado: string, fechaCreacion: Date){
         this.id = id;
         this.serial = serial;
         this.nombre = nombre;

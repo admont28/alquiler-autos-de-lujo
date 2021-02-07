@@ -6,3 +6,4 @@ from alquiler alquiler, auto auto, cliente cliente
 where
 alquiler.auto_id = auto.id 
 and alquiler.cliente_id = cliente.id 
+ORDER BY alquiler.id ASC

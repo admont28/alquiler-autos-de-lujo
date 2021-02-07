@@ -1,5 +1,5 @@
 export class Cliente {
-    id: string;
+    id: number;
     nombre: string;
     apellido: string;
     direccion: string;
@@ -7,7 +7,7 @@ export class Cliente {
     estado: string;
     fechaCreacion: Date;
 
-    constructor(id: string, nombre: string, apellido: string, direccion: string, cedula: string, estado: string, fechaCreacion: Date){
+    constructor(id: number, nombre: string, apellido: string, direccion: string, cedula: string, estado: string, fechaCreacion: Date){
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;

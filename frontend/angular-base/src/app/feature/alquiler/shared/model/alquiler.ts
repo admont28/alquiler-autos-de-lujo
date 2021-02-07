@@ -1,7 +1,10 @@
+import { Auto } from '../../../auto/shared/model/auto';
+import { Cliente } from '../../../cliente/shared/model/cliente';
+
 export class Alquiler {
     id: number;
-    autoId: number;
-    clienteId: number;
+    auto: Auto;
+    cliente: Cliente;
     subTotal: number;
     descuento: number;
     total: number;
@@ -9,10 +12,10 @@ export class Alquiler {
     fechaDevolucion: Date;
     fechaCreacion: Date;
 
-    constructor(id: number, autoId: number, clienteId: number, subTotal: number, descuento: number, total: number, fechaAlquiler: Date, fechaDevolucion: Date, fechaCreacion: Date){
+    constructor(id: number, auto: Auto, cliente: Cliente, subTotal: number, descuento: number, total: number, fechaAlquiler: Date, fechaDevolucion: Date, fechaCreacion: Date){
         this.id = id;
-        this.autoId = autoId;
-        this.clienteId = clienteId;
+        this.auto = auto;
+        this.cliente = cliente;
         this.subTotal = subTotal;
         this.descuento = descuento;
         this.total = total;
