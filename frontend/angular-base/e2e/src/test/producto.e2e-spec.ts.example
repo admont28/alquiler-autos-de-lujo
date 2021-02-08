@@ -14,7 +14,7 @@ describe('workspace-project Producto', () => {
         producto = new ProductoPage();
     });
 
-    it('Deberia crear producto', () => {
+    /* it('Deberia crear producto', () => {
         const ID_PRODUCTO = '001';
         const DESCRIPCION_PRODUCTO = 'Producto de pruebas';
 
@@ -26,13 +26,13 @@ describe('workspace-project Producto', () => {
 
         // Adicionamos las validaciones despues de la creación
         // expect(<>).toEqual(<>);
-    });
+    }); */
 
-    it('Deberia listar productos', () => {
+   /*  it('Deberia listar productos', () => {
         page.navigateToHome();
         navBar.clickBotonProductos();
         producto.clickBotonListarProductos();
 
         expect(4).toBe(producto.contarProductos());
-    });
+    }); */
 });

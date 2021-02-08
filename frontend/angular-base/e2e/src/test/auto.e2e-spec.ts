@@ -1,4 +1,4 @@
-//import { browser, logging } from 'protractor';
+import { browser } from 'protractor';
 import { NavbarPage } from '../page/navbar/navbar.po';
 import { AppPage } from '../app.po';
 import { AutoPage } from '../page/auto/auto.po';
@@ -12,6 +12,7 @@ describe('workspace-project Auto', () => {
         page = new AppPage();
         navBar = new NavbarPage();
         auto = new AutoPage();
+        browser.driver.manage().window().maximize();
     });
 
     it('Deberia crear un auto', () => {
@@ -27,9 +28,12 @@ describe('workspace-project Auto', () => {
         auto.ingresarNombre(NOMBRE);
         auto.ingresarModelo(MODELO);
         auto.ingresarPrecioPorDia(PRECIO_POR_DIA);
+        auto.clickBotonCrear();
 
         // Adicionamos las validaciones despues de la creación
         // expect(<>).toEqual(<>);
+        expect(auto.obtenerTextoSweetAlert()).toEqual('Auto creado correctamente');
+        auto.clickBotonOK();
     });
 
     it('Deberia listar autos', () => {
@@ -37,6 +41,6 @@ describe('workspace-project Auto', () => {
         navBar.clicBotonAuto();
         auto.clickBotonListarAutos();
 
-        expect(10).toBe(auto.contarAutos());
+        expect(16).toBe(auto.contarAutos());
     });
 });
