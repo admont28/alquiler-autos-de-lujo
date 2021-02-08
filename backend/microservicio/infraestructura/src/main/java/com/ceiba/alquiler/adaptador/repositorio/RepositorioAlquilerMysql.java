@@ -39,7 +39,11 @@ public class RepositorioAlquilerMysql implements RepositorioAlquiler {
     	paramSource.addValue("fechaCreacion", alquiler.getFechaCreacion());
 		KeyHolder keyHolder = new GeneratedKeyHolder();
 		this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlCrearAlquiler, paramSource,keyHolder,new String[] { "id" });
-		return keyHolder.getKey().longValue();
+		Number key = keyHolder.getKey();
+		if( key != null) {
+			return  key.longValue();
+		}
+		return null;
     }
     
     @Override
