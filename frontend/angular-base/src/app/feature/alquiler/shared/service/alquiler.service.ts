@@ -14,7 +14,7 @@ export class AlquilerService {
 
   public crear(alquiler: Alquiler) {
     console.log("Servicio crear alquiler");
-    return this.http.doPost<Alquiler, boolean>(`${environment.endpoint}/alquiler`, alquiler, this.http.optsName('crear alquiler'));
+    return this.http.doPost<Alquiler, any>(`${environment.endpoint}/alquiler`, alquiler, this.http.optsName('crear alquiler'));
   }
 
   public listar(){

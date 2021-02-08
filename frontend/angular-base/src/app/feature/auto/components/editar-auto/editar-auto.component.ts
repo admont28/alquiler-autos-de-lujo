@@ -3,6 +3,7 @@ import { Auto } from '../../shared/model/auto';
 import { AutoService } from '../../shared/service/auto.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 const LONGITUD_MINIMA_PERMITIDA_TEXTO = 3;
 const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
@@ -39,8 +40,21 @@ export class EditarAutoComponent implements OnInit {
   editar(){
     console.log("Editar auto");
     this.autoService.actualizar(this.autoForm.value).subscribe(() =>{
-      this.autoForm.reset();
-      this.router.navigateByUrl('/auto/listar');
+      Swal.fire({
+        icon : 'success',
+        title : 'Auto actualizado correctamente'
+      }).then(() => {
+        this.autoForm.reset();
+        this.router.navigateByUrl('/auto/listar');
+      });
+      
+    }, 
+    (error) => {
+      console.log(error);
+      Swal.fire({
+        icon : 'error',
+        title : error.error.mensaje
+      });
     });
   }
 

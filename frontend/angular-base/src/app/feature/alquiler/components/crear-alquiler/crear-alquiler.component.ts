@@ -5,6 +5,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ClienteService } from '../../../cliente/shared/service/cliente.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlquilerService } from '../../shared/service/alquiler.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-crear-alquiler',
@@ -42,8 +43,21 @@ export class CrearAlquilerComponent implements OnInit {
   crear(){
     this.alquilerService.crear(this.alquilerForm.value).subscribe((alquiler) =>{
       console.log(alquiler);
-      
-      this.router.navigate(['/alquiler/listar'], {skipLocationChange: true});
+      if(alquiler.valor){
+        Swal.fire({
+          icon : 'success',
+          title : `Alquiler #${alquiler.valor} creado correctamente`
+        }).then( () => {
+          this.router.navigate(['/alquiler/listar'], {skipLocationChange: true});
+        });
+      }
+    }, 
+    (error) => {
+      console.log(error);
+      Swal.fire({
+        icon : 'error',
+        title : error.error.mensaje
+      });
     });
   }
 

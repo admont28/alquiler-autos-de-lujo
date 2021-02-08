@@ -14,7 +14,7 @@ export class ClienteService {
 
   public crear(cliente: Cliente) {
     console.log("Servicio crear cliente");
-    return this.http.doPost<Cliente, boolean>(`${environment.endpoint}/clientes`, cliente, this.http.optsName('crear clientes'));
+    return this.http.doPost<Cliente, any>(`${environment.endpoint}/clientes`, cliente, this.http.optsName('crear clientes'));
   }
 
   public actualizar(cliente: Cliente) {

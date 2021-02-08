@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AutoService } from '../../shared/service/auto.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 const LONGITUD_MINIMA_PERMITIDA_TEXTO = 3;
 const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
@@ -24,10 +25,22 @@ export class CrearAutoComponent implements OnInit {
 
   crear() {
     console.log("Crear auto");
-    this.autoService.crear(this.autoForm.value).subscribe((auto) =>{
+    this.autoService.crear(this.autoForm.value).subscribe((auto) => {
       console.log(auto);
-      
-      this.autoForm.reset();
+      if(auto.valor){
+        Swal.fire({
+          icon : 'success',
+          title : 'Auto creado correctamente'
+        });
+        this.autoForm.reset();
+      }
+    }, 
+    (error) => {
+      console.log(error);
+      Swal.fire({
+        icon : 'error',
+        title : error.error.mensaje
+      });
     });
      
   }

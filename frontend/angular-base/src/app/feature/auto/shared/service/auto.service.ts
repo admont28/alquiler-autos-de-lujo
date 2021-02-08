@@ -18,7 +18,7 @@ export class AutoService {
 
   public crear(auto: Auto) {
     console.log("Servicio crear auto");
-    return this.http.doPost<Auto, boolean>(`${environment.endpoint}/autos`, auto, this.http.optsName('crear autos'));
+    return this.http.doPost<Auto, any>(`${environment.endpoint}/autos`, auto, this.http.optsName('crear autos'));
   }
 
   public actualizar(auto: Auto) {

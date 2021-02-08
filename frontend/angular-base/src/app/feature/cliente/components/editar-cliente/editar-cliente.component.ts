@@ -3,6 +3,7 @@ import { ClienteService } from '../../shared/service/cliente.service';
 import { Router } from '@angular/router';
 import { Cliente } from '../../shared/model/cliente';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 const LONGITUD_MINIMA_PERMITIDA_TEXTO = 3;
 const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
@@ -39,8 +40,20 @@ export class EditarClienteComponent implements OnInit {
   editar(){
     console.log("Editar cliente");
     this.clienteService.actualizar(this.clienteForm.value).subscribe(() =>{
-      this.clienteForm.reset();
-      this.router.navigateByUrl('/cliente/listar');
+      Swal.fire({
+        icon : 'success',
+        title : 'Cliente actualizado correctamente'
+      }).then( () => {
+        this.clienteForm.reset();
+        this.router.navigateByUrl('/cliente/listar');
+      });
+    }, 
+    (error) => {
+      console.log(error);
+      Swal.fire({
+        icon : 'error',
+        title : error.error.mensaje
+      });
     });
   }
 

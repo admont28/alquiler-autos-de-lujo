@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ClienteService } from '../../shared/service/cliente.service';
+import Swal from 'sweetalert2';
 
 const LONGITUD_MINIMA_PERMITIDA_TEXTO = 3;
 const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
@@ -26,8 +27,20 @@ export class CrearClienteComponent implements OnInit {
     console.log("Crear cliente");
     this.clienteService.crear(this.clienteForm.value).subscribe((cliente) =>{
       console.log(cliente);
-      
-      this.clienteForm.reset();
+      if(cliente.valor){
+        Swal.fire({
+          icon : 'success',
+          title : 'Cliente creado correctamente'
+        });
+        this.clienteForm.reset();
+      }
+    }, 
+    (error) => {
+      console.log(error);
+      Swal.fire({
+        icon : 'error',
+        title : error.error.mensaje
+      });
     });
      
   }

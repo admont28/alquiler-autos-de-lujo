@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClienteService } from '../../shared/service/cliente.service';
 import { Cliente } from '../../shared/model/cliente';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-listar-cliente',
@@ -24,6 +25,34 @@ export class ListarClienteComponent implements OnInit {
   }
   
   eliminar(cliente: Cliente){
-    this.clienteService.eliminar(cliente).subscribe( () => window.location.reload() );
+    Swal.fire({
+      title: '¿Desea eliminar el cliente?',
+      text: "Luego de eliminado puedes volver a activar el cliente.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, eliminar!',
+      cancelButtonText: 'No, cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.clienteService.eliminar(cliente).subscribe( () => {
+          Swal.fire({
+            icon : 'success',
+            title : 'Cliente eliminado correctamente'
+          }).then( () => {
+            window.location.reload();
+          });
+        }, 
+        (error) => {
+          console.log(error);
+          Swal.fire({
+            icon : 'error',
+            title : error.error.mensaje
+          });
+        });
+      }
+    });
+    
   }
 }
