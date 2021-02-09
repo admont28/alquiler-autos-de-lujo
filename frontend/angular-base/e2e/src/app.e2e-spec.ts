@@ -8,7 +8,7 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('Deberia mostrar el titulo de la aplicacion', () => {
     page.navigateToHome();
     expect(page.getTitleText()).toEqual('Alquiler de autos de lujo');
   });
