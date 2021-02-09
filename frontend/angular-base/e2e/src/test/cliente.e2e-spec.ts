@@ -16,8 +16,8 @@ describe('workspace-project Cliente', () => {
     });
 
     it('Deberia crear un cliente', () => {
-        const NOMBRE =  'Chevrolet GT';
-        const APELLIDO = '2021';
+        const NOMBRE =  'Nuevo nombre';
+        const APELLIDO = 'Nuevo apellido';
         const DIRECCION = 'Dirección nueva';
         const CEDULA = ( Math.floor(Math.random() * 9999999999) + 1000000000 );
 
@@ -53,6 +53,32 @@ describe('workspace-project Cliente', () => {
         expect(cliente.obtenerTextoSweetAlert()).toEqual('Cliente actualizado correctamente');
         cliente.clickBotonOK();
     });
+
+    it('Deberia eliminar un cliente', () => {
+        page.navigateToHome();
+        navBar.clicBotonCliente();
+        cliente.clickBotonListarClientes();
+        cliente.clickBotonEliminarPrimerCliente();
+        cliente.clickBotonSiEliminarCliente();
+
+        // Validaciones
+        expect(cliente.obtenerTextoSweetAlert()).toEqual('Cliente eliminado correctamente');
+        cliente.clickBotonOK();
+    });
+
+    it('Deberia reactivar un cliente', () => {
+        page.navigateToHome();
+        navBar.clicBotonCliente();
+        cliente.clickBotonListarClientes();
+        cliente.clickBotonEditarPrimerCliente();
+        cliente.clickInputActivo();
+        cliente.clickBotonEditar();
+
+        // Validaciones
+        expect(cliente.obtenerTextoSweetAlert()).toEqual('Cliente actualizado correctamente');
+        cliente.clickBotonOK();
+    });
+
 
     it('Deberia listar clientes', () => {
         page.navigateToHome();

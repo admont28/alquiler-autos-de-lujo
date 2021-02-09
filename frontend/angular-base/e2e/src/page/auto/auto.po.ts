@@ -1,4 +1,4 @@
-import { element, by } from 'protractor';
+import { element, by, browser } from 'protractor';
 
 export class AutoPage {
     
@@ -12,6 +12,7 @@ export class AutoPage {
     private botonOkVentanaModal = element(by.buttonText('OK'));
     private textoSweetAlert = element(by.id('swal2-title'));
     private botonEditarPrimerAuto = element.all(by.css('.btn-editar-auto')).first();
+    private botonAlquilarPrimerAuto = element.all(by.css('.btn-alquilar-auto')).first();
     private botonEditar = element(by.buttonText('Editar'));
     
     private listaAutos = element.all(by.css('app-root div.autos'));
@@ -66,5 +67,11 @@ export class AutoPage {
 
     async clickBotonEditar() {
         await this.botonEditar.click();
+    }
+
+    async clickBotonAlquilar() {
+        browser.actions().mouseMove(this.botonAlquilarPrimerAuto).perform();
+        browser.sleep(2500);
+        await this.botonAlquilarPrimerAuto.click();
     }
 }

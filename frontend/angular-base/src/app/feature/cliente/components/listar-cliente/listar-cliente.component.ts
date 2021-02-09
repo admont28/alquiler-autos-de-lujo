@@ -16,6 +16,10 @@ export class ListarClienteComponent implements OnInit {
   constructor(protected clienteService: ClienteService, private router: Router) { }
 
   ngOnInit(): void {
+    this.actualizarListaClientes();
+  }
+
+  actualizarListaClientes(){
     this.clienteService.listar().subscribe( (clientes) => this.clientes = clientes);
   }
 
@@ -41,7 +45,7 @@ export class ListarClienteComponent implements OnInit {
             icon : 'success',
             title : 'Cliente eliminado correctamente'
           }).then( () => {
-            window.location.reload();
+            this.actualizarListaClientes();
           });
         }, 
         (error) => {

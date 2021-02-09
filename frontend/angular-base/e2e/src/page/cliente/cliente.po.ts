@@ -12,7 +12,10 @@ export class ClientePage {
     private botonOkVentanaModal = element(by.buttonText('OK'));
     private textoSweetAlert = element(by.id('swal2-title'));
     private botonEditarPrimerCliente = element.all(by.css('.btn-editar-cliente')).first();
+    private botonEliminarPrimerCliente = element.all(by.css('.btn-eliminar-cliente')).first();
     private botonEditar = element(by.buttonText('Editar'));
+    private botonSiEliminar = element(by.buttonText('Si, eliminar!'));
+    private inputActivo = element(by.id('activo'));
     
     private listaClientes = element.all(by.css('app-root table tbody tr'));
     
@@ -64,7 +67,19 @@ export class ClientePage {
         await this.botonEditarPrimerCliente.click();
     }
 
+    async clickBotonEliminarPrimerCliente(){
+        await this.botonEliminarPrimerCliente.click();
+    }
+
+    async clickBotonSiEliminarCliente(){
+        await this.botonSiEliminar.click();
+    }
+
     async clickBotonEditar() {
         await this.botonEditar.click();
+    }
+
+    async clickInputActivo(){
+        await this.inputActivo.click();
     }
 }
