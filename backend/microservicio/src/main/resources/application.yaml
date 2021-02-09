@@ -11,6 +11,10 @@ server:
          timeout: 21600s
 
 spring:
+   profiles:
+      active: 'load-test'
+   flyway:
+        enabled: false
    datasource:
       driver-class-name: com.mysql.cj.jdbc.Driver
       type: com.zaxxer.hikari.HikariDataSource
