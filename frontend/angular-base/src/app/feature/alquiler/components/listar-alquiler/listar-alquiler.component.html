@@ -15,7 +15,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let alquiler of alquileres">
+      <tr *ngFor="let alquiler of alquileres | async">
         <th scope="row">{{ alquiler.id }}</th>
         <td>{{ alquiler.auto.nombre }} - {{ alquiler.auto.modelo }}</td>
         <td>{{ alquiler.cliente.nombre }} {{ alquiler.cliente.apellido }}</td>

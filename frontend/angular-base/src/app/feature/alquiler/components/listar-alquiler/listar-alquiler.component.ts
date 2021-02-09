@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlquilerService } from '../../shared/service/alquiler.service';
 import { Alquiler } from '../../shared/model/alquiler';
-import { Auto } from '../../../auto/shared/model/auto';
-import { Cliente } from '../../../cliente/shared/model/cliente';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-listar-alquiler',
@@ -11,14 +10,12 @@ import { Cliente } from '../../../cliente/shared/model/cliente';
 })
 export class ListarAlquilerComponent implements OnInit {
 
-  alquileres: Alquiler[];
-  autos: Auto[];
-  clientes: Cliente[];
+  alquileres: Observable<Alquiler[]>;
 
   constructor(protected alquilerService: AlquilerService) { }
 
   ngOnInit(): void {
-    this.alquilerService.listar().subscribe( (alquileres) => this.alquileres = alquileres );
+    this.alquileres = this.alquilerService.listar();
   }
 
 }

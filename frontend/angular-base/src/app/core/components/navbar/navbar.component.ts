@@ -5,7 +5,6 @@ import { MenuItem } from '@core/modelo/menu-item';
   selector: 'app-navbar',
   templateUrl: 'navbar.component.html',
   styles: [
-    
   ],
 })
 export class NavbarComponent implements OnInit {
@@ -17,7 +16,6 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.items);
-    
   }
 
 }

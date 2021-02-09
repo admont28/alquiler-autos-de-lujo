@@ -18,15 +18,20 @@ export class CrearAlquilerComponent implements OnInit {
   clientes: Cliente[];
   alquilerForm: FormGroup;
 
-  constructor( protected alquilerService: AlquilerService, protected clienteService: ClienteService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(
+    protected alquilerService: AlquilerService,
+    protected clienteService: ClienteService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
-    if(Object.keys(this.activatedRoute.snapshot.params).length == 0){
+    if ( Object.keys(this.activatedRoute.snapshot.params).length === 0) {
       this.router.navigate(['/auto/listar'], {skipLocationChange: true});
     }
     this.auto = JSON.parse(this.activatedRoute.snapshot.params.auto);
     this.clienteService.listar().subscribe( (clientes) => {
-      this.clientes = clientes.filter( cliente => cliente.estado == 'ACTIVO');
+      this.clientes = clientes.filter( cliente => cliente.estado === 'ACTIVO');
     });
     this.construirFormularioAlquiler();
   }
@@ -40,10 +45,10 @@ export class CrearAlquilerComponent implements OnInit {
     });
   }
 
-  crear(){
-    this.alquilerService.crear(this.alquilerForm.value).subscribe((alquiler) =>{
+  crear() {
+    this.alquilerService.crear(this.alquilerForm.value).subscribe((alquiler) => {
       console.log(alquiler);
-      if(alquiler.valor){
+      if ( alquiler.valor) {
         Swal.fire({
           icon : 'success',
           title : `Alquiler #${alquiler.valor} creado correctamente`
@@ -51,7 +56,7 @@ export class CrearAlquilerComponent implements OnInit {
           this.router.navigate(['/alquiler/listar'], {skipLocationChange: true});
         });
       }
-    }, 
+    },
     (error) => {
       console.log(error);
       Swal.fire({

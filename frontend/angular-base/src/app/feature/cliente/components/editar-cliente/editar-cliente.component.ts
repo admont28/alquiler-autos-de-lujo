@@ -18,7 +18,7 @@ export class EditarClienteComponent implements OnInit {
   cliente: Cliente;
   clienteForm: FormGroup;
 
-  constructor(protected clienteService: ClienteService, private router: Router) { 
+  constructor(protected clienteService: ClienteService, private router: Router) {
     this.cliente = clienteService.clienteActivo;
   }
 
@@ -29,17 +29,29 @@ export class EditarClienteComponent implements OnInit {
   private construirFormularioCliente() {
     this.clienteForm = new FormGroup({
       id: new FormControl(this.cliente.id, [Validators.required]),
-      nombre: new FormControl(this.cliente.nombre, [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO), Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
-      apellido: new FormControl(this.cliente.apellido, [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO), Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
-      direccion: new FormControl(this.cliente.direccion, [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO), Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
-      cedula: new FormControl(this.cliente.cedula, [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO), Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
+      nombre: new FormControl(this.cliente.nombre, [
+        Validators.required,
+        Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
+        Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
+      apellido: new FormControl(this.cliente.apellido, [
+        Validators.required,
+        Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
+        Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
+      direccion: new FormControl(this.cliente.direccion, [
+        Validators.required,
+        Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
+        Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
+      cedula: new FormControl(this.cliente.cedula, [
+        Validators.required,
+        Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
+        Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
       estado: new FormControl(this.cliente.estado, [Validators.required])
     });
   }
 
-  editar(){
-    console.log("Editar cliente");
-    this.clienteService.actualizar(this.clienteForm.value).subscribe(() =>{
+  editar() {
+    console.log('Editar cliente');
+    this.clienteService.actualizar(this.clienteForm.value).subscribe(() => {
       Swal.fire({
         icon : 'success',
         title : 'Cliente actualizado correctamente'
@@ -47,7 +59,7 @@ export class EditarClienteComponent implements OnInit {
         this.clienteForm.reset();
         this.router.navigateByUrl('/cliente/listar');
       });
-    }, 
+    },
     (error) => {
       console.log(error);
       Swal.fire({
@@ -56,5 +68,4 @@ export class EditarClienteComponent implements OnInit {
       });
     });
   }
-
 }

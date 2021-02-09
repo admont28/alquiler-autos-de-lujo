@@ -29,17 +29,29 @@ export class EditarAutoComponent implements OnInit {
   private construirFormularioAuto() {
     this.autoForm = new FormGroup({
       id: new FormControl(this.auto.id, [Validators.required]),
-      serial: new FormControl(this.auto.serial, [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO), Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
-      nombre: new FormControl(this.auto.nombre, [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO), Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
-      modelo: new FormControl(this.auto.modelo, [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO), Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
-      precioPorDia: new FormControl(this.auto.precioPorDia, [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO), Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
+      serial: new FormControl(this.auto.serial, [
+        Validators.required,
+        Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
+        Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
+      nombre: new FormControl(this.auto.nombre, [
+        Validators.required,
+        Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
+        Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
+      modelo: new FormControl(this.auto.modelo, [
+        Validators.required,
+        Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
+        Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
+      precioPorDia: new FormControl(this.auto.precioPorDia, [
+        Validators.required,
+        Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
+        Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
       estado: new FormControl(this.auto.estado, [Validators.required])
     });
   }
 
-  editar(){
-    console.log("Editar auto");
-    this.autoService.actualizar(this.autoForm.value).subscribe(() =>{
+  editar() {
+    console.log('Editar auto');
+    this.autoService.actualizar(this.autoForm.value).subscribe(() => {
       Swal.fire({
         icon : 'success',
         title : 'Auto actualizado correctamente'
@@ -47,8 +59,7 @@ export class EditarAutoComponent implements OnInit {
         this.autoForm.reset();
         this.router.navigateByUrl('/auto/listar');
       });
-      
-    }, 
+    },
     (error) => {
       console.log(error);
       Swal.fire({

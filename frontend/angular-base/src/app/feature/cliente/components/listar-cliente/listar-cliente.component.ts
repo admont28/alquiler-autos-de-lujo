@@ -3,6 +3,7 @@ import { ClienteService } from '../../shared/service/cliente.service';
 import { Cliente } from '../../shared/model/cliente';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-listar-cliente',
@@ -11,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class ListarClienteComponent implements OnInit {
 
-  clientes: Cliente[]; 
+  clientes: Observable<Cliente[]>;
 
   constructor(protected clienteService: ClienteService, private router: Router) { }
 
@@ -19,19 +20,19 @@ export class ListarClienteComponent implements OnInit {
     this.actualizarListaClientes();
   }
 
-  actualizarListaClientes(){
-    this.clienteService.listar().subscribe( (clientes) => this.clientes = clientes);
+  actualizarListaClientes() {
+    this.clientes = this.clienteService.listar();
   }
 
-  navegarAEditar(cliente: Cliente){
+  navegarAEditar(cliente: Cliente) {
     this.clienteService.clienteActivo = cliente;
     this.router.navigateByUrl('/cliente/editar');
   }
-  
-  eliminar(cliente: Cliente){
+
+  eliminar(cliente: Cliente) {
     Swal.fire({
       title: '¿Desea eliminar el cliente?',
-      text: "Luego de eliminado puedes volver a activar el cliente.",
+      text: 'Luego de eliminado puedes volver a activar el cliente.',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -47,7 +48,7 @@ export class ListarClienteComponent implements OnInit {
           }).then( () => {
             this.actualizarListaClientes();
           });
-        }, 
+        },
         (error) => {
           console.log(error);
           Swal.fire({
@@ -57,6 +58,5 @@ export class ListarClienteComponent implements OnInit {
         });
       }
     });
-    
   }
 }

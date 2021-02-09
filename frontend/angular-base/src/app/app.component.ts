@@ -14,9 +14,6 @@ export class AppComponent {
     { url: '/auto/listar', nombre: 'auto' },
     { url: '/cliente/listar', nombre: 'cliente' },
     { url: '/alquiler/listar', nombre: 'alquiler' }
-    
   ];
 
-  
 }
-

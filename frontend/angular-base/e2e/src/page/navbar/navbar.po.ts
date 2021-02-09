@@ -6,15 +6,15 @@ export class NavbarPage {
     linkCliente = element(by.xpath('/html/body/app-root/app-navbar/nav/div/div/ul/li[3]/a'));
     linkAlquiler = element(by.xpath('/html/body/app-root/app-navbar/nav/div/div/ul/li[4]/a'));
 
-    async clicBotonAuto(){
+    async clicBotonAuto() {
         await this.linkAuto.click();
     }
 
-    async clicBotonCliente(){
+    async clicBotonCliente() {
         await this.linkCliente.click();
     }
 
-    async clicBotonAlquiler(){
+    async clicBotonAlquiler() {
         await this.linkAlquiler.click();
     }
 }

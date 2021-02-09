@@ -9,9 +9,9 @@ import { EditarClienteComponent } from './components/editar-cliente/editar-clien
 
 @NgModule({
   declarations: [
-    CrearClienteComponent, 
-    ClienteComponent, 
-    ListarClienteComponent, 
+    CrearClienteComponent,
+    ClienteComponent,
+    ListarClienteComponent,
     EditarClienteComponent
   ],
   imports: [

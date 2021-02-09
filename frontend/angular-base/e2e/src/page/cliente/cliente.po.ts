@@ -1,7 +1,7 @@
 import { element, by } from 'protractor';
 
 export class ClientePage {
-    
+
     private linkCrearCliente = element(by.id('linkCrearCliente'));
     private linkListarClientes = element(by.id('linkListarCliente'));
     private inputNombre = element(by.id('nombre'));
@@ -16,17 +16,16 @@ export class ClientePage {
     private botonEditar = element(by.buttonText('Editar'));
     private botonSiEliminar = element(by.buttonText('Si, eliminar!'));
     private inputActivo = element(by.id('activo'));
-    
     private listaClientes = element.all(by.css('app-root table tbody tr'));
-    
+
     async clickBotonCrearCliente() {
         await this.linkCrearCliente.click();
     }
-    
+
     async clickBotonListarClientes() {
         await this.linkListarClientes.click();
     }
-    
+
     async ingresarNombre(nombre) {
         this.inputNombre.clear();
         await this.inputNombre.sendKeys(nombre);
@@ -41,21 +40,21 @@ export class ClientePage {
         this.inputDireccion.clear();
         await this.inputDireccion.sendKeys(direccion);
     }
-    
+
     async ingresarCedula(cedula) {
         this.inputCedula.clear();
         await this.inputCedula.sendKeys(cedula);
     }
-    
+
     async contarClientes() {
         return this.listaClientes.count();
     }
-    
+
     async clickBotonCrear() {
         await this.botonCrear.click();
     }
-    
-    obtenerTextoSweetAlert(){
+
+    obtenerTextoSweetAlert() {
         return this.textoSweetAlert.getText() as Promise<string>;
     }
 
@@ -63,15 +62,15 @@ export class ClientePage {
         await this.botonOkVentanaModal.click();
     }
 
-    async clickBotonEditarPrimerCliente(){
+    async clickBotonEditarPrimerCliente() {
         await this.botonEditarPrimerCliente.click();
     }
 
-    async clickBotonEliminarPrimerCliente(){
+    async clickBotonEliminarPrimerCliente() {
         await this.botonEliminarPrimerCliente.click();
     }
 
-    async clickBotonSiEliminarCliente(){
+    async clickBotonSiEliminarCliente() {
         await this.botonSiEliminar.click();
     }
 
@@ -79,7 +78,7 @@ export class ClientePage {
         await this.botonEditar.click();
     }
 
-    async clickInputActivo(){
+    async clickInputActivo() {
         await this.inputActivo.click();
     }
 }

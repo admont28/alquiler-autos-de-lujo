@@ -1,7 +1,7 @@
 import { element, by, browser } from 'protractor';
 
 export class AutoPage {
-    
+
     private linkCrearAuto = element(by.id('linkCrearAuto'));
     private linkListarAutos = element(by.id('linkListarAuto'));
     private inputSerial = element(by.id('serial'));
@@ -14,46 +14,45 @@ export class AutoPage {
     private botonEditarPrimerAuto = element.all(by.css('.btn-editar-auto')).first();
     private botonAlquilarPrimerAuto = element.all(by.css('.btn-alquilar-auto')).first();
     private botonEditar = element(by.buttonText('Editar'));
-    
     private listaAutos = element.all(by.css('app-root div.autos'));
-    
+
     async clickBotonCrearAuto() {
         await this.linkCrearAuto.click();
     }
-    
+
     async clickBotonListarAutos() {
         await this.linkListarAutos.click();
     }
-    
+
     async ingresarSerial(serial) {
         this.inputSerial.clear();
         await this.inputSerial.sendKeys(serial);
     }
-    
+
     async ingresarNombre(nombre) {
         this.inputNombre.clear();
         await this.inputNombre.sendKeys(nombre);
     }
-    
+
     async ingresarModelo(modelo) {
         this.inputModelo.clear();
         await this.inputModelo.sendKeys(modelo);
     }
-    
+
     async ingresarPrecioPorDia(precioPorDia) {
         this.inputPrecioPorDia.clear();
         await this.inputPrecioPorDia.sendKeys(precioPorDia);
     }
-    
+
     async contarAutos() {
         return this.listaAutos.count();
     }
-    
+
     async clickBotonCrear() {
         await this.botonCrear.click();
     }
-    
-    obtenerTextoSweetAlert(){
+
+    obtenerTextoSweetAlert() {
         return this.textoSweetAlert.getText() as Promise<string>;
     }
 
@@ -61,7 +60,7 @@ export class AutoPage {
         await this.botonOkVentanaModal.click();
     }
 
-    async clickBotonEditarPrimerAuto(){
+    async clickBotonEditarPrimerAuto() {
         await this.botonEditarPrimerAuto.click();
     }
 

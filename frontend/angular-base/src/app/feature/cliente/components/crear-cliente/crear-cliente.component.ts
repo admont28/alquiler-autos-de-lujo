@@ -15,8 +15,7 @@ export class CrearClienteComponent implements OnInit {
 
   clienteForm: FormGroup;
 
-  constructor(protected clienteService : ClienteService) { 
-    
+  constructor(protected clienteService: ClienteService) {
   }
 
   ngOnInit(): void {
@@ -24,17 +23,17 @@ export class CrearClienteComponent implements OnInit {
   }
 
   crear() {
-    console.log("Crear cliente");
-    this.clienteService.crear(this.clienteForm.value).subscribe((cliente) =>{
+    console.log('Crear cliente');
+    this.clienteService.crear(this.clienteForm.value).subscribe((cliente) => {
       console.log(cliente);
-      if(cliente.valor){
+      if ( cliente.valor) {
         Swal.fire({
           icon : 'success',
           title : 'Cliente creado correctamente'
         });
         this.clienteForm.reset();
       }
-    }, 
+    },
     (error) => {
       console.log(error);
       Swal.fire({
@@ -42,15 +41,26 @@ export class CrearClienteComponent implements OnInit {
         title : error.error.mensaje
       });
     });
-     
   }
 
   private construirFormularioCliente() {
     this.clienteForm = new FormGroup({
-      nombre: new FormControl('', [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO), Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
-      apellido: new FormControl('', [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO), Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
-      direccion: new FormControl('', [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO), Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
-      cedula: new FormControl('', [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO), Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)])
+      nombre: new FormControl('', [
+        Validators.required,
+        Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
+        Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
+      apellido: new FormControl('', [
+        Validators.required,
+        Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
+        Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
+      direccion: new FormControl('', [
+        Validators.required,
+        Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
+        Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
+      cedula: new FormControl('', [
+        Validators.required,
+        Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
+        Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)])
     });
   }
 }

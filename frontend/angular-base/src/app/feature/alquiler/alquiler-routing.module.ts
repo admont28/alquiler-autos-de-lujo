@@ -17,7 +17,6 @@ const routes: Routes = [
         path: 'listar',
         component: ListarAlquilerComponent
       }
-      
     ]
   }
 ];

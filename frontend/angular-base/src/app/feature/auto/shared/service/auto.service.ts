@@ -3,9 +3,7 @@ import { HttpService } from '@core-service/http.service';
 import { environment } from 'src/environments/environment';
 import { Auto } from '../model/auto';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AutoService {
 
   autoActivo: Auto;
@@ -17,7 +15,7 @@ export class AutoService {
   }
 
   public crear(auto: Auto) {
-    console.log("Servicio crear auto");
+    console.log('Servicio crear auto');
     return this.http.doPost<Auto, any>(`${environment.endpoint}/autos`, auto, this.http.optsName('crear autos'));
   }
 

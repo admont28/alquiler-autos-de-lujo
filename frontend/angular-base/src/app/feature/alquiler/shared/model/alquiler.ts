@@ -12,7 +12,10 @@ export class Alquiler {
     fechaDevolucion: Date;
     fechaCreacion: Date;
 
-    constructor(id: number, auto: Auto, cliente: Cliente, subTotal: number, descuento: number, total: number, fechaAlquiler: Date, fechaDevolucion: Date, fechaCreacion: Date){
+    constructor(
+        id: number, auto: Auto, cliente: Cliente,
+        subTotal: number, descuento: number, total: number,
+        fechaAlquiler: Date, fechaDevolucion: Date, fechaCreacion: Date) {
         this.id = id;
         this.auto = auto;
         this.cliente = cliente;

@@ -1,7 +1,7 @@
 import { element, by, protractor } from 'protractor';
 
 export class AlquilerPage {
-    
+
     private linkListarAlquileres = element(by.id('linkListarAlquiler'));
     private inputPrimerCliente = element.all(by.tagName('option')).first();
     private inputFechaAlquiler = element(by.id('fechaAlquiler'));
@@ -10,15 +10,15 @@ export class AlquilerPage {
     private botonOkVentanaModal = element(by.buttonText('OK'));
     private textoSweetAlert = element(by.id('swal2-title'));
     private listaAlquileres = element.all(by.css('app-root table tbody tr'));
-    
+
     async clickBotonListarAlquileres() {
         await this.linkListarAlquileres.click();
     }
 
-    async clickSeleccionarPrimerCliente(){
+    async clickSeleccionarPrimerCliente() {
         await this.inputPrimerCliente.click();
     }
-    
+
     ingresarFechaAlquiler() {
         this.inputFechaAlquiler.click();
         this.inputFechaAlquiler.sendKeys(protractor.Key.ARROW_DOWN);
@@ -38,16 +38,16 @@ export class AlquilerPage {
         this.inputFechaDevolucion.sendKeys(protractor.Key.ARROW_DOWN);
         this.inputFechaDevolucion.click();
     }
-    
+
     async contarAlquileres() {
         return this.listaAlquileres.count();
     }
-    
+
     async clickBotonCrear() {
         await this.botonCrear.click();
     }
-    
-    obtenerTextoSweetAlert(){
+
+    obtenerTextoSweetAlert() {
         return this.textoSweetAlert.getText() as Promise<string>;
     }
 
