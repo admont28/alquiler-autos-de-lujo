@@ -27,3 +27,7 @@ build
 bin/
 logs
 # gradle/
+
+# Jmeter
+prueba-de-carga-backend/
+jmeter.log
