@@ -1,7 +1,10 @@
 {
-  "/prospectos-vida": {
-    "target": "http://192.168.1.115:9002",
-    "logLevel": "debug"
+  "/api": {
+    "target": "http://localhost:8080",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {"^/api" : ""}
   }
 
 }
