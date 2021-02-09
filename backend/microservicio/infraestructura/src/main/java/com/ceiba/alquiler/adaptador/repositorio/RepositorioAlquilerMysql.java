@@ -1,8 +1,9 @@
 package com.ceiba.alquiler.adaptador.repositorio;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import com.ceiba.alquiler.adaptador.mapeo.MapeoAlquiler;
@@ -28,22 +29,10 @@ public class RepositorioAlquilerMysql implements RepositorioAlquiler {
 
     @Override
     public Long crear(Alquiler alquiler) {
-    	MapSqlParameterSource paramSource = new MapSqlParameterSource();
-    	paramSource.addValue("autoId", alquiler.getAuto().getId());
-    	paramSource.addValue("clienteId", alquiler.getCliente().getId());
-    	paramSource.addValue("subTotal", alquiler.getSubTotal());
-    	paramSource.addValue("descuento", alquiler.getDescuento());
-    	paramSource.addValue("total", alquiler.getTotal());
-    	paramSource.addValue("fechaAlquiler", alquiler.getFechaAlquiler());
-    	paramSource.addValue("fechaDevolucion", alquiler.getFechaDevolucion());
-    	paramSource.addValue("fechaCreacion", alquiler.getFechaCreacion());
-		KeyHolder keyHolder = new GeneratedKeyHolder();
-		this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlCrearAlquiler, paramSource,keyHolder,new String[] { "id" });
-		Number key = keyHolder.getKey();
-		if( key != null) {
-			return  key.longValue();
-		}
-		return null;
+		Map<String, Object> extraParams = new LinkedHashMap<>();
+		extraParams.put("clienteId", alquiler.getCliente().getId());
+		extraParams.put("autoId", alquiler.getAuto().getId());
+		return this.customNamedParameterJdbcTemplate.crear(alquiler, sqlCrearAlquiler, extraParams);
     }
     
     @Override

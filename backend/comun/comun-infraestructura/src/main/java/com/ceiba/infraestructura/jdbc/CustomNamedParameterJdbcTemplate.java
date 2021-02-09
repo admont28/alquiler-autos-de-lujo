@@ -2,6 +2,7 @@ package com.ceiba.infraestructura.jdbc;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.util.Map;
 
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -24,6 +25,13 @@ public class CustomNamedParameterJdbcTemplate {
 	
 	public Long crear(Object object,String sql) {
 		MapSqlParameterSource paramSource = crearParametros(object);
+		KeyHolder keyHolder = new GeneratedKeyHolder();
+		this.namedParameterJdbcTemplate.update(sql, paramSource,keyHolder,new String[] { "id" });
+		return keyHolder.getKey().longValue();
+	}
+	
+	public Long crear(Object object, String sql, Map<String, Object> extraParams) {
+		MapSqlParameterSource paramSource = crearParametros(object, extraParams);
 		KeyHolder keyHolder = new GeneratedKeyHolder();
 		this.namedParameterJdbcTemplate.update(sql, paramSource,keyHolder,new String[] { "id" });
 		return keyHolder.getKey().longValue();
@@ -53,6 +61,32 @@ public class CustomNamedParameterJdbcTemplate {
 				throw new ExcepcionTecnica(ERROR_OBTENIENDO_EL_NOMBRE_Y_VALOR_DE_OBJETO, e);
 			} 
 		}
+		return paramSource;
+	}
+	
+	private MapSqlParameterSource crearParametros(Object object, Map<String, Object> extras) {
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		Field[] fields = object.getClass().getDeclaredFields();
+		for (int i = 0; i < fields.length; i++) {
+			try {
+				Field field = fields[i];
+				if (!Modifier.isStatic(field.getModifiers()) && !Modifier.isFinal(field.getModifiers())) {
+					field.setAccessible(true);
+					if (field.get(object) != null && field.get(object).getClass().isEnum()) {
+						paramSource.addValue(field.getName(), field.get(object), java.sql.Types.VARCHAR);
+					} else {
+						paramSource.addValue(field.getName(), field.get(object));
+					}
+					field.setAccessible(false);
+				}
+			} catch (Exception e) {
+				throw new ExcepcionTecnica(ERROR_OBTENIENDO_EL_NOMBRE_Y_VALOR_DE_OBJETO, e);
+			} 
+		}
+		
+		for (Map.Entry<String, Object> entry : extras.entrySet()) {
+	        paramSource.addValue(entry.getKey(), entry.getValue());
+	    }
 		return paramSource;
 	}
 	

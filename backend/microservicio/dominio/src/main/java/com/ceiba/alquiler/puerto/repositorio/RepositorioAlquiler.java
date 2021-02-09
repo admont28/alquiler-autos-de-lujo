@@ -10,7 +10,7 @@ public interface RepositorioAlquiler {
 	 * @param alquiler
 	 * @return el id generado
 	 */
-	Long crear(Alquiler usuario);
+	Long crear(Alquiler alquiler);
 
 	/**
 	 * Permite buscar un alquiler por su id.

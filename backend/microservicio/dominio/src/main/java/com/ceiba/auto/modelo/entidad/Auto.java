@@ -1,8 +1,8 @@
 package com.ceiba.auto.modelo.entidad;
 
+import static com.ceiba.dominio.ValidadorArgumento.validarLongitudMinima;
 import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 import static com.ceiba.dominio.ValidadorArgumento.validarPositivo;
-import static com.ceiba.dominio.ValidadorArgumento.validarLongitudMinima;
 
 import java.text.MessageFormat;
 import java.time.LocalDateTime;
