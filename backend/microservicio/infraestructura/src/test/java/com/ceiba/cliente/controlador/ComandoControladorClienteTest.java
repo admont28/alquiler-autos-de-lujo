@@ -82,6 +82,27 @@ public class ComandoControladorClienteTest {
     }
     
     @Test
+    public void actualizarConEstadoNulo() throws Exception{
+    	// arrange
+        Long id = 2L;
+        ComandoCliente comandoCliente = new ComandoClienteTestDataBuilder().conEstado(null).build();
+
+        // act - assert
+        mocMvc.perform(put("/clientes/{id}", id)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(comandoCliente)))
+                .andExpect(status().isOk());
+        
+        Cliente cliente = repositorioCliente.buscar(id);
+        assertEquals(id, cliente.getId());
+        assertEquals(comandoCliente.getNombre(), cliente.getNombre());
+        assertEquals(comandoCliente.getApellido(), cliente.getApellido());
+        assertEquals(comandoCliente.getDireccion(), cliente.getDireccion());
+        assertEquals(comandoCliente.getCedula(), cliente.getCedula());
+        assertEquals(EstadoCliente.ACTIVO, cliente.getEstado());
+    }
+    
+    @Test
     public void eliminar() throws Exception{
         // arrange
         Long id = 2L;

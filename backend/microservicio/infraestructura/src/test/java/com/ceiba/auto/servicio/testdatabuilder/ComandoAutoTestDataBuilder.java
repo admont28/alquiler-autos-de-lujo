@@ -44,6 +44,11 @@ public class ComandoAutoTestDataBuilder {
 		this.precioPorDia = precioPorDia;
 		return this;
 	}
+	
+	public ComandoAutoTestDataBuilder conEstado(String estado) {
+		this.estado = estado;
+		return this;
+	}
 
 	public ComandoAuto build() {
 		return new ComandoAuto(id, serial, nombre, modelo, precioPorDia, estado);

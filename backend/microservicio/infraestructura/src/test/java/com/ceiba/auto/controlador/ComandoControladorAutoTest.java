@@ -58,7 +58,7 @@ public class ComandoControladorAutoTest {
         assertEquals(comandoAuto.getPrecioPorDia(), auto.getPrecioPorDia());
         assertEquals(EstadoAuto.DISPONIBLE, auto.getEstado());
     }
-
+    
     @Test
     public void actualizar() throws Exception{
         // arrange
@@ -78,5 +78,26 @@ public class ComandoControladorAutoTest {
         assertEquals(comandoAuto.getModelo(), auto.getModelo());
         assertEquals(comandoAuto.getPrecioPorDia(), auto.getPrecioPorDia());
         assertEquals(EstadoAuto.DISPONIBLE, auto.getEstado());
+    }
+    
+    @Test
+    public void actualizarConEstadoNulo() throws Exception{
+    	// arrange
+    	Long id = 2L;
+    	ComandoAuto comandoAuto = new ComandoAutoTestDataBuilder().conEstado(null).build();
+    	
+    	// act - assert
+    	mocMvc.perform(put("/autos/{id}",id)
+    			.contentType(MediaType.APPLICATION_JSON)
+    			.content(objectMapper.writeValueAsString(comandoAuto)))
+    	.andExpect(status().isOk());
+    	
+    	Auto auto = repositorioAuto.buscar(id);
+    	assertEquals(id, auto.getId());
+    	assertEquals(comandoAuto.getSerial(), auto.getSerial());
+    	assertEquals(comandoAuto.getNombre(), auto.getNombre());
+    	assertEquals(comandoAuto.getModelo(), auto.getModelo());
+    	assertEquals(comandoAuto.getPrecioPorDia(), auto.getPrecioPorDia());
+    	assertEquals(EstadoAuto.DISPONIBLE, auto.getEstado());
     }
 }

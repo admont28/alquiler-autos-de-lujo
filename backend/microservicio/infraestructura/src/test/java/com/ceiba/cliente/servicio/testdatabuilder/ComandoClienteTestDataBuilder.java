@@ -44,6 +44,11 @@ public class ComandoClienteTestDataBuilder {
 		this.cedula = cedula;
 		return this;
 	}
+	
+	public ComandoClienteTestDataBuilder conEstado(String estado) {
+		this.estado = estado;
+		return this;
+	}
 
 	public ComandoCliente build() {
 		return new ComandoCliente(id, nombre, apellido, direccion, cedula, estado);
