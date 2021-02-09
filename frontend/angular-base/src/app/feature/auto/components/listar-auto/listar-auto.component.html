@@ -9,7 +9,7 @@
               <p>Estado: {{ auto.estado }}</p>
               <p>Fecha de creación: {{ auto.fechaCreacion | date:'short' }}</p>
           </div>
-          <button class="btn btn-primary me-1" (click)="navegarAEditar(auto)">Editar</button>
+          <button class="btn btn-primary me-1 btn-editar-auto" (click)="navegarAEditar(auto)">Editar</button>
           <button class="btn btn-light" (click)="asignarAutoParaAlquiler(auto)" *ngIf="auto.estado == 'DISPONIBLE'">Alquilar</button>
         </div>
       </div>

@@ -16,7 +16,7 @@ describe('workspace-project Auto', () => {
     });
 
     it('Deberia crear un auto', () => {
-        const SERIAL = 'serial-nuevo-123';
+        const SERIAL = 'serial-nuevo-' + ( Math.floor(Math.random() * 10000) + 1 )  ;
         const NOMBRE =  'Chevrolet GT';
         const MODELO = '2021';
         const PRECIO_POR_DIA = 100000;
@@ -30,9 +30,27 @@ describe('workspace-project Auto', () => {
         auto.ingresarPrecioPorDia(PRECIO_POR_DIA);
         auto.clickBotonCrear();
 
-        // Adicionamos las validaciones despues de la creación
-        // expect(<>).toEqual(<>);
+        // Validaciones
         expect(auto.obtenerTextoSweetAlert()).toEqual('Auto creado correctamente');
+        auto.clickBotonOK();
+    });
+
+    it('Deberia editar un auto', () => {
+        const NOMBRE =  'Chevrolet GT Editado';
+        const MODELO = '2021';
+        const PRECIO_POR_DIA = 200000;
+
+        page.navigateToHome();
+        navBar.clicBotonAuto();
+        auto.clickBotonListarAutos();
+        auto.clickBotonEditarPrimerAuto();
+        auto.ingresarNombre(NOMBRE);
+        auto.ingresarModelo(MODELO);
+        auto.ingresarPrecioPorDia(PRECIO_POR_DIA);
+        auto.clickBotonEditar();
+
+        // Validaciones
+        expect(auto.obtenerTextoSweetAlert()).toEqual('Auto actualizado correctamente');
         auto.clickBotonOK();
     });
 
@@ -41,6 +59,7 @@ describe('workspace-project Auto', () => {
         navBar.clicBotonAuto();
         auto.clickBotonListarAutos();
 
-        expect(16).toBe(auto.contarAutos());
+        // Validaciones
+        expect(auto.contarAutos()).toBeGreaterThanOrEqual(1);
     });
 });

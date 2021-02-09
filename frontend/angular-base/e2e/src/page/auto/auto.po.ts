@@ -11,6 +11,8 @@ export class AutoPage {
     private botonCrear = element(by.buttonText('Crear'));
     private botonOkVentanaModal = element(by.buttonText('OK'));
     private textoSweetAlert = element(by.id('swal2-title'));
+    private botonEditarPrimerAuto = element.all(by.css('.btn-editar-auto')).first();
+    private botonEditar = element(by.buttonText('Editar'));
     
     private listaAutos = element.all(by.css('app-root div.autos'));
     
@@ -23,18 +25,22 @@ export class AutoPage {
     }
     
     async ingresarSerial(serial) {
+        this.inputSerial.clear();
         await this.inputSerial.sendKeys(serial);
     }
     
     async ingresarNombre(nombre) {
+        this.inputNombre.clear();
         await this.inputNombre.sendKeys(nombre);
     }
     
     async ingresarModelo(modelo) {
+        this.inputModelo.clear();
         await this.inputModelo.sendKeys(modelo);
     }
     
     async ingresarPrecioPorDia(precioPorDia) {
+        this.inputPrecioPorDia.clear();
         await this.inputPrecioPorDia.sendKeys(precioPorDia);
     }
     
@@ -52,5 +58,13 @@ export class AutoPage {
 
     async clickBotonOK() {
         await this.botonOkVentanaModal.click();
+    }
+
+    async clickBotonEditarPrimerAuto(){
+        await this.botonEditarPrimerAuto.click();
+    }
+
+    async clickBotonEditar() {
+        await this.botonEditar.click();
     }
 }

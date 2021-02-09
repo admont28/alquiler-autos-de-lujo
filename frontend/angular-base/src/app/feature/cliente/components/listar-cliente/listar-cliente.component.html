@@ -24,7 +24,7 @@
         </td>
         <td>{{ cliente.fechaCreacion }}</td>
         <td>
-          <button (click)="navegarAEditar(cliente)" class="btn btn-primary me-1">Editar</button>
+          <button (click)="navegarAEditar(cliente)" class="btn btn-primary me-1 btn-editar-cliente">Editar</button>
           <button (click)="eliminar(cliente)" class="btn btn-danger" *ngIf="cliente.estado == 'ACTIVO'">Eliminar</button>
         </td>
       </tr>
