@@ -30,4 +30,4 @@ jobs:
         app-name: 'alquiler-autos-de-lujo'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_b16e4758aca442608d09adce53beae48 }}
-        package: '${{ github.workspace }}/target/*.jar'
+        package: '/target/*.jar'
