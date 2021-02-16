@@ -24,10 +24,29 @@ jobs:
     - name: Build with Gradle
       run: gradle --b ./backend/microservicio/build.gradle build -x test
 
-    - name: Deploy to Azure Web App
+    - name: Deploy to Azure Web App - Spring Boot
       uses: azure/webapps-deploy@v2
       with:
         app-name: 'alquiler-autos-de-lujo'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_b16e4758aca442608d09adce53beae48 }}
         package: '${{ github.workspace }}/backend/microservicio/build/libs/*.jar'
+        
+    - name: Set up Node.js version
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14.15.4'
+
+    - name: npm install and build
+      working-directory: ./frontend/angular-base
+      run: |
+        npm install
+        npm run build
+    
+    - name: Deploy to Azure Web App - Angular
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'alquiler-autos-de-lujo'
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_b16e4758aca442608d09adce53beae48 }}
+        package: '${{ github.workspace }}/frontend/angular-base/dist/app-base'
