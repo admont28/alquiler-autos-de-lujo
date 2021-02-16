@@ -83,7 +83,7 @@ dependencies {
 
 bootJar {
 	mainClassName = 'com.ceiba.Application'
-    baseName = ''
+    baseName = 'alquiler-autos-de-lujo'
     version =  version
 }
 

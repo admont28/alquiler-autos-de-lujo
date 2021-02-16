@@ -18,9 +18,9 @@ spring:
    datasource:
       driver-class-name: com.mysql.cj.jdbc.Driver
       type: com.zaxxer.hikari.HikariDataSource
-      jdbcUrl: jdbc:mysql://alquiler-autos-de-lujo.mysql.database.azure.com:3306/adn_ceiba?useSSL=true&requireSSL=false&serverTimezone=America/Bogota
-      username: admont28@alquiler-autos-de-lujo
-      password: CSH*1094937274
+      jdbcUrl: ${MYSQLCONNSTR_ADN_CEIBA}
+      username: ${DATABASE_USERNAME:root}
+      password: ${DATABASE_PASSWORD:root}
       hikari:
          poolName: pool
 logging:
