@@ -31,3 +31,23 @@ jobs:
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_b16e4758aca442608d09adce53beae48 }}
         package: '${{ github.workspace }}/backend/microservicio/build/libs/*.jar'
+        
+    - name: Set up Node.js version
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14.15.4'
+
+    - name: npm install and build
+      working-directory: ./frontend/angular-base
+      run: |
+        npm install
+        npm run build
+        
+    - name: Azure Storage Action - Angular
+      uses: lauchacarro/Azure-Storage-Action@v1.1
+      with:
+        enabled-static-website: 'true'
+        folder: './frontend/angular-base/dist/app-base'
+        index-document: 'index.html'
+        error-document: 'index.html' # For Angular apps with routing enabled, this must point to the index.html file because the requested routes don't exist phyiscally and blob storage would throw a 404.
+        connection-string: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
