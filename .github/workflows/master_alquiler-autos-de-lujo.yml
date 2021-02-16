@@ -47,7 +47,7 @@ jobs:
       uses: lauchacarro/Azure-Storage-Action@v1.1
       with:
         enabled-static-website: 'true'
-        folder: './frontend/angular-base/dist/app-base'
+        folder: '${{ github.workspace }}/frontend/angular-base/dist/app-base'
         index-document: 'index.html'
         error-document: 'index.html' # For Angular apps with routing enabled, this must point to the index.html file because the requested routes don't exist phyiscally and blob storage would throw a 404.
         connection-string: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
