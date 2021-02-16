@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  endpoint: '/prospectos-vida'
+  endpoint: 'https://alquiler-autos-de-lujo.azurewebsites.net'
 };
