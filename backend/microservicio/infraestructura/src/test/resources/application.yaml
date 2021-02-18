@@ -3,14 +3,14 @@ spring:
       name: Alquiler Autos de Lujo
    jms:
       servicebus:
-        connection-string: ${AZURE_SERVICE_BUS_CONNECTION_STRING}
-        idle-timeout: ${AZURE_SERVICE_BUS_IDLE_TIMEOUT}
-        queue-name: ${AZURE_SERVICE_BUS_DEFAULT_QUEUE_NAME}
+        connection-string: Endpoint=sb://alquiler-autos-de-lujo.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=5ZOYBdwHP9AlzqRvIOXwWQQlmhsGUeyPqJGwqMiVHbw=
+        idle-timeout: 1800000
+        queue-name: alquiler
    azure:
       blob:
         store:
-          connectionString: ${AZURE_BLOB_STORAGE_CONNECTION_STRING}
-          containerName: ${AZURE_BLOG_STORAGE_CONNECTION_NAME}
+          connectionString: DefaultEndpointsProtocol=https;AccountName=alquilerautosdelujo;AccountKey=qbBOef4z97n1Ya57wPX/3kBTQsEI+UuReqJWNYCXGkgnHQiWcBPLLHknvxzuhGDakroZ+749fHFpDAxkjY9fDw==;EndpointSuffix=core.windows.net
+          containerName: upload
    profiles:
       active: ''
    flyway:
