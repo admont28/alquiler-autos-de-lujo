@@ -24,6 +24,8 @@ dependencies {
 
 	// https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage
 	implementation group: 'com.microsoft.azure', name: 'azure-storage', version: '8.6.6'
+	// https://mvnrepository.com/artifact/com.azure.spring/azure-spring-boot-starter-servicebus-jms
+	implementation group: 'com.azure.spring', name: 'azure-spring-boot-starter-servicebus-jms', version: '3.1.0'	
 	
 	
 	implementation project(':dominio')

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.ceiba.alquiler.puerto.jms.EnviarMensaje;
 import com.ceiba.alquiler.puerto.repositorio.RepositorioAlquiler;
 import com.ceiba.alquiler.servicio.ServicioCrearAlquiler;
 import com.ceiba.auto.puerto.almacenamiento.AlmacenamientoAuto;
@@ -58,8 +59,8 @@ public class BeanServicio {
     }
 	
     @Bean
-    public ServicioCrearAlquiler servicioCrearAlquiler(RepositorioAlquiler repositorioAlquiler) {
-    	return new ServicioCrearAlquiler(repositorioAlquiler);
+    public ServicioCrearAlquiler servicioCrearAlquiler(RepositorioAlquiler repositorioAlquiler, EnviarMensaje enviarMensaje) {
+    	return new ServicioCrearAlquiler(repositorioAlquiler, enviarMensaje);
     }
     
     @Bean

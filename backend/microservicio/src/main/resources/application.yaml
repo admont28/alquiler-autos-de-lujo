@@ -11,6 +11,13 @@ server:
          timeout: 21600s
 
 spring:
+   application:
+      name: Alquiler Autos de Lujo
+   jms:
+      servicebus:
+        connection-string: ${AZURE_SERVICE_BUS_CONNECTION_STRING}
+        idle-timeout: ${AZURE_SERVICE_BUS_IDLE_TIMEOUT}
+        queue-name: ${AZURE_SERVICE_BUS_DEFAULT_QUEUE_NAME}
    azure:
       blob:
         store:

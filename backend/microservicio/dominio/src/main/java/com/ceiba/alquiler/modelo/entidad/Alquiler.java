@@ -3,6 +3,7 @@ package com.ceiba.alquiler.modelo.entidad;
 import static com.ceiba.dominio.ValidadorArgumento.validarMenor;
 import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
@@ -21,8 +22,9 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Alquiler {
+public class Alquiler implements Serializable{
 	
+	private static final long serialVersionUID = -6140735247377604479L;
 	private static final String SE_DEBE_INGRESAR_EL_AUTO_DEL_ALQUILER = "Se debe ingresar el auto del alquiler";
 	private static final String SE_DEBE_INGRESAR_EL_CLIENTE_DEL_ALQUILER = "Se debe ingresar el cliente del alquiler";
 	private static final String SE_DEBE_INGRESAR_LA_FECHA_DEL_ALQUILER = "Se debe ingresar la fecha de entrega del auto al cliente";

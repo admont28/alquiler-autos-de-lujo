@@ -3,6 +3,7 @@ package com.ceiba.cliente.modelo.entidad;
 import static com.ceiba.dominio.ValidadorArgumento.validarLongitudMinima;
 import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 
+import java.io.Serializable;
 import java.text.MessageFormat;
 import java.time.LocalDateTime;
 
@@ -13,8 +14,9 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Cliente {
+public class Cliente implements Serializable{
 
+	private static final long serialVersionUID = 3529047781097396696L;
 	private static final String SE_DEBE_INGRESAR_EL_NOMBRE_DEL_CLIENTE = "Se debe ingresar el nombre del cliente";
 	private static final String EL_NOMBRE_DEL_CLIENTE_DEBE_TENER_MINIMO_X_CARACTERES = "El nombre del cliente debe tener mínimo {0} caracteres";
 	private static final String SE_DEBE_INGRESAR_EL_APELLIDO_DEL_CLIENTE = "Se debe ingresar el apellido del cliente";

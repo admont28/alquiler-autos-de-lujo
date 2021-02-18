@@ -7,6 +7,7 @@ import org.mockito.Mockito;
 
 import com.ceiba.BasePrueba;
 import com.ceiba.alquiler.modelo.entidad.Alquiler;
+import com.ceiba.alquiler.puerto.jms.EnviarMensaje;
 import com.ceiba.alquiler.puerto.repositorio.RepositorioAlquiler;
 import com.ceiba.alquiler.servicio.testdatabuilder.AlquilerTestDataBuilder;
 import com.ceiba.auto.modelo.entidad.EstadoAuto;
@@ -22,8 +23,10 @@ public class ServicioCrearAlquilerTest {
 		// arrange
 		Alquiler alquiler = new AlquilerTestDataBuilder().conAuto(new AutoTestDataBuilder().conEstado(EstadoAuto.ALQUILADO).build()).build();
 		RepositorioAlquiler repositorioAlquiler = Mockito.mock(RepositorioAlquiler.class);
+		EnviarMensaje enviarMensaje = Mockito.mock(EnviarMensaje.class);
         Mockito.when(repositorioAlquiler.crear(Mockito.anyObject())).thenReturn(1L);
-        ServicioCrearAlquiler servicioCrearAlquiler = new ServicioCrearAlquiler(repositorioAlquiler);
+        Mockito.doNothing().when(enviarMensaje).ejecutar(Mockito.anyObject());
+        ServicioCrearAlquiler servicioCrearAlquiler = new ServicioCrearAlquiler(repositorioAlquiler, enviarMensaje);
 		
         // act - assert
         BasePrueba.assertThrows(() -> servicioCrearAlquiler.ejecutar(alquiler), ExcepcionNegocio.class, "El auto no está disponible para alquilar");
@@ -34,8 +37,10 @@ public class ServicioCrearAlquilerTest {
 		// arrange
 		Alquiler alquiler = new AlquilerTestDataBuilder().conCliente(new ClienteTestDataBuilder().conEstado(EstadoCliente.ELIMINADO).build()).build();
         RepositorioAlquiler repositorioAlquiler = Mockito.mock(RepositorioAlquiler.class);
+        EnviarMensaje enviarMensaje = Mockito.mock(EnviarMensaje.class);
         Mockito.when(repositorioAlquiler.crear(Mockito.anyObject())).thenReturn(1L);
-        ServicioCrearAlquiler servicioCrearAlquiler = new ServicioCrearAlquiler(repositorioAlquiler);
+        Mockito.doNothing().when(enviarMensaje).ejecutar(Mockito.anyObject());
+        ServicioCrearAlquiler servicioCrearAlquiler = new ServicioCrearAlquiler(repositorioAlquiler, enviarMensaje);
         
         // act - assert
         BasePrueba.assertThrows(() -> servicioCrearAlquiler.ejecutar(alquiler), ExcepcionNegocio.class, "El cliente no está activo");
@@ -46,8 +51,10 @@ public class ServicioCrearAlquilerTest {
         // arrange
         Alquiler alquiler = new AlquilerTestDataBuilder().build();
         RepositorioAlquiler repositorioAlquiler = Mockito.mock(RepositorioAlquiler.class);
+        EnviarMensaje enviarMensaje = Mockito.mock(EnviarMensaje.class);
         Mockito.when(repositorioAlquiler.crear(Mockito.anyObject())).thenReturn(1L);
-        ServicioCrearAlquiler servicioCrearAlquiler = new ServicioCrearAlquiler(repositorioAlquiler);
+        Mockito.doNothing().when(enviarMensaje).ejecutar(Mockito.anyObject());
+        ServicioCrearAlquiler servicioCrearAlquiler = new ServicioCrearAlquiler(repositorioAlquiler, enviarMensaje);
         
         // act 
         Long alquilerIdCreado = servicioCrearAlquiler.ejecutar(alquiler);

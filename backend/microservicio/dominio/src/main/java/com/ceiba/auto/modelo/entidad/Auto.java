@@ -4,6 +4,7 @@ import static com.ceiba.dominio.ValidadorArgumento.validarLongitudMinima;
 import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 import static com.ceiba.dominio.ValidadorArgumento.validarPositivo;
 
+import java.io.Serializable;
 import java.text.MessageFormat;
 import java.time.LocalDateTime;
 
@@ -14,8 +15,9 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Auto {
+public class Auto implements Serializable{
 
+	private static final long serialVersionUID = 4066426998037135751L;
 	private static final String SE_DEBE_INGRESAR_EL_SERIAL_DEL_AUTO = "Se debe ingresar el serial del auto";
 	private static final String EL_SERIAL_DEBE_TENER_MINIMO_X_CARACTERES = "El serial debe tener mínimo {0} caracteres";
 	private static final String SE_DEBE_INGRESAR_EL_NOMBRE_DEL_AUTO = "Se debe ingresar el nombre del auto";

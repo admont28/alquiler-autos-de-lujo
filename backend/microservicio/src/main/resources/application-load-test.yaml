@@ -5,6 +5,8 @@ server:
       session:
          timeout: 21600s
 spring:
+   application:
+      name: Alquiler Autos de Lujo
    flyway:
         enabled: true
    datasource:
