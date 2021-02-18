@@ -24,6 +24,11 @@
         <input validar type="number" id="precioPorDia" name="precioPorDia" placeholder="Precio por día del auto" class="form-control" formControlName="precioPorDia" aria-describedby="precioPorDiaAyuda">
         <div id="precioPorDiaAyuda" class="form-text">Precio por día de alquiler del auto.</div>
       </div>
+      <div class="mb-3">
+        <label for="imagen" class="form-label">Imagen:</label>
+        <input validar type="file" id="imagen" name="imagen" placeholder="Imagen del auto" class="form-control" formControlName="fuenteImagen" aria-describedby="imagenAyuda" (change)="onFileChange($event)">
+        <div id="imagenAyuda" class="form-text">Imagen del auto.</div>
+      </div>
       <button type="submit" class="btn btn-primary" [disabled]="autoForm.invalid">Crear</button>
     </form>    
   </div>

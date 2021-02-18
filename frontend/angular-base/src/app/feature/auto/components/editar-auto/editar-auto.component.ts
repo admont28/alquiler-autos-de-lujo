@@ -45,7 +45,8 @@ export class EditarAutoComponent implements OnInit {
         Validators.required,
         Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
         Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
-      estado: new FormControl(this.auto.estado, [Validators.required])
+      estado: new FormControl(this.auto.estado, [Validators.required]),
+      imagen: new FormControl(this.auto.urlImagen, []),
     });
   }
 

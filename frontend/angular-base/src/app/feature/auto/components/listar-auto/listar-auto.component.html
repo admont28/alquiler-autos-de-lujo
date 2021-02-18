@@ -11,6 +11,7 @@
         <div class="card text-white" [ngClass]="{ 'bg-danger' : auto.estado == 'ALQUILADO', 'bg-success' : auto.estado == 'DISPONIBLE', 'bg-warning' : auto.estado == 'MANTENIMIENTO' }">
           <div class="card-body">
             <span class="badge bg-dark">{{ auto.estado }}</span>
+            <img [src]="auto.urlImagen" alt="Imagen del auto" class="img-responsive" width="100%">
             <h4 class="card-title">{{ auto.nombre }} - {{ auto.modelo}}</h4>
             <div class="card-text">
                 <h5>{{ auto.precioPorDia | currency }}</h5>
