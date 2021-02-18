@@ -1,4 +1,9 @@
 spring:
+   azure:
+      blob:
+        store:
+          connectionString: ${AZURE_BLOB_STORAGE_CONNECTION_STRING}
+          containerName: ${AZURE_BLOG_STORAGE_CONNECTION_NAME}
    profiles:
       active: ''
    flyway:

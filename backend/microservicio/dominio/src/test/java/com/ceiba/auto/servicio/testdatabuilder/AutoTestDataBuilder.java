@@ -14,6 +14,7 @@ public class AutoTestDataBuilder {
 	private Double precioPorDia;
 	private EstadoAuto estado;
 	private LocalDateTime fechaCreacion;
+	private String imagen;
 
 	public AutoTestDataBuilder() {
 		this.id = 1L;
@@ -23,6 +24,7 @@ public class AutoTestDataBuilder {
 		this.precioPorDia = 100000.00;
 		this.estado = EstadoAuto.DISPONIBLE;
 		this.fechaCreacion = LocalDateTime.now();
+		this.imagen = "";
 	}
 
 	public AutoTestDataBuilder conId(Long id) {
@@ -61,7 +63,7 @@ public class AutoTestDataBuilder {
     }
 
 	public Auto build() {
-		Auto auto = new Auto(id, serial, nombre, modelo, precioPorDia, estado);
+		Auto auto = new Auto(id, serial, nombre, modelo, precioPorDia, estado, imagen);
 		auto.setFechaCreacion(fechaCreacion);
 		return auto;
 	}

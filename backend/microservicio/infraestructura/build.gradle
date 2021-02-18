@@ -22,6 +22,9 @@ dependencies {
 	runtimeOnly project.ext.db
 	testImplementation project.ext.flywaytest
 
+	// https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage
+	implementation group: 'com.microsoft.azure', name: 'azure-storage', version: '8.6.6'
+	
 	
 	implementation project(':dominio')
 	implementation project(':aplicacion')

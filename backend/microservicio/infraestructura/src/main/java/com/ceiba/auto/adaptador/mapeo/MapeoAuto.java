@@ -21,7 +21,8 @@ public class MapeoAuto implements RowMapper<Auto>, MapperResult {
 		Double precioPorDia = rs.getDouble("precio_dia");
 		EstadoAuto estado = EstadoAuto.valueOf(rs.getString("estado"));
 		LocalDateTime fechaCreacion = extraerLocalDateTime(rs, "fecha_creacion");
-		Auto auto = new Auto(id, serial, nombre, modelo, precioPorDia, estado);
+		String imagen = rs.getString("url_imagen");
+		Auto auto = new Auto(id, serial, nombre, modelo, precioPorDia, estado, imagen);
 		auto.setFechaCreacion(fechaCreacion);
 		return auto;
 	}

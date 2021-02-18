@@ -1,3 +1,3 @@
-SELECT id, serial, nombre, modelo, precio_dia, estado, fecha_creacion
+SELECT id, serial, nombre, modelo, precio_dia, estado, url_imagen, fecha_creacion
 FROM auto
 WHERE id = :id

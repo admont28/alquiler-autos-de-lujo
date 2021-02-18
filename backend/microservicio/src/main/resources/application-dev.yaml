@@ -19,13 +19,13 @@ spring:
    profiles:
       active: ''
    flyway:
-      enabled: ${FLYWAY_ENABLED}
+      enabled: true
    datasource:
       driver-class-name: com.mysql.cj.jdbc.Driver
       type: com.zaxxer.hikari.HikariDataSource
-      jdbcUrl: ${MYSQLCONNSTR_ADN_CEIBA}
-      username: ${DATABASE_USERNAME:root}
-      password: ${DATABASE_PASSWORD:root}
+      jdbcUrl: jdbc:mysql://localhost:3306/adn_ceiba?serverTimezone=America/Bogota
+      username: root
+      password: root
       hikari:
         poolName: pool
 logging:

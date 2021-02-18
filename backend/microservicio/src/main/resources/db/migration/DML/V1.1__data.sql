@@ -1,14 +1,14 @@
 INSERT INTO auto
-(id, serial, nombre, modelo, precio_dia, estado, fecha_creacion)
-VALUES(1, 'serial-4321', 'BMW I3', '2021', 120000.00, 'DISPONIBLE', '2021-01-30 23:15:00');
+(id, serial, nombre, modelo, precio_dia, estado, url_imagen, fecha_creacion)
+VALUES(1, 'serial-4321', 'BMW I3', '2021', 120000.00, 'DISPONIBLE', 'https://alquilerautosdelujo.blob.core.windows.net/upload/2d79f993-39a6-4811-92a2-18a13a92c80c', '2021-01-30 23:15:00');
 
 INSERT INTO auto
-(id, serial, nombre, modelo, precio_dia, estado, fecha_creacion)
-VALUES(2, 'serial-1234', 'Chevrolet Corvette', '2020', 200000.00, 'DISPONIBLE', '2021-01-31 08:15:00');
+(id, serial, nombre, modelo, precio_dia, estado, url_imagen, fecha_creacion)
+VALUES(2, 'serial-1234', 'Chevrolet Corvette', '2020', 200000.00, 'DISPONIBLE', 'https://alquilerautosdelujo.blob.core.windows.net/upload/2d79f993-39a6-4811-92a2-18a13a92c80c', '2021-01-31 08:15:00');
 
 INSERT INTO auto
-(id, serial, nombre, modelo, precio_dia, estado, fecha_creacion)
-VALUES(3, 'serial-1', 'Chevrolet Spark', '2021', 150000.00, 'DISPONIBLE', '2021-01-31 08:15:00');
+(id, serial, nombre, modelo, precio_dia, estado, url_imagen, fecha_creacion)
+VALUES(3, 'serial-1', 'Chevrolet Spark', '2021', 150000.00, 'DISPONIBLE', 'https://alquilerautosdelujo.blob.core.windows.net/upload/2d79f993-39a6-4811-92a2-18a13a92c80c', '2021-01-31 08:15:00');
 
 INSERT INTO cliente
 (id, nombre, apellido, direccion, cedula, estado, fecha_creacion)

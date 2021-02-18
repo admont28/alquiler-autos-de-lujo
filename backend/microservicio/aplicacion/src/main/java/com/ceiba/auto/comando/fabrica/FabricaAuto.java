@@ -16,8 +16,11 @@ public class FabricaAuto {
                 comandoAuto.getNombre(),
                 comandoAuto.getModelo(),
                 comandoAuto.getPrecioPorDia(),
-                comandoAuto.getEstado() != null ? EstadoAuto.valueOf(comandoAuto.getEstado()) : null
+                comandoAuto.getEstado() != null ? EstadoAuto.valueOf(comandoAuto.getEstado()) : null,
+                comandoAuto.getImagen()
         );
     }
+    
+    
 
 }

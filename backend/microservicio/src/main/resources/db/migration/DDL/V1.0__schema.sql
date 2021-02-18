@@ -6,6 +6,7 @@ create table auto (
  precio_dia decimal(10,2) not null,
 /* estado enum('DISPONIBLE', 'ELIMINADO', 'ALQUILADO', 'MANTENIMIENTO') not null default 'DISPONIBLE', */
  estado varchar(100) NOT NULL DEFAULT 'DISPONIBLE',
+ url_imagen varchar(255) NOT NULL,
  fecha_creacion datetime NULL DEFAULT now(),
  primary key (id)
 );

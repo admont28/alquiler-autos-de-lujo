@@ -25,8 +25,9 @@ public class MapeoDTOAlquiler implements RowMapper<DTOAlquiler>, MapperResult {
 		String autoModelo = rs.getString("auto_modelo");
 		Double autoPrecioPorDia = rs.getDouble("auto_precio_dia");
 		EstadoAuto autoEstado = EstadoAuto.valueOf(rs.getString("auto_estado"));
+		String autoUrlImagen = rs.getString("auto_url_imagen");
 		LocalDateTime autoFechaCreacion = extraerLocalDateTime(rs, "auto_fecha_creacion");
-		DTOAuto auto = new DTOAuto(autoId, autoSerial, autoNombre, autoModelo, autoPrecioPorDia, autoEstado, autoFechaCreacion);
+		DTOAuto auto = new DTOAuto(autoId, autoSerial, autoNombre, autoModelo, autoPrecioPorDia, autoEstado, autoUrlImagen, autoFechaCreacion);
 		
 		// Cliente
 		Long clienteId = rs.getLong("cliente_id");

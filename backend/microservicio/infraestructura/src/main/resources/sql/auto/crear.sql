@@ -1,1 +1,1 @@
-insert into auto (serial, nombre, modelo, precio_dia, estado, fecha_creacion) values (:serial, :nombre, :modelo, :precioPorDia, :estado, :fechaCreacion)
+insert into auto (serial, nombre, modelo, precio_dia, estado, url_imagen, fecha_creacion) values (:serial, :nombre, :modelo, :precioPorDia, :estado, :urlImagen, :fechaCreacion)

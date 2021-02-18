@@ -17,5 +17,6 @@ public class DTOAuto {
 	private String modelo;
 	private Double precioPorDia;
 	private EstadoAuto estado;
+	private String urlImagen;
 	private LocalDateTime fechaCreacion;
 }

@@ -26,7 +26,8 @@ public class MapeoAlquiler implements RowMapper<Alquiler>, MapperResult {
 		Double autoPrecioPorDia = rs.getDouble("auto_precio_dia");
 		EstadoAuto autoEstado = EstadoAuto.valueOf(rs.getString("auto_estado"));
 		LocalDateTime autoFechaCreacion = extraerLocalDateTime(rs, "auto_fecha_creacion");
-		Auto auto = new Auto(autoId, autoSerial, autoNombre, autoModelo, autoPrecioPorDia, autoEstado);
+		String imagen = rs.getString("auto_url_imagen");
+		Auto auto = new Auto(autoId, autoSerial, autoNombre, autoModelo, autoPrecioPorDia, autoEstado, imagen);
 		auto.setFechaCreacion(autoFechaCreacion);
 		
 		// Cliente

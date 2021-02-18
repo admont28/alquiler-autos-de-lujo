@@ -6,8 +6,12 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.io.InputStream;
+import java.net.URI;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.MediaType;
@@ -19,6 +23,7 @@ import com.ceiba.ApplicationMock;
 import com.ceiba.auto.comando.ComandoAuto;
 import com.ceiba.auto.modelo.entidad.Auto;
 import com.ceiba.auto.modelo.entidad.EstadoAuto;
+import com.ceiba.auto.puerto.almacenamiento.AlmacenamientoAuto;
 import com.ceiba.auto.puerto.repositorio.RepositorioAuto;
 import com.ceiba.auto.servicio.testdatabuilder.ComandoAutoTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -41,6 +46,9 @@ public class ComandoControladorAutoTest {
     public void crear() throws Exception{
         // arrange
         ComandoAuto comandoAuto = new ComandoAutoTestDataBuilder().build();
+        
+        AlmacenamientoAuto almacenamientoAuto = Mockito.mock(AlmacenamientoAuto.class);
+        Mockito.when(almacenamientoAuto.cargarImagen(Mockito.any(InputStream.class))).thenReturn(new URI(""));
 
         // act - assert
         mocMvc.perform(post("/autos")

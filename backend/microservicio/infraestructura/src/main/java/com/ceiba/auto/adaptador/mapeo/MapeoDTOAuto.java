@@ -20,8 +20,9 @@ public class MapeoDTOAuto implements RowMapper<DTOAuto>, MapperResult {
 		String modelo = rs.getString("modelo");
 		Double precioPorDia = rs.getDouble("precio_dia");
 		EstadoAuto estado = EstadoAuto.valueOf(rs.getString("estado"));
+		String urlImagen = rs.getString("url_imagen");
 		LocalDateTime fechaCreacion = extraerLocalDateTime(rs, "fecha_creacion");
-		return new DTOAuto(id, serial, nombre, modelo, precioPorDia, estado, fechaCreacion);
+		return new DTOAuto(id, serial, nombre, modelo, precioPorDia, estado, urlImagen, fechaCreacion);
 	}
 
 }
