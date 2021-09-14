@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import com.ceiba.alquiler.puerto.jms.EnviarMensaje;
 import com.ceiba.alquiler.puerto.repositorio.RepositorioAlquiler;
 import com.ceiba.alquiler.servicio.ServicioCrearAlquiler;
+import com.ceiba.auto.adaptador.almacenamiento.AlmacenamientoAutoLocal;
 import com.ceiba.auto.puerto.almacenamiento.AlmacenamientoAuto;
 import com.ceiba.auto.puerto.repositorio.RepositorioAuto;
 import com.ceiba.auto.servicio.ServicioActualizarAuto;
@@ -66,6 +67,11 @@ public class BeanServicio {
     @Bean
     public ServicioAlmacenarArchivo servicioAlmacenarArchivo(AlmacenamientoAuto almacenamientoAuto) {
     	return new ServicioAlmacenarArchivo(almacenamientoAuto);
+    }
+    
+    @Bean
+    public AlmacenamientoAuto almacenamientoAuto() {
+    	return new AlmacenamientoAutoLocal();
     }
 
     @Bean
