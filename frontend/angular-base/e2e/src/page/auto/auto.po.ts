@@ -8,6 +8,7 @@ export class AutoPage {
     private inputNombre = element(by.id('nombre'));
     private inputModelo = element(by.id('modelo'));
     private inputPrecioPorDia = element(by.id('precioPorDia'));
+    private inputSeleccionarImagenAuto = element(by.id('imagen'));
     private botonCrear = element(by.buttonText('Crear'));
     private botonOkVentanaModal = element(by.buttonText('OK'));
     private textoSweetAlert = element(by.id('swal2-title'));
@@ -42,6 +43,11 @@ export class AutoPage {
     async ingresarPrecioPorDia(precioPorDia) {
         this.inputPrecioPorDia.clear();
         await this.inputPrecioPorDia.sendKeys(precioPorDia);
+    }
+
+    async seleccionarImagenDeAuto(rutaAbsolutaImagen: string) {
+        this.inputSeleccionarImagenAuto.clear();
+        await this.inputSeleccionarImagenAuto.sendKeys(rutaAbsolutaImagen);
     }
 
     async contarAutos() {

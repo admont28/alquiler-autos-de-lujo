@@ -20,6 +20,7 @@ describe('workspace-project Auto', () => {
         const NOMBRE =  'Chevrolet GT';
         const MODELO = '2021';
         const PRECIO_POR_DIA = 100000;
+        const RUTA_IMAGEN_AUTO = 'assets/uploads/prueba1.jpg';
 
         page.navigateToHome();
         navBar.clicBotonAuto();
@@ -29,6 +30,7 @@ describe('workspace-project Auto', () => {
         auto.ingresarModelo(MODELO);
         auto.ingresarPrecioPorDia(PRECIO_POR_DIA);
         auto.clickBotonCrear();
+        auto.seleccionarImagenDeAuto(RUTA_IMAGEN_AUTO);
 
         // Validaciones
         expect(auto.obtenerTextoSweetAlert()).toEqual('Auto creado correctamente');
