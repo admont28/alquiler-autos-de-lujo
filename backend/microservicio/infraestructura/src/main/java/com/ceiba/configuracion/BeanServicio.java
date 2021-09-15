@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.ceiba.alquiler.adaptador.jms.EnviarMensajeDeshabilitado;
 import com.ceiba.alquiler.puerto.jms.EnviarMensaje;
 import com.ceiba.alquiler.puerto.repositorio.RepositorioAlquiler;
 import com.ceiba.alquiler.servicio.ServicioCrearAlquiler;
@@ -72,6 +73,11 @@ public class BeanServicio {
     @Bean
     public AlmacenamientoAuto almacenamientoAuto() {
     	return new AlmacenamientoAutoLocal();
+    }
+    
+    @Bean
+    public EnviarMensaje enviarMensaje() {
+    	return new EnviarMensajeDeshabilitado();
     }
 
     @Bean
